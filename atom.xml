@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-12T09:45:30.608Z</updated>
+  <updated>2017-12-12T14:34:41.288Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何阅读HTML5规范文档</title>
+    <link href="http://yoursite.com/2017/12/12/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BBHTML5%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/"/>
+    <id>http://yoursite.com/2017/12/12/如何阅读HTML5规范文档/</id>
+    <published>2017-12-12T14:34:30.000Z</published>
+    <updated>2017-12-12T14:34:41.288Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol><li>翻墙软件:可以是Shadowsocks之类的付费翻墙软件，也可以是其他的免费翻墙软件</li><li>Chrome浏览器</li></ol><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>在Chrome浏览器里输入HTML 5 specs</li><li>点击HTML 5-W3C 也就是Google搜索结果第一个网址<br><img src="http://upload-images.jianshu.io/upload_images/5467482-04972b59a5c0d1ca.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt="Image of Yaktocat"></li></ol><ul><li>然后进入目录，根据目录指引找到需要读的标准文档即可。</li></ul><h2 id="例如：我需要查找关于html根元素相关的信息我可以进行如下操作"><a href="#例如：我需要查找关于html根元素相关的信息我可以进行如下操作" class="headerlink" title="例如：我需要查找关于html根元素相关的信息我可以进行如下操作"></a>例如：我需要查找关于html根元素相关的信息我可以进行如下操作</h2><p>1.查看目录<br>2.找到“4 The elements of HTML”这个目录<br>3.点击进入目录，就能看到关于html根元素的信息。</p><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>如果看不懂英文可以选择Chorme浏览器的内置翻译对照看。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;准备材料&quot;&gt;&lt;a href=&quot;#准备材料&quot; class=&quot;headerlink&quot; title=&quot;准备材料&quot;&gt;&lt;/a&gt;准备材料&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;翻墙软件:可以是Shadowsocks之类的付费翻墙软件，也可以是其他的免费翻墙软件&lt;/li&gt;
+&lt;li&gt;Chro
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈html标签</title>
+    <link href="http://yoursite.com/2017/12/12/%E6%B5%85%E8%B0%88html%E6%A0%87%E7%AD%BE/"/>
+    <id>http://yoursite.com/2017/12/12/浅谈html标签/</id>
+    <published>2017-12-12T14:33:03.000Z</published>
+    <updated>2017-12-12T14:33:03.508Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>webstorm将项目上传到github</title>

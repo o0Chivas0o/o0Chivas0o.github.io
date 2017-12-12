@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-11T04:26:23.672Z</updated>
+  <updated>2017-12-12T09:45:30.608Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webstorm将项目上传到github</title>
+    <link href="http://yoursite.com/2017/12/12/webstorm%E5%B0%86%E9%A1%B9%E7%9B%AE%E4%B8%8A%E4%BC%A0%E5%88%B0github/"/>
+    <id>http://yoursite.com/2017/12/12/webstorm将项目上传到github/</id>
+    <published>2017-12-12T09:43:23.000Z</published>
+    <updated>2017-12-12T09:45:30.608Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如何在WebStorm上将文件上传到GitHub"><a href="#如何在WebStorm上将文件上传到GitHub" class="headerlink" title="如何在WebStorm上将文件上传到GitHub"></a>如何在WebStorm上将文件上传到GitHub</h1><h3 id="需要软件-WebStorm"><a href="#需要软件-WebStorm" class="headerlink" title="需要软件 : WebStorm"></a>需要软件 : WebStorm</h3><blockquote><p>我是mac笔记本，所以只展示mac下的webstrom如何将project文件上传到github，<br>windows系统下和mac os 系统大同小异。</p></blockquote><h3 id="首先我们需要拥有一个GitHub账户，没有请自行创建，然后进入WebStorm。"><a href="#首先我们需要拥有一个GitHub账户，没有请自行创建，然后进入WebStorm。" class="headerlink" title="首先我们需要拥有一个GitHub账户，没有请自行创建，然后进入WebStorm。"></a>首先我们需要拥有一个GitHub账户，没有请自行创建，然后进入WebStorm。</h3><ul><li><p>第一步:进入webstrom，点击左上角webstrom,或者COMMAND+，键进入preferences.</p><p><img src="https://i.loli.net/2017/07/28/597aeb4704b17.jpeg" alt=""></p></li><li><p>第二步:进入preferences后，点击搜索框输入git，会有2个选项，点击GitHub，在host输入github.com，auth type处选择password，在login输入账户，在password输入密码，点击test。</p><p><img src="https://i.loli.net/2017/07/28/597aeda861fcf.jpeg" alt=""></p></li><li><p>第三步:test之后会出现下图。</p><p><img src="https://i.loli.net/2017/07/28/597aee3d4b14f.png" alt=""></p><p><img src="https://i.loli.net/2017/07/28/597aee589356c.png" alt=""></p><p>出现这上图表示已成功连接到GitHub。</p></li><li><p>第四步:点击VCS，选项至图中标识处，选择share project to GitHub。</p><p><img src="https://i.loli.net/2017/07/28/597aeecb31aec.jpeg" alt=""></p></li><li><p>第五步:在弹出的会话框里面的New repository name 处写下项目名称（只能以英文为名称），即在GitHub上创建一个response，在Description处写下项目描述（可以不写）。</p><p><img src="https://i.loli.net/2017/07/28/597aef9a8a795.jpeg" alt=""></p></li><li><p>第六步:之后弹出的会话框检查上传的项目，在Commit Message处填写提交信息（可不写），之后点击OK即可上传到GitHub了。</p><p><img src="https://i.loli.net/2017/07/28/597af08226f46.jpeg" alt=""></p></li><li><p>第七步:最后在WebStorm的右下角会弹出这个对话框，表示已经成功上传至GitHub。</p><p><img src="https://i.loli.net/2017/07/28/597af1071a716.jpeg" alt=""></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;如何在WebStorm上将文件上传到GitHub&quot;&gt;&lt;a href=&quot;#如何在WebStorm上将文件上传到GitHub&quot; class=&quot;headerlink&quot; title=&quot;如何在WebStorm上将文件上传到GitHub&quot;&gt;&lt;/a&gt;如何在WebStorm上将文
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>用Hexo搭建个人博客系统</title>

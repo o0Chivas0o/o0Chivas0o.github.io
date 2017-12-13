@@ -190,6 +190,7 @@
 <p><a href="http://js.jirengu.com/dekuv/1/edit?html,css" target="_blank" rel="noopener">例子</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;Hello&lt;/span&gt;</span><br><span class="line">&lt;button&gt;click me&lt;/button&gt;</span><br><span class="line">&lt;a herf=&quot;#&quot;&gt;   // a标签同样是行内元素</span><br></pre></td></tr></table></figure>
 <ul>
+<li>行内元素默认自左到右排列。</li>
 <li>默认情况下，行内元素不会以新行开始，而块级元素会新起一行。</li>
 <li>参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Inline_elemente" target="_blank" rel="noopener">MDN行内元素</a>介绍。</li>
 </ul>
@@ -199,6 +200,8 @@
 <p><a href="http://js.jirengu.com/dekuv/1/edit?html,css,output" target="_blank" rel="noopener">例子</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;        //块级元素div</span><br><span class="line">  &lt;span&gt;     //内联元素span</span><br><span class="line">    hi       // 文章内容</span><br><span class="line">  &lt;/span&gt;    // 内联元素span闭合标签</span><br><span class="line">&lt;/div&gt;       //块级元素div闭合标签</span><br><span class="line"></span><br><span class="line">&lt;section&gt; </span><br><span class="line">  &lt;span&gt;</span><br><span class="line">    hellow</span><br><span class="line">  &lt;/span&gt;</span><br><span class="line">  &lt;a herf=&quot;&quot;&gt;</span><br><span class="line">&lt;/section&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
 <ul>
+<li>块级元素默认自上到下排列。</li>
+<li>在CSS盒模型中，块级元素的宽度、高度是有所有行内元素的高度、宽度撑起来的，且行内元素自左到右排列，块级元素自上到下排列，即<code>文档流（normal float）</code>。</li>
 <li>一般块级元素可以包含行内元素和其他块级元素。这种结构上的包含继承区别可以使块级元素创建比行内元素更”大型“的结构。</li>
 <li>参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Block-level_elements" target="_blank" rel="noopener">MDN块级元素</a>介绍。</li>
 </ul>

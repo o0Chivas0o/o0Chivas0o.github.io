@@ -222,7 +222,8 @@
 <li>第 2 部分中的 Content-Type 标注了第 4 部分的格式</li>
 <li>第 2 部分中的 Content-Type 遵循 MIME 规范</li>
 </ul>
-<h3 id="关于HTTP相关问题"><a href="#关于HTTP相关问题" class="headerlink" title="关于HTTP相关问题"></a>关于HTTP相关问题</h3><p>1.HTTP 协议的底层其实是由 TCP 协议和 IP 协议（简称 TCP/IP）构建的。</p>
+<h3 id="关于HTTP相关问题"><a href="#关于HTTP相关问题" class="headerlink" title="关于HTTP相关问题"></a>关于HTTP相关问题</h3><ul>
+<li><p>HTTP 协议的底层其实是由 TCP 协议和 IP 协议（简称 TCP/IP）构建的。</p>
 <ul>
 <li><p><a href="https://www.nowcoder.com/questionTerminal/63c8b45c91a544bd8febc1f1ff02e3b5?toCommentId=73766" target="_blank" rel="noopener">TCP 和 UDP 的区别是什么</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TCP 可靠、面向连接、相对 UDP 较慢；UDP 不可靠，不面向连接、相对 TCP 较快。</span><br><span class="line">其中可靠是指请求成功与否，请求成功会看到URL对应地址的页面，请求失败会看到一个带有状态码的页面。</span><br><span class="line">面向连接是指TCP必须发起一个连接，连接到对应地址的服务器。</span><br></pre></td></tr></table></figure>
@@ -231,14 +232,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 客户端：我要连接你了，可以吗</span><br><span class="line">2. 服务端：嗯，我准备好了，连接我吧</span><br><span class="line">3. 客户端：那我连接你咯。</span><br><span class="line">4. 开始后面步骤</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
-<li>TCP的访问不光需要指定IP，还需要指定端口。<ul>
+</li>
+<li><p>TCP的访问不光需要指定IP，还需要指定端口。</p>
+<ul>
 <li>使用 HTTP 协议访问另一个 IP 时，比如同时提供 IP 和端口号，缺一不可。</li>
 <li>浏览器会自动默认加上80端口。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http//qq.com</span><br><span class="line">http//qq.com:80 //浏览器默认添加上的80端口</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-</ol>
+</ul>
 
     </article>
     <!-- 前后页  -->

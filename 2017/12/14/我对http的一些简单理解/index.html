@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        lzy的Bbbblog
+        我对http的一些简单理解 · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >lzy的Bbbblog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">我对http的一些简单理解</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>lzy的Bbbblog</a>
 </header>
@@ -62,21 +73,37 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            我对http的一些简单理解
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/14</span>
+            </div>
         
     </div>
 </div>
@@ -144,191 +171,114 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>这篇博客只是我对HTTP的一些浅显的理解</p>
+</blockquote>
+<hr>
+<p>HTTP是一个超文本传输协议（英文：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议[1]。HTTP是万维网的数据通信的基础。设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法。通过HTTP或者HTTPS协议请求的资源由统一资源标识符（Uniform Resource Identifiers，URI）来标识。</p>
+<ul>
+<li>摘自wiki<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">HTTP</a></li>
+</ul>
+<hr>
+<ul>
+<li>浏览器负责发起请求</li>
+<li>服务器在 80 端口接收请求</li>
+<li>服务器负责返回内容（响应）</li>
+<li>浏览器负责下载响应内容<br>HTTP是浏览器和服务器之间的一种通讯协议，指导浏览器和服务器如何进行沟通。</li>
+</ul>
+<p>在浏览器和服务器之间通讯会伴随着请求与响应，过程基本就是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">浏览器 ---&gt; 服务器 // 浏览器向服务器发送请求</span><br><span class="line">浏览器 &lt;--- 服务器 // 浏览器从服务器得到响应</span><br></pre></td></tr></table></figure></p>
+<h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><ol>
+<li>请求构成<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1 动词 路径 协议/版本  // 1.请求头</span><br><span class="line">2 Key1: value1      // 2.消息体</span><br><span class="line">2 Key2: value2</span><br><span class="line">2 Key3: value3</span><br><span class="line">2 Content-Type: application/x-www-form-urlencoded</span><br><span class="line">2 Host: www.baidu.com</span><br><span class="line">2 User-Agent: curl/7.54.0</span><br><span class="line">3                   // 3.空行(回车)</span><br><span class="line">4 要上传的数据        // 4.其他消息内容</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）</li>
+<li>第三部分永远都是一个回车（\n）</li>
+<li>动词有 GET POST PUT PATCH DELETE HEAD OPTIONS 等</li>
+<li>这里的路径包括「查询参数」，但不包括「锚点」</li>
+<li>如果你没有写路径，那么路径默认为 /</li>
+<li>第 2 部分中的 Content-Type 标注了第 4 部分的格式</li>
+</ul>
+<ol>
+<li>请求方法</li>
+</ol>
+<ul>
+<li>GET 一般用于查询</li>
+<li>POST 一般用于表单提交</li>
+</ul>
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><p>响应的构成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1 协议/版本号 状态码 状态解释    // 1.响应头</span><br><span class="line">2 Key1: value1               // 2.消息体</span><br><span class="line">2 Key2: value2</span><br><span class="line">2 Content-Length: 17931</span><br><span class="line">2 Content-Type: text/html</span><br><span class="line">3                            // 3.回车</span><br><span class="line">4 要下载的内容                 // 4.其他消息内容</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>状态码要背，是服务器对浏览器说的话<ul>
+<li>1xx 不常用</li>
+<li>2xx 表示成功</li>
+<li>3xx 表示滚吧</li>
+<li>4xx 表示你丫错了</li>
+<li>5xx 表示好吧，我错了</li>
+</ul>
+</li>
+<li>状态解释没什么用</li>
+<li>第 2 部分中的 Content-Type 标注了第 4 部分的格式</li>
+<li>第 2 部分中的 Content-Type 遵循 MIME 规范</li>
+</ul>
+<h3 id="关于HTTP相关问题"><a href="#关于HTTP相关问题" class="headerlink" title="关于HTTP相关问题"></a>关于HTTP相关问题</h3><p>1.HTTP 协议的底层其实是由 TCP 协议和 IP 协议（简称 TCP/IP）构建的。</p>
+<ul>
+<li><p><a href="https://www.nowcoder.com/questionTerminal/63c8b45c91a544bd8febc1f1ff02e3b5?toCommentId=73766" target="_blank" rel="noopener">TCP 和 UDP 的区别是什么</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TCP 可靠、面向连接、相对 UDP 较慢；UDP 不可靠，不面向连接、相对 TCP 较快。</span><br><span class="line">其中可靠是指请求成功与否，请求成功会看到URL对应地址的页面，请求失败会看到一个带有状态码的页面。</span><br><span class="line">面向连接是指TCP必须发起一个连接，连接到对应地址的服务器。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://github.com/jawil/blog/issues/14" target="_blank" rel="noopener">TCP 的三次握手指的是什么</a><br>每次建立连接前，客户端和服务端之前都要先进行三次对话才开始正式传输内容，三次对话大概是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 客户端：我要连接你了，可以吗</span><br><span class="line">2. 服务端：嗯，我准备好了，连接我吧</span><br><span class="line">3. 客户端：那我连接你咯。</span><br><span class="line">4. 开始后面步骤</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>TCP的访问不光需要指定IP，还需要指定端口。</li>
+</ol>
+<ul>
+<li>使用 HTTP 协议访问另一个 IP 时，比如同时提供 IP 和端口号，缺一不可。</li>
+<li>浏览器会自动默认加上80端口。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http//qq.com</span><br><span class="line">http//qq.com:80 //浏览器默认添加上的80端口</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/12/12/如何阅读HTML5规范文档/" title= 如何阅读HTML5规范文档 >
+                    <span>Previous Post</span>
+                    <span>如何阅读HTML5规范文档</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+
+        if (typeof LivereTower === 'function') { return; }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/14/我对http的一些简单理解/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>我对http的一些简单理解</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-这篇博客只是我对HTTP的一些浅显的理解
+    <!--PC版-->
+
+    <!--PC版-->
 
 
-HTTP是一个超文本传输协议（英文：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议[1]。HTTP是万维网的数据通信的基础。设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法。通过HTTP或者HTTPS协议请求的资源由统一资源标识符（Uniform Resource Identifiers，URI）来标识。
-
-摘自wikiHTTP
-
-
-
-浏览器负责发起请求
-服务器在 80 端口接收请求
-服务器负责返回内容（响应）
-浏览器负责下载响应内容HTTP是浏览...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/14</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/如何阅读HTML5规范文档/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>如何阅读HTML5规范文档</span>
-                    </h2>
-                <div class="abstract-content">
-                    准备材料
-翻墙软件:可以是Shadowsocks之类的付费翻墙软件，也可以是其他的免费翻墙软件
-Chrome浏览器
-
-步骤
-在Chrome浏览器里输入HTML 5 specs
-点击HTML 5-W3C 也就是Google搜索结果第一个网址
-
-
-然后进入目录，根据目录指引找到需要读的标准文档即可。
-
-例如：我需要查找关于html根元素相关的信息我可以进行如下操作1.查看目录2.找到“4 The elements of HTML”这个目录3.点击进入目录，就能看到关于html根元素的信息。
-注意事项如果看不懂英文可以选择Chorme浏览器的内置翻译对照看。
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/浅谈HTML5元素/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>浅谈HTML5元素</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-HTML元素基本分为三类，空元素、行内元素（内联元素）、块级元素。
-
-空元素
-一个空元素（empty element）可能是 HTML，SVG，或者 MathML 里的一个不可能存在子节点（例如内嵌的元素或者元素内的文本）的element。这是mdn给与的定义。我的理解就是一个元素没有闭合标签，就是空元素。
-
-123&lt;a herf=&quot;#&quot;&gt;&lt;img src=&quot;https//xxx.xxx.com/xxx.png&quot; alt=&quot;图片&quot; width=&quot;10px&quot;&gt;&lt;input typ...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/webstorm将项目上传到github/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>webstorm将项目上传到github</span>
-                    </h2>
-                <div class="abstract-content">
-                    如何在WebStorm上将文件上传到GitHub需要软件 : WebStorm
-我是mac笔记本，所以只展示mac下的webstrom如何将project文件上传到github，windows系统下和mac os 系统大同小异。
-
-首先我们需要拥有一个GitHub账户，没有请自行创建，然后进入WebStorm。
-第一步:进入webstrom，点击左上角webstrom,或者COMMAND+，键进入preferences.
-
-
-第二步:进入preferences后，点击搜索框输入git，会有2个选项，点击GitHub，在host输入github.com，auth type处选择passwo...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/07/用Hexo搭建个人博客系统/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>用Hexo搭建个人博客系统</span>
-                    </h2>
-                <div class="abstract-content">
-                    这是一篇详细文章来讲述我用Mac搭建Hexo博客于Github上的完整历程，现在写下些经验来分享。
-环境配置Hexo官网本就有对Hexo安装及使用的详细介绍，墙裂推荐。这里来讲述自己安装的亲身步骤，或有区别。
-
-Node.js用来生成静态页面。node.js官网，下载8.9.3LTS，一路安装即可。
-
-Git用来将本地Hexo内容提交到Github上。Xcode自带Git，这里不再赘述。如果没有Xcode可以参考Hexo官网上的安装方法。
-
-终端(Iterm2)登录Iterm2官网，点击Download即可下载Iterm2，作为Mac上最强大的终端，墙裂推荐。(可以自动设置配色方案等等一...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/07</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/07/hello-world/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Hello World</span>
-                    </h2>
-                <div class="abstract-content">
-                    Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/07</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -376,6 +326,13 @@ More...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#请求"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x8BF7;&#x6C42;" class="headerlink" title="&#x8BF7;&#x6C42;"></a>&#x8BF7;&#x6C42;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x54CD;&#x5E94;" class="headerlink" title="&#x54CD;&#x5E94;"></a>&#x54CD;&#x5E94;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于HTTP相关问题"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5173;&#x4E8E;HTTP&#x76F8;&#x5173;&#x95EE;&#x9898;" class="headerlink" title="&#x5173;&#x4E8E;HTTP&#x76F8;&#x5173;&#x95EE;&#x9898;"></a>&#x5173;&#x4E8E;HTTP&#x76F8;&#x5173;&#x95EE;&#x9898;</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

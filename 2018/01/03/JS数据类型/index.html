@@ -208,8 +208,52 @@
 <p>3.Boolean类型<br><code>boolean</code>类型只有2个值，一个是<code>true</code>，一个是<code>false</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = ture </span><br><span class="line"><span class="keyword">if</span>( a === ture)&#123;   <span class="comment">// 执行 因为a为ture</span></span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="literal">false</span></span><br><span class="line"><span class="keyword">if</span>(b === ture)&#123;    <span class="comment">// 不执行 因为b为false </span></span><br><span class="line">  <span class="built_in">console</span>.log(b)   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其中还有<code>&amp;&amp;</code>(与运算),<code>||</code>(或运算),<code>!</code>(取反运算)。</p>
-<p>与运算,只要有一个为false,所有值为false:<br>| a&amp;&amp;b  | true  | false |<br>| —-  | —-  | —– |<br>| true  | true  | false |<br>| false | false | false |</p>
-<p>或运算,只要有一个为true,所有值为true:<br>|  \a||b |  true  |  false  |<br>| :—-: | :—-: | :—–: |<br>|  true  | true   | true    |<br>|  false | true   | false   |</p>
+<p>与运算,只要有一个为false,所有值为false:</p>
+<table>
+<thead>
+<tr>
+<th>a&amp;&amp;b</th>
+<th>true</th>
+<th>false</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>true</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>或运算,只要有一个为true,所有值为true:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">\a</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">b</th>
+<th>true</th>
+<th>false</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">false</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
 <p>取反运算,一般用来转换数据类型:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">!true  // false</span><br><span class="line">!false // true</span><br><span class="line">![]    // false</span><br><span class="line">!![]   // true</span><br><span class="line">!0     // true</span><br><span class="line">!!0    // false</span><br><span class="line">!1     // false</span><br><span class="line">!!1    // true</span><br><span class="line">!2     // false</span><br><span class="line">!!2    // true</span><br></pre></td></tr></table></figure></p>
 <p>4.Null类型</p>
 <p> null类型只有一个属性就是null.</p>
@@ -449,6 +493,10 @@
     
     
     
+    
+    
+    
+    
     <div class="total-archive"> Total : 10 </div>
     
     <div class="post-archive">
@@ -523,11 +571,11 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">其他</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     

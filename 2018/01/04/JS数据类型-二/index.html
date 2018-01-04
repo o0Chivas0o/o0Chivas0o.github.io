@@ -179,7 +179,33 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <blockquote>
+<p>在我的<a href="https://o0chivas0o.github.io/2018/01/03/JS%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_blank" rel="noopener">JS数据类型(一)</a>中介绍了7种JS的基本类型，这次就说一下JS几种数据类型的转换。</p>
+</blockquote>
+<h4 id="其他类型转String类型"><a href="#其他类型转String类型" class="headerlink" title="其他类型转String类型"></a>其他类型转<code>String</code>类型</h4><p>方法一:<br>toString()方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数字类型转String</span></span><br><span class="line">(<span class="number">1</span>).toSting() <span class="comment">// "1" 如果写1.toString浏览器会报错,要写成这种形式或者</span></span><br><span class="line"><span class="keyword">let</span> n = <span class="number">1</span> </span><br><span class="line">n.toString()  <span class="comment">// "1" 这是数字类型转String的两种写法。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Boolean类型转String</span></span><br><span class="line"><span class="literal">true</span>.toString() <span class="comment">// "true" Boolean类型可以直接这样写。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Object类型转String</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;</span><br><span class="line">a.toString() <span class="comment">// "[object Object]" 这种方式不是我们想得到的结果，</span></span><br><span class="line">             <span class="comment">// 我们想要得到的是 key 和 value 对应的字符串形式展现出来</span></span><br><span class="line">             <span class="comment">// 但是JS中只有这一个办法可以将复杂类型转换为字符串</span></span><br><span class="line">             <span class="comment">// 想要得到 key value 对应的形式 自己封装函数</span></span><br></pre></td></tr></table></figure></p>
+<p><code>null</code>类型 和 <code>undefined</code>类型在方法一种会报错 </p>
+<p>方法二:<br>window.string()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.string(<span class="number">1</span>)         <span class="comment">// "1"</span></span><br><span class="line"><span class="built_in">window</span>.string(<span class="literal">true</span>)      <span class="comment">// "true"</span></span><br><span class="line"><span class="built_in">window</span>.string(<span class="literal">null</span>)      <span class="comment">// "null"</span></span><br><span class="line"><span class="built_in">window</span>.string(<span class="literal">undefined</span>) <span class="comment">// "undefined"</span></span><br><span class="line"><span class="built_in">window</span>.string(&#123;&#125;)        <span class="comment">// "[object Object]"</span></span><br></pre></td></tr></table></figure></p>
+<p>window.string()方法可以将<code>null</code>和<code>undefined</code>类型转换为字符串。</p>
+<p>方法三:<br> <code>其他类型</code>+’’<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> + <span class="string">''</span>         <span class="comment">// "1"</span></span><br><span class="line"><span class="literal">true</span> + <span class="string">''</span>      <span class="comment">// "true"</span></span><br><span class="line"><span class="literal">null</span> + <span class="string">''</span>      <span class="comment">// "null"</span></span><br><span class="line"><span class="literal">undefined</span> + <span class="string">''</span> <span class="comment">// "undefined"</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;</span><br><span class="line">a + <span class="string">''</span>         <span class="comment">// "[object Object]"</span></span><br></pre></td></tr></table></figure></p>
+<p>方法三是方法二的简化版，浏览器会尝试把第一个值变为字符串与空字符串相加，得到的结果就是字符串，方法三在对<code>null</code>和<code>undefined</code>转换时不会报错。</p>
+<h4 id="将其他类型转换为Number类型"><a href="#将其他类型转换为Number类型" class="headerlink" title="将其他类型转换为Number类型"></a>将其他类型转换为<code>Number</code>类型</h4><p>方法一：<br>Number():<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">'1'</span>)     <span class="comment">// 得到数字 1 </span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'1.1'</span>)   <span class="comment">// 得到数字 1.1</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'1.1e2'</span>) <span class="comment">// 得到数字 110</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'0b11'</span>)  <span class="comment">// 得到数字 3</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'011'</span>)   <span class="comment">// 得到数字 11</span></span><br></pre></td></tr></table></figure></p>
+<p>这里要特别说明一下 为什么<code>Number(011)</code>得出的结果是11而不是9，这是JS的一个BUG。</p>
+<p>方法二：<br>parseInt(string,radix)方法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1'</span>,<span class="number">10</span>)     <span class="comment">// 得到数字 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1.1'</span>,<span class="number">10</span>)   <span class="comment">// 得到数字 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1.1e2'</span>,<span class="number">10</span>) <span class="comment">// 得到数字 1 </span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'011'</span>,<span class="number">8</span>)    <span class="comment">// 得到数字 9</span></span><br></pre></td></tr></table></figure></p>
+<p><code>parseInt()</code>方法可以用来进制间的转换,同时可以将<code>String</code>转换成<code>Number</code>类型。</p>
+<p>方法三:<br>parseFloat(value)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.1'</span>)   <span class="comment">// 得到数字 1.1</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.1e2'</span>) <span class="comment">// 得到数字 110</span></span><br></pre></td></tr></table></figure></p>
+<p>parseFloat()方法可以用来转化小数。</p>
+<p>方法四：<br>‘String’ - 0<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'1'</span> - <span class="number">0</span>        <span class="comment">// 得到数字 1</span></span><br><span class="line"><span class="string">'1.1'</span> - <span class="number">0</span>      <span class="comment">// 得到数字 1.1</span></span><br><span class="line"><span class="string">'1.1e2'</span> - <span class="number">0</span>    <span class="comment">// 得到数字 110</span></span><br></pre></td></tr></table></figure></p>
+<p>方法五:</p>
+<ul>
+<li>‘String’</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+<span class="string">'1'</span>       <span class="comment">// 得到数字 1</span></span><br><span class="line">+<span class="string">'1.1'</span>     <span class="comment">// 得到数字 1.1</span></span><br><span class="line">+<span class="string">'1.1e2'</span>   <span class="comment">// 得到数字 110</span></span><br></pre></td></tr></table></figure>
+<p>注意所有的将String方法转为Number类型必须是’数字’的形式如’1’、’1.1’、’1.1e2’，如果是其他字符串’true’、’a’、’b’，都会转换成NaN。</p>
+<h4 id="其他类型转Boolean类型"><a href="#其他类型转Boolean类型" class="headerlink" title="其他类型转Boolean类型"></a>其他类型转<code>Boolean</code>类型</h4><p>直接取反2次就可以将其他类型转换成<code>Boolean</code>类型<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">!!<span class="number">0</span>          <span class="comment">// false</span></span><br><span class="line">!!<span class="literal">NaN</span>        <span class="comment">// false</span></span><br><span class="line">!!<span class="literal">null</span>       <span class="comment">// false</span></span><br><span class="line">!!<span class="literal">undefined</span>  <span class="comment">// false</span></span><br><span class="line">!!<span class="string">''</span>         <span class="comment">// false</span></span><br><span class="line">!!&#123;&#125;         <span class="comment">// true</span></span><br><span class="line">!![]         <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p>只需记住6个假值分别是<code>false</code>、<code>null</code>、<code>undefined</code>、<code>&#39;&#39;</code>(空字符串)、<code>NaN</code>、<code>0</code>,这6个假值,其他一切都是真值。</p>
+<hr>
+<p>这就是我总结的几种类型之间的转换方法。</p>
+
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -271,7 +297,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#其他类型转String类型"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;String&#x7C7B;&#x578B;" class="headerlink" title="&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;String&#x7C7B;&#x578B;"></a>&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;<code>String</code>&#x7C7B;&#x578B;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将其他类型转换为Number类型"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x5C06;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;Number&#x7C7B;&#x578B;" class="headerlink" title="&#x5C06;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;Number&#x7C7B;&#x578B;"></a>&#x5C06;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;<code>Number</code>&#x7C7B;&#x578B;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他类型转Boolean类型"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;Boolean&#x7C7B;&#x578B;" class="headerlink" title="&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;Boolean&#x7C7B;&#x578B;"></a>&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;<code>Boolean</code>&#x7C7B;&#x578B;</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -285,6 +311,8 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -455,12 +483,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/如何阅读HTML5规范文档/" >如何阅读HTML5规范文档</a>
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/浅谈HTML5元素/" >浅谈HTML5元素</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/浅谈HTML5元素/" >浅谈HTML5元素</a>
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/如何阅读HTML5规范文档/" >如何阅读HTML5规范文档</a>
         </li>
     
     

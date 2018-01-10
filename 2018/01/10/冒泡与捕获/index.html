@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        JS数据类型(二) · lzy的Bbbblog
+        冒泡与捕获 · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -63,7 +63,7 @@
                 <a href="/" >lzy的Bbbblog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">JS数据类型(二)</a>
+                <a href="#" class="post-name">冒泡与捕获</a>
             </div>
     </div>
     
@@ -84,7 +84,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            JS数据类型(二)
+            冒泡与捕获
             <!-- 404 -->
             
         </h1>
@@ -108,7 +108,7 @@
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/01/04</span>
+                <span class="post-intro-time">2018/01/10</span>
             </div>
         
     </div>
@@ -179,49 +179,37 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <blockquote>
-<p>在我的<a href="https://o0chivas0o.github.io/2018/01/03/JS%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_blank" rel="noopener">JS数据类型(一)</a>中介绍了7种JS的基本类型，这次就说一下JS几种数据类型的转换。</p>
+        <h1 id="冒泡与捕获"><a href="#冒泡与捕获" class="headerlink" title="冒泡与捕获"></a>冒泡与捕获</h1><p>冒泡与捕获是DOM事件的一种事件机制，也是一种事件流。</p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>1.操作系统最先知道鼠标点击，浏览器次之，因为操作系统是权限最高的软件。</p>
+<p>2.在一个页面里面，子元素被点击，意味着父元素也被点击了。<br><img src="https://ooo.0o0.ooo/2017/06/15/5942135b1db13.jpg" alt=""></p>
+<blockquote>
+<p><em>图中 不论我的鼠标放在红色或绿色的div中，只要点击都会显示最外层div也同时被点击了。</em></p>
 </blockquote>
-<h4 id="其他类型转String类型"><a href="#其他类型转String类型" class="headerlink" title="其他类型转String类型"></a>其他类型转<code>String</code>类型</h4><p>方法一:<br>toString()方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数字类型转String</span></span><br><span class="line">(<span class="number">1</span>).toSting() <span class="comment">// "1" 如果写1.toString浏览器会报错,要写成这种形式或者</span></span><br><span class="line"><span class="keyword">let</span> n = <span class="number">1</span> </span><br><span class="line">n.toString()  <span class="comment">// "1" 这是数字类型转String的两种写法。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Boolean类型转String</span></span><br><span class="line"><span class="literal">true</span>.toString() <span class="comment">// "true" Boolean类型可以直接这样写。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Object类型转String</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;</span><br><span class="line">a.toString() <span class="comment">// "[object Object]" 这种方式不是我们想得到的结果，</span></span><br><span class="line">             <span class="comment">// 我们想要得到的是 key 和 value 对应的字符串形式展现出来</span></span><br><span class="line">             <span class="comment">// 但是JS中只有这一个办法可以将复杂类型转换为字符串</span></span><br><span class="line">             <span class="comment">// 想要得到 key value 对应的形式 自己封装函数</span></span><br></pre></td></tr></table></figure></p>
-<p><code>null</code>类型 和 <code>undefined</code>类型在方法一种会报错 </p>
-<p>方法二:<br>window.string()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.string(<span class="number">1</span>)         <span class="comment">// "1"</span></span><br><span class="line"><span class="built_in">window</span>.string(<span class="literal">true</span>)      <span class="comment">// "true"</span></span><br><span class="line"><span class="built_in">window</span>.string(<span class="literal">null</span>)      <span class="comment">// "null"</span></span><br><span class="line"><span class="built_in">window</span>.string(<span class="literal">undefined</span>) <span class="comment">// "undefined"</span></span><br><span class="line"><span class="built_in">window</span>.string(&#123;&#125;)        <span class="comment">// "[object Object]"</span></span><br></pre></td></tr></table></figure></p>
-<p>window.string()方法可以将<code>null</code>和<code>undefined</code>类型转换为字符串。</p>
-<p>方法三:<br> <code>其他类型</code>+’’<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> + <span class="string">''</span>         <span class="comment">// "1"</span></span><br><span class="line"><span class="literal">true</span> + <span class="string">''</span>      <span class="comment">// "true"</span></span><br><span class="line"><span class="literal">null</span> + <span class="string">''</span>      <span class="comment">// "null"</span></span><br><span class="line"><span class="literal">undefined</span> + <span class="string">''</span> <span class="comment">// "undefined"</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;</span><br><span class="line">a + <span class="string">''</span>         <span class="comment">// "[object Object]"</span></span><br></pre></td></tr></table></figure></p>
-<p>方法三是方法二的简化版，浏览器会尝试把第一个值变为字符串与空字符串相加，得到的结果就是字符串，方法三在对<code>null</code>和<code>undefined</code>转换时不会报错。</p>
-<h4 id="将其他类型转换为Number类型"><a href="#将其他类型转换为Number类型" class="headerlink" title="将其他类型转换为Number类型"></a>将其他类型转换为<code>Number</code>类型</h4><p>方法一：<br>Number():<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">'1'</span>)     <span class="comment">// 得到数字 1 </span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'1.1'</span>)   <span class="comment">// 得到数字 1.1</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'1.1e2'</span>) <span class="comment">// 得到数字 110</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'0b11'</span>)  <span class="comment">// 得到数字 3</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'011'</span>)   <span class="comment">// 得到数字 11</span></span><br></pre></td></tr></table></figure></p>
-<p>这里要特别说明一下 为什么<code>Number(011)</code>得出的结果是11而不是9，这是JS的一个BUG。</p>
-<p>方法二：<br>parseInt(string,radix)方法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1'</span>,<span class="number">10</span>)     <span class="comment">// 得到数字 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1.1'</span>,<span class="number">10</span>)   <span class="comment">// 得到数字 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1.1e2'</span>,<span class="number">10</span>) <span class="comment">// 得到数字 1 </span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'011'</span>,<span class="number">8</span>)    <span class="comment">// 得到数字 9</span></span><br></pre></td></tr></table></figure></p>
-<p><code>parseInt()</code>方法可以用来进制间的转换,同时可以将<code>String</code>转换成<code>Number</code>类型。</p>
-<p>方法三:<br>parseFloat(value)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.1'</span>)   <span class="comment">// 得到数字 1.1</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'1.1e2'</span>) <span class="comment">// 得到数字 110</span></span><br></pre></td></tr></table></figure></p>
-<p>parseFloat()方法可以用来转化小数。</p>
-<p>方法四：<br>‘String’ - 0<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'1'</span> - <span class="number">0</span>        <span class="comment">// 得到数字 1</span></span><br><span class="line"><span class="string">'1.1'</span> - <span class="number">0</span>      <span class="comment">// 得到数字 1.1</span></span><br><span class="line"><span class="string">'1.1e2'</span> - <span class="number">0</span>    <span class="comment">// 得到数字 110</span></span><br></pre></td></tr></table></figure></p>
-<p>方法五:</p>
-<ul>
-<li>‘String’</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+<span class="string">'1'</span>       <span class="comment">// 得到数字 1</span></span><br><span class="line">+<span class="string">'1.1'</span>     <span class="comment">// 得到数字 1.1</span></span><br><span class="line">+<span class="string">'1.1e2'</span>   <span class="comment">// 得到数字 110</span></span><br></pre></td></tr></table></figure>
-<p>注意所有的将String方法转为Number类型必须是’数字’的形式如’1’、’1.1’、’1.1e2’，如果是其他字符串’true’、’a’、’b’，都会转换成NaN。</p>
-<h4 id="其他类型转Boolean类型"><a href="#其他类型转Boolean类型" class="headerlink" title="其他类型转Boolean类型"></a>其他类型转<code>Boolean</code>类型</h4><p>直接取反2次就可以将其他类型转换成<code>Boolean</code>类型<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">!!<span class="number">0</span>          <span class="comment">// false</span></span><br><span class="line">!!<span class="literal">NaN</span>        <span class="comment">// false</span></span><br><span class="line">!!<span class="literal">null</span>       <span class="comment">// false</span></span><br><span class="line">!!<span class="literal">undefined</span>  <span class="comment">// false</span></span><br><span class="line">!!<span class="string">''</span>         <span class="comment">// false</span></span><br><span class="line">!!&#123;&#125;         <span class="comment">// true</span></span><br><span class="line">!![]         <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-<p>只需记住6个假值分别是<code>false</code>、<code>null</code>、<code>undefined</code>、<code>&#39;&#39;</code>(空字符串)、<code>NaN</code>、<code>0</code>,这6个假值,其他一切都是真值。</p>
-<hr>
-<p>这就是我总结的几种类型之间的转换方法。</p>
+<p>3.如果我同时监听了 child 和 parent，那么谁先通知我？这是个问题。</p>
+<h2 id="捕获阶段"><a href="#捕获阶段" class="headerlink" title="捕获阶段"></a>捕获阶段</h2><blockquote>
+<p>parent 先通知，child 后通知。</p>
+</blockquote>
+<p><img src="https://ooo.0o0.ooo/2017/06/15/594216872bb01.jpg" alt=""><br><em>如图，输出结果依次为先点击红色区域，再点击绿色区域。</em></p>
+<h2 id="冒泡阶段"><a href="#冒泡阶段" class="headerlink" title="冒泡阶段"></a>冒泡阶段</h2><blockquote>
+<p>child 先通知，parent 后通知</p>
+</blockquote>
+<p>onclick 就是在冒泡阶段被通知</p>
+<blockquote>
+<p>IE 一开始就支持冒泡。</p>
+</blockquote>
+<p><img src="https://ooo.0o0.ooo/2017/06/15/59421767c3236.jpg" alt=""><br><em>如图，输出结果依次为先点击红色区域，再点击绿色区域。</em></p>
+<h2 id="W3C事件模型"><a href="#W3C事件模型" class="headerlink" title="W3C事件模型"></a>W3C事件模型</h2><p>支持两种:<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">button.addEventListener(&apos;click&apos;, fn, true) // 捕获 Capture Phase</span><br><span class="line">button.addEventListener(&apos;click&apos;, fn)       // 冒泡 Bubbling Phase</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pij.robinqu.me/Browser_Scripting/DOM_Scripting/eventflow.png" alt=""></p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/01/10/冒泡与捕获/" title= 冒泡与捕获 >
-                    <span>Next Post</span>
-                    <span>冒泡与捕获</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/01/03/JS数据类型/" title= JS数据类型(一) >
+                <a href= "/2018/01/04/JS数据类型-二/" title= JS数据类型(二) >
                     <span>Previous Post</span>
-                    <span>JS数据类型(一)</span>
+                    <span>JS数据类型(二)</span>
                 </a>
             </li>
         
@@ -304,7 +292,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#其他类型转String类型"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;String&#x7C7B;&#x578B;" class="headerlink" title="&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;String&#x7C7B;&#x578B;"></a>&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;<code>String</code>&#x7C7B;&#x578B;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将其他类型转换为Number类型"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x5C06;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;Number&#x7C7B;&#x578B;" class="headerlink" title="&#x5C06;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;Number&#x7C7B;&#x578B;"></a>&#x5C06;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;<code>Number</code>&#x7C7B;&#x578B;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他类型转Boolean类型"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;Boolean&#x7C7B;&#x578B;" class="headerlink" title="&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;Boolean&#x7C7B;&#x578B;"></a>&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;<code>Boolean</code>&#x7C7B;&#x578B;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#冒泡与捕获"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5192;&#x6CE1;&#x4E0E;&#x6355;&#x83B7;" class="headerlink" title="&#x5192;&#x6CE1;&#x4E0E;&#x6355;&#x83B7;"></a>&#x5192;&#x6CE1;&#x4E0E;&#x6355;&#x83B7;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础知识"><span class="toc-number">1.0.1.</span> <span class="toc-text"><a href="#&#x57FA;&#x7840;&#x77E5;&#x8BC6;" class="headerlink" title="&#x57FA;&#x7840;&#x77E5;&#x8BC6;"></a>&#x57FA;&#x7840;&#x77E5;&#x8BC6;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#捕获阶段"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#&#x6355;&#x83B7;&#x9636;&#x6BB5;" class="headerlink" title="&#x6355;&#x83B7;&#x9636;&#x6BB5;"></a>&#x6355;&#x83B7;&#x9636;&#x6BB5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冒泡阶段"><span class="toc-number">1.2.</span> <span class="toc-text"><a href="#&#x5192;&#x6CE1;&#x9636;&#x6BB5;" class="headerlink" title="&#x5192;&#x6CE1;&#x9636;&#x6BB5;"></a>&#x5192;&#x6CE1;&#x9636;&#x6BB5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W3C事件模型"><span class="toc-number">1.3.</span> <span class="toc-text"><a href="#W3C&#x4E8B;&#x4EF6;&#x6A21;&#x578B;" class="headerlink" title="W3C&#x4E8B;&#x4EF6;&#x6A21;&#x578B;"></a>W3C&#x4E8B;&#x4EF6;&#x6A21;&#x578B;</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-04T14:44:38.282Z</updated>
+  <updated>2018-01-10T13:31:58.226Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>冒泡与捕获</title>
+    <link href="http://yoursite.com/2018/01/10/%E5%86%92%E6%B3%A1%E4%B8%8E%E6%8D%95%E8%8E%B7/"/>
+    <id>http://yoursite.com/2018/01/10/冒泡与捕获/</id>
+    <published>2018-01-10T13:28:47.000Z</published>
+    <updated>2018-01-10T13:31:58.226Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="冒泡与捕获"><a href="#冒泡与捕获" class="headerlink" title="冒泡与捕获"></a>冒泡与捕获</h1><p>冒泡与捕获是DOM事件的一种事件机制，也是一种事件流。</p><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>1.操作系统最先知道鼠标点击，浏览器次之，因为操作系统是权限最高的软件。</p><p>2.在一个页面里面，子元素被点击，意味着父元素也被点击了。<br><img src="https://ooo.0o0.ooo/2017/06/15/5942135b1db13.jpg" alt=""></p><blockquote><p><em>图中 不论我的鼠标放在红色或绿色的div中，只要点击都会显示最外层div也同时被点击了。</em></p></blockquote><p>3.如果我同时监听了 child 和 parent，那么谁先通知我？这是个问题。</p><h2 id="捕获阶段"><a href="#捕获阶段" class="headerlink" title="捕获阶段"></a>捕获阶段</h2><blockquote><p>parent 先通知，child 后通知。</p></blockquote><p><img src="https://ooo.0o0.ooo/2017/06/15/594216872bb01.jpg" alt=""><br><em>如图，输出结果依次为先点击红色区域，再点击绿色区域。</em></p><h2 id="冒泡阶段"><a href="#冒泡阶段" class="headerlink" title="冒泡阶段"></a>冒泡阶段</h2><blockquote><p>child 先通知，parent 后通知</p></blockquote><p>onclick 就是在冒泡阶段被通知</p><blockquote><p>IE 一开始就支持冒泡。</p></blockquote><p><img src="https://ooo.0o0.ooo/2017/06/15/59421767c3236.jpg" alt=""><br><em>如图，输出结果依次为先点击红色区域，再点击绿色区域。</em></p><h2 id="W3C事件模型"><a href="#W3C事件模型" class="headerlink" title="W3C事件模型"></a>W3C事件模型</h2><p>支持两种:<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">button.addEventListener(&apos;click&apos;, fn, true) // 捕获 Capture Phase</span><br><span class="line">button.addEventListener(&apos;click&apos;, fn)       // 冒泡 Bubbling Phase</span><br></pre></td></tr></table></figure></p><p><img src="http://pij.robinqu.me/Browser_Scripting/DOM_Scripting/eventflow.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;冒泡与捕获&quot;&gt;&lt;a href=&quot;#冒泡与捕获&quot; class=&quot;headerlink&quot; title=&quot;冒泡与捕获&quot;&gt;&lt;/a&gt;冒泡与捕获&lt;/h1&gt;&lt;p&gt;冒泡与捕获是DOM事件的一种事件机制，也是一种事件流。&lt;/p&gt;
+&lt;h3 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JS数据类型(二)</title>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>myBlog</title>
   
-  <subtitle>快乐工作，品质生活。</subtitle>
+  <subtitle>rich ? doSomeLike() : doSomeNeed()</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>

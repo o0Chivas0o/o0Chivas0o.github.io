@@ -179,17 +179,19 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="函数的声明方法"><a href="#函数的声明方法" class="headerlink" title="# 函数的声明方法"></a># 函数的声明方法</h2><p>在JavaScript中函数一共有<strong>三种</strong>声明方法。</p>
+        <h3 id="函数的声明方法"><a href="#函数的声明方法" class="headerlink" title="函数的声明方法"></a>函数的声明方法</h3><p>在JavaScript中函数一共有<strong>三种</strong>声明方法。</p>
 <ul>
-<li>第一种是function( )命令</li>
+<li>第一种是function()命令)(声明一个<code>具名函数</code>)</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function 函数(e)&#123;</span><br><span class="line">   console.log(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function 函数名(e)&#123;</span><br><span class="line">   console.log(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>其中function命令声明的代码区块，就是一个函数。function后的就是函数名，如果一个函数没有函数名就是匿名函数。函数名之后就是一对括号，用来传递函数的参数.函数体放在大括号里面。<strong>这种声明方式，函数名必须要写，如果不写的话无法调用。</strong></p>
+</blockquote>
 <hr>
 <ul>
 <li>第二种是函数表达式(变量赋值)</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var Fn = function (e)&#123;</span><br><span class="line">   console.log(e)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function ()&#123;&#125; // 直接声明匿名函数会报错</span><br><span class="line"></span><br><span class="line">var Fn = function (e)&#123; // 需要把匿名函数传给一个变量,下次引用才能用得到,JS不允许有无意义的声明</span><br><span class="line">   console.log(e)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p><strong>注</strong>:该表达式右侧function不带有函数名。如果加上函数名,该函数名只在函数体内部有效，在函数体外部有效。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var Fn = function i()&#123;</span><br><span class="line">console.log(typeof i);</span><br><span class="line">&#125;;</span><br><span class="line">// ReferenceError: x is not defined</span><br><span class="line">//因为i也是一个变量，需要声明之后才能使用。</span><br><span class="line"></span><br><span class="line">Fn()</span><br><span class="line">// function</span><br></pre></td></tr></table></figure>
 <p>或者直接把函数名变为变量名</p>
@@ -199,7 +201,7 @@
 <ul>
 <li>第三种Function构造函数</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var sum = new Function(&apos;p1&apos;,&apos;p2&apos;,&apos;p3&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Function(&apos;p1&apos;,&apos;p2&apos;,&apos;functionBody&apos;)</span><br><span class="line">// p1,p2 是arguments functionBody 是函数体</span><br><span class="line">var a </span><br><span class="line">a = Function(&apos;x&apos;,&apos;y&apos;,&apos;return x+y&apos;)</span><br></pre></td></tr></table></figure>
 <p>这种写起来很麻烦 而且一般很少人用。</p>
 <hr>
 <p>函数一般在函数体内不写return的话浏览器会自动补全，</p>
@@ -209,6 +211,23 @@
 <ul>
 <li>参考链接:<a href="http://javascript.ruanyifeng.com/grammar/function.html#toc1" target="_blank" rel="noopener">JavaScript 标准参考教程（alpha）</a></li>
 </ul>
+<hr>
+<blockquote>
+<p>另外补充两种方法</p>
+</blockquote>
+<ul>
+<li><p>匿名函数的声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x</span><br><span class="line">x = function()&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>箭头函数的声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var a</span><br><span class="line">a = (x+y) =&gt; &#123;return x+y&#125;</span><br><span class="line">//可以简写成</span><br><span class="line">a = (x+y) =&gt; x+y</span><br><span class="line"></span><br><span class="line">当只有一个参数时</span><br><span class="line">var b</span><br><span class="line">b = (x) =&gt; &#123;return x*x&#125;</span><br><span class="line">//可以简写成</span><br><span class="line">b = x =&gt; x*x</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>箭头函数都是匿名的</p>
+<ul>
+<li>函数表达式和<code>function()</code>命令有一些区别需要提一下<br>```<br>function y(){}<br>console.log(y) // function y(){}<br>var a = function x(){}<br>console.log(x) // x is not defined</li>
+</ul>
+<p>JS的不一致性<br>```  </p>
 
     </article>
     <!-- 前后页  -->
@@ -308,7 +327,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数的声明方法"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x65B9;&#x6CD5;" class="headerlink" title="# &#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x65B9;&#x6CD5;"></a># &#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x65B9;&#x6CD5;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的声明方法"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x65B9;&#x6CD5;" class="headerlink" title="&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x65B9;&#x6CD5;"></a>&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x65B9;&#x6CD5;</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>

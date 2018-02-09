@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-29T13:34:36.542Z</updated>
+  <updated>2018-02-09T07:19:13.461Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS要点整理</title>
+    <link href="http://yoursite.com/2018/02/09/JS%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2018/02/09/JS要点整理/</id>
+    <published>2018-02-09T07:15:50.000Z</published>
+    <updated>2018-02-09T07:19:13.461Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>由于近期学习的东西比较多，JS这一块的要点尤其多，而且杂，出于方便自己记忆和理解的原因，所以写下这篇总结，包括JS面试一些出现频率较高的知识点，我会在后期的学习不断更新这篇博客。</p></blockquote><h3 id="JS7种数据类型"><a href="#JS7种数据类型" class="headerlink" title="JS7种数据类型"></a>JS7种数据类型</h3><h3 id="JS中的类型转换"><a href="#JS中的类型转换" class="headerlink" title="JS中的类型转换"></a>JS中的类型转换</h3><h3 id="JS函数"><a href="#JS函数" class="headerlink" title="JS函数"></a>JS函数</h3><h3 id="JS数组"><a href="#JS数组" class="headerlink" title="JS数组"></a>JS数组</h3><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><h3 id="原型、继承、new"><a href="#原型、继承、new" class="headerlink" title="原型、继承、new"></a>原型、继承、new</h3><h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;由于近期学习的东西比较多，JS这一块的要点尤其多，而且杂，出于方便自己记忆和理解的原因，所以写下这篇总结，包括JS面试一些出现频率较高的知识点，我会在后期的学习不断更新这篇博客。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;JS7种数据类型
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>自己实现AJAX</title>

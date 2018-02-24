@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-09T15:28:30.243Z</updated>
+  <updated>2018-02-24T08:39:24.758Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cookie、Session、LocalStorage</title>
+    <link href="http://yoursite.com/2018/02/24/Cookie%E3%80%81Seesion%E3%80%81LocalStorage/"/>
+    <id>http://yoursite.com/2018/02/24/Cookie、Seesion、LocalStorage/</id>
+    <published>2018-02-24T08:18:32.000Z</published>
+    <updated>2018-02-24T08:39:24.758Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>这是一篇关于Cookie和Session还有LocalStorage和SessionStorage的总结的博客。<br>demo展示在:<a href="https://github.com/o0Chivas0o/demo/tree/master/node-demo/sign-up-demo,功能做的不是很完善,但是能帮助理解Cookie以及Session。" target="_blank" rel="noopener">https://github.com/o0Chivas0o/demo/tree/master/node-demo/sign-up-demo,功能做的不是很完善,但是能帮助理解Cookie以及Session。</a></p></blockquote><h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h4><p><code>Cookie</code> 有几个特点,</p><ol><li>服务端通过<code>Set-Cookie</code>来设置Cookie,Cookie的本质就是一串字符串。</li><li>客户端得到这个字符串后，每次登陆这个网页，都会携带上这串字符串。</li><li>服务端再通过这串字符串去找到对应的隐私信息。</li><li>Cookie大小一般为4kb。</li><li>Cookie默认有失效时间，但是后台可以设置过期时间。</li></ol><p>因为<code>Cookie</code>可以篡改，而且是明文传输的，所以存在漏洞，<code>Session</code>就解决了这个问题。  </p><h4 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h4><p><code>Session</code>的特点，</p><ol><li>一般来说，Session是基于Cookie来设置的一个哈希表。</li><li>将SessionId(随机数)通过Cookie发给服务端。</li><li>客户端访问服务器时，服务器读取SessionID。</li><li>服务器有一块内存(哈希表),存储了所有的Session。</li><li>通过SessionID，我们可以得到用户的隐私信息。</li><li>这块内存(哈希表)就是服务器上所有的Session。  </li></ol><h4 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h4><p><code>LocalStorage</code>的实质也是一个<code>hash</code>，它是html5标准提供的一个API，用来持久化存储一些不是那么重要的信息。  </p><p>它的特点,</p><ol><li>LocalStorage与HTTP无关。</li><li>HTTP不会带上LocalStorage。</li><li>只有相同的页面才能互相读取LocalStorage。</li><li>浏览器对每个域名分配的LocalStorage最大的存储量为5Mb左右。</li><li>记录一些无关紧要的信息，不记录用户敏感信息。</li><li>LocalStorage永久有效，除非用户清理缓存。  </li></ol><p>它与Cookie的区别就是，一个通过<code>Set-Cookie</code>设置，一个是HTML5提供的APi，<br>一个是通过HTTP设置，一个与HTTP无关。</p><h4 id="SessionStorage-会话窗口"><a href="#SessionStorage-会话窗口" class="headerlink" title="SessionStorage(会话窗口)"></a>SessionStorage(会话窗口)</h4><p><code>SessionStorage</code>与<code>Session</code>无关，同样，它也是浏览器提供的一个API。</p><p>它与<code>LocalStorage</code>一样,只有一点不一样，就是它的存储时间在用户关闭页面之后就会失效。</p><h4 id="cache-control-缓存管理"><a href="#cache-control-缓存管理" class="headerlink" title="cache-control(缓存管理)"></a>cache-control(缓存管理)</h4><p>可以通过在服务器设置<code>Cache-Control</code>来设置缓存时间，从而提高网页加载速度，提供更好的用户体验。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;这是一篇关于Cookie和Session还有LocalStorage和SessionStorage的总结的博客。&lt;br&gt;demo展示在:&lt;a href=&quot;https://github.com/o0Chivas0o/demo/tree/master/
+      
+    
+    </summary>
+    
+    
+      <category term="HTTP&amp;JavaScript" scheme="http://yoursite.com/tags/HTTP-JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JS要点整理</title>

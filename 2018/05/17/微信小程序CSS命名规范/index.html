@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        lzy的Bbbblog
+        微信小程序CSS命名规范 · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >lzy的Bbbblog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">微信小程序CSS命名规范</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>lzy的Bbbblog</a>
 </header>
@@ -62,21 +73,37 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            微信小程序CSS命名规范
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/05/17</span>
+            </div>
         
     </div>
 </div>
@@ -144,86 +171,82 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/如何阅读HTML5规范文档/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>如何阅读HTML5规范文档</span>
-                    </h2>
-                <div class="abstract-content">
-                    准备材料
-翻墙软件:可以是Shadowsocks之类的付费翻墙软件，也可以是其他的免费翻墙软件
-Chrome浏览器
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="微信小程序CSS命名示例"><a href="#微信小程序CSS命名示例" class="headerlink" title="微信小程序CSS命名示例"></a>微信小程序CSS命名示例</h4><blockquote>
+<p>小程序CSS命名方式尽量使用 BEM 命名 , Block+Element+Modify.</p>
+</blockquote>
+<p>例如:<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"view__container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">icon</span> <span class="attr">class</span>=<span class="string">"view__container__icon"</span>&gt;</span><span class="tag">&lt;/<span class="name">icon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"view__container__text"</span>&gt;</span><span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="BEM规范"><a href="#BEM规范" class="headerlink" title="BEM规范"></a>BEM规范</h4><blockquote>
+<p>BEM 即(block,element,modifier)的命名方式</p>
+</blockquote>
+<p>如:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-   中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。</span><br><span class="line">__  双下划线：双下划线用来连接块和块的子元素</span><br><span class="line">_   单下划线：单下划线用来描述一个块或者块的子元素的一种状态</span><br><span class="line">type-block__element_modifier</span><br></pre></td></tr></table></figure></p>
+<h5 id="B-block-块"><a href="#B-block-块" class="headerlink" title="B (block) 块"></a>B (block) 块</h5><blockquote>
+<p>就是一个块级元素,类似于树的顶层,可以根据具体的页面内容的容器来分,或者根据页面来分</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">可以把上述结构分解成2种</span><br><span class="line">1. html作为此页面的块级元素</span><br><span class="line">2. div标签作为p标签和span标签的块级元素</span><br><span class="line"></span><br><span class="line">一个块是设计或布局的一部分，它有具体且唯一地意义 ，要么是语义上的要么是视觉上的。</span><br><span class="line">不过一般我个人并不会以第一种方式来分页面的结构.</span><br><span class="line">我们可以在这个页面给html定义一个标识,如A(为此页面所有块级元素的前缀)</span><br><span class="line">则div的类名可以为A-wrapper</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"A-wrapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">或</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一个块的正式（实际上是半正式的）定义有下面三个基本原则：</p>
+<ol>
+<li>CSS中只能使用类名（不能是ID）。</li>
+<li>每一个块名应该有一个命名空间（前缀）</li>
+<li>每一条CSS规则必须属于一个块。</li>
+</ol>
+<p>如上,css选择器则可为:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;&#125;</span><br><span class="line"><span class="comment">/*或*/</span></span><br><span class="line"><span class="selector-class">.A-wrapper</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="E-element-元素"><a href="#E-element-元素" class="headerlink" title="E (element) 元素"></a>E (element) 元素</h5><blockquote>
+<p>块中的子元素是块的子元素，并且子元素的子元素在 bem 里也被认为是块的直接子元素。一个块中元素的类名必须用父级块的名称作为前缀。</p>
+</blockquote>
+<p>如上例子,<code>wrapper.text</code> 是上述p标签<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.wrapper</span> <span class="selector-class">.text</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.wrapper__text</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="M-modifier-修饰符"><a href="#M-modifier-修饰符" class="headerlink" title="M (modifier) 修饰符"></a>M (modifier) 修饰符</h5><blockquote>
+<p>一个“修饰符”可以理解为一个块的特定状态，标识着它持有一个特定的属性。</p>
+</blockquote>
+<ul>
+<li><p>用一个例子来解释最好不过了。一个表示按钮的块默认有三个大小：小，中，大。为了避免创建三个不同的块，最好是在块上加修饰符。这个修饰符应该有个名字（比如：size ）和值（ small，normal 或者 big ）。</p>
+<ul>
+<li>如上面的例子中，表示一个选中的列表，和一个激活的列表项</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.wrapper</span><span class="selector-class">.active</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.wrapper</span> <span class="selector-class">.text</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.wrapper</span> <span class="selector-class">.text</span><span class="selector-class">.active</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.wrapper_active</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.wrapper__text</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.wrapper__text_active</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 
-步骤
-在Chrome浏览器里输入HTML 5 specs
-点击HTML 5-W3C 也就是Google搜索结果第一个网址
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/02/24/Cookie、Seesion、LocalStorage/" title= Cookie、Session、LocalStorage >
+                    <span>Previous Post</span>
+                    <span>Cookie、Session、LocalStorage</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
 
+        if (typeof LivereTower === 'function') { return; }
 
-然后进入目录，根据目录指引找到需要读的标准文档即可。
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
 
-例如：我需要查找关于html根元素相关的信息我可以进行如下操作1.查看目录2.找到“4 The elements of HTML”这个目录3.点击进入目录，就能看到关于html根元素的信息。
-注意事项如果看不懂英文可以选择Chorme浏览器的内置翻译对照看。
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = HTML>HTML</a>
-    
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/浅谈HTML5元素/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>浅谈HTML5元素</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-HTML元素基本分为三类，空元素、行内元素（内联元素）、块级元素。
+    <!--PC版-->
 
-空元素
-一个空元素（empty element）可能是 HTML，SVG，或者 MathML 里的一个不可能存在子节点（例如内嵌的元素或者元素内的文本）的element。这是mdn给与的定义。我的理解就是一个元素没有闭合标签，就是空元素。
+    <!--PC版-->
 
-12&lt;img src=&quot;https//xxx.xxx.com/xxx.png&quot; alt=&quot;图片&quot; width=&quot;10px&quot;&gt;&lt;input type=&quot;text&quot;&gt;
 
-类似上述这...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = HTML>HTML</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -271,6 +294,13 @@ HTML元素基本分为三类，空元素、行内元素（内联元素）、块�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#微信小程序CSS命名示例"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;CSS&#x547D;&#x540D;&#x793A;&#x4F8B;" class="headerlink" title="&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;CSS&#x547D;&#x540D;&#x793A;&#x4F8B;"></a>&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;CSS&#x547D;&#x540D;&#x793A;&#x4F8B;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BEM规范"><span class="toc-number">2.</span> <span class="toc-text"><a href="#BEM&#x89C4;&#x8303;" class="headerlink" title="BEM&#x89C4;&#x8303;"></a>BEM&#x89C4;&#x8303;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#B-block-块"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#B-block-&#x5757;" class="headerlink" title="B (block) &#x5757;"></a>B (block) &#x5757;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#E-element-元素"><span class="toc-number">2.2.</span> <span class="toc-text"><a href="#E-element-&#x5143;&#x7D20;" class="headerlink" title="E (element) &#x5143;&#x7D20;"></a>E (element) &#x5143;&#x7D20;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#M-modifier-修饰符"><span class="toc-number">2.3.</span> <span class="toc-text"><a href="#M-modifier-&#x4FEE;&#x9970;&#x7B26;" class="headerlink" title="M (modifier) &#x4FEE;&#x9970;&#x7B26;"></a>M (modifier) &#x4FEE;&#x9970;&#x7B26;</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

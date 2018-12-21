@@ -224,6 +224,42 @@ setInterval
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2018/12/19/vue-router/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>Vue-Router、webpack个人配置</span>
+                    </h2>
+                <div class="abstract-content">
+                    
+一些个人在vue构建项目中的router配置和webpack改动,仅在vue-cli 3.0版本下有效
+
+
+vue-router在项目初始化过程中,会涉及到配置路由，而在使用vue-router的过程中，需要注意vue的两种路由模式，一个是默认的hash路由，另一个是history路由。
+ 1. hash路由在路径后会带有一个#/例如:localhost:8080/#/
+ 2. 而history路由则会将路径后的#/去掉,例如:localhost:8080/
+
+具体配置信息如下:123456789101112在router.js文件中,添加mode:&apos;history&apos...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/12/19</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2018/05/17/微信小程序CSS命名规范/" >
                     <h2 class="abstract-title">
                         
@@ -396,41 +432,6 @@ AJAX的用法核心只有4句话1234567891011121314151617let xhr = new XMLHttpRe
                 <!-- date  -->
                 <div class="abstract-date">
                     <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/26</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/01/19/自己实现一个jQuery/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>自己实现一个jQuery</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-首先有必要介绍一下jQuery，据统计在市面上近70%的公司的页面使用了jQuery这个库，所以还是有必要了解一下jQuery的使用方法以及一些特性。
-
-jQuery的文档原文地址http://api.jquery.com/
-译文地址https://www.jquery123.com/ 
-jQuery的类型在页面引入jQuery之后用在控制台输入typeof jQuery得到的结果是&#39;function&#39;
-所以jQuery的类型就是一个函数,那么既然jQuery是一个函数,我就可以用利用这个结果封装一个自己的简易的jQuery。
-自己封装一个简单的jQuery封装一个函数...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/19</span>
                 </div>
             </div>
         </article>
@@ -740,7 +741,20 @@ jQuery的类型在页面引入jQuery之后用在控制台输入typeof jQuery得�
     
     
     
-    <div class="total-archive"> Total : 21 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 22 </div>
     
     <div class="post-archive">
     
@@ -758,6 +772,11 @@ jQuery的类型在页面引入jQuery之后用在控制台输入typeof jQuery得�
     
         <li class="archive-post-item">
             <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2018/12/19/ng、vue、react/" >ng、vue、react</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2018/12/19/vue-router/" >Vue-Router、webpack个人配置</a>
         </li>
     
     
@@ -882,6 +901,8 @@ jQuery的类型在页面引入jQuery之后用在控制台输入typeof jQuery得�
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">

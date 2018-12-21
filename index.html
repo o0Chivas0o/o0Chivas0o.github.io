@@ -237,6 +237,42 @@ setInterval
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2018/12/19/vue-router/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>Vue-Router、webpack个人配置</span>
+                    </h2>
+                <div class="abstract-content">
+                    
+一些个人在vue构建项目中的router配置和webpack改动,仅在vue-cli 3.0版本下有效
+
+
+vue-router在项目初始化过程中,会涉及到配置路由，而在使用vue-router的过程中，需要注意vue的两种路由模式，一个是默认的hash路由，另一个是history路由。
+ 1. hash路由在路径后会带有一个#/例如:localhost:8080/#/
+ 2. 而history路由则会将路径后的#/去掉,例如:localhost:8080/
+
+具体配置信息如下:123456789101112在router.js文件中,添加mode:&apos;history&apos...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/12/19</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2018/05/17/微信小程序CSS命名规范/" >
                     <h2 class="abstract-title">
                         
@@ -467,50 +503,6 @@ DOM可以将任何HTML或XML文档秒回成一个由多层节点构成的结构�
 
 
 以一段HTML为例：123456...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/10</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/01/10/冒泡与捕获/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>冒泡与捕获</span>
-                    </h2>
-                <div class="abstract-content">
-                    冒泡与捕获冒泡与捕获是DOM事件的一种事件机制，也是一种事件流。
-基础知识1.操作系统最先知道鼠标点击，浏览器次之，因为操作系统是权限最高的软件。
-2.在一个页面里面，子元素被点击，意味着父元素也被点击了。
-
-图中 不论我的鼠标放在红色或绿色的div中，只要点击都会显示最外层div也同时被点击了。
-
-3.如果我同时监听了 child 和 parent，那么谁先通知我？这是个问题。
-捕获阶段
-parent 先通知，child 后通知。
-
-如图，输出结果依次为先点击红色区域，再点击绿色区域。
-冒泡阶段
-child 先通知，parent 后通知
-
-onclick 就是在冒泡阶段被通知
-
-IE ...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -883,7 +875,20 @@ IE ...
     
     
     
-    <div class="total-archive"> Total : 21 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 22 </div>
     
     <div class="post-archive">
     
@@ -901,6 +906,11 @@ IE ...
     
         <li class="archive-post-item">
             <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2018/12/19/ng、vue、react/" >ng、vue、react</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2018/12/19/vue-router/" >Vue-Router、webpack个人配置</a>
         </li>
     
     
@@ -1025,6 +1035,8 @@ IE ...
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        lzy的Bbbblog
+        ng、vue、react · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >lzy的Bbbblog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">ng、vue、react</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>lzy的Bbbblog</a>
 </header>
@@ -62,21 +73,43 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            ng、vue、react
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/12/19</span>
+            </div>
         
     </div>
 </div>
@@ -144,44 +177,71 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/05/17/微信小程序CSS命名规范/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>微信小程序CSS命名规范</span>
-                    </h2>
-                <div class="abstract-content">
-                    微信小程序CSS命名示例
-小程序CSS命名方式尽量使用 BEM 命名 , Block+Element+Modify.
+            <main class="main post-page">
+    <article class="article-entry">
+        <ol>
+<li>Ng 脏值检查</li>
+<li>Vue 数据劫持</li>
+</ol>
+<p>脏值检查(angular.js实现双向绑定的基本原理):</p>
+<blockquote>
+<p>无法检测数据是否发生改变,必须通过一些特定的条件,在条件执行的时候,进行检测,如果数据改变,就执行更新方法</p>
+</blockquote>
+<p>例子:要检测公交车上的人数是否发生变化?</p>
+<ol>
+<li>setInterval</li>
+<li>在公交车关门时,就可以检测在公交车上的人数是否发生变化</li>
+</ol>
+<p>数据劫持:(Object.defineProperty)</p>
+<p>???</p>
+<p>观察者模式(发布订阅模式)<br>例子:</p>
 
-例如: 1234&lt;view class="view__container"&gt;    &lt;icon class="view__container__icon"&gt;&lt;/icon&gt;    &lt;text class="view__container__text"&gt;&lt;/text&gt;&lt;/view&gt;
-BEM规范
-BEM 即(block,element,modifier)的命名方式
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/12/19/Itrem2 oh-my-zsh git 快捷键/" title= ng、vue、react >
+                    <span>Next Post</span>
+                    <span>ng、vue、react</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2018/05/17/微信小程序CSS命名规范/" title= 微信小程序CSS命名规范 >
+                    <span>Previous Post</span>
+                    <span>微信小程序CSS命名规范</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
 
-如:1234-   中划线 ：仅作为连...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
-    
+        if (typeof LivereTower === 'function') { return; }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/05/17</span>
-                </div>
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
-    <!-- paginator  -->
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
@@ -229,6 +289,13 @@ BEM 即(block,element,modifier)的命名方式
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

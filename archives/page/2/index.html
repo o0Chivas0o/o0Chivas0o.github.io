@@ -149,6 +149,87 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2018/01/10/DOM的增删改查/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>DOM的增删改查</span>
+                    </h2>
+                <div class="abstract-content">
+                    
+DOM 全称是 Document Object Model，也就是文档对象模型。DOM是针对HTML和XML文档的一个API(应用程序编程接口)。DOM秒回了一个层次化的节点数，允许开发人员添加、移除和修页面的某一部分。DOM脱胎于Netscape及微软公司创始的DHTML(动态HTML)，单现在它已经成为表现和操作页面标记的真正跨平台、语言中立的方式。 —- 《JavaScript高级程序设计》
+
+几个需要了解的前置知识
+节点层次
+DOM可以将任何HTML或XML文档秒回成一个由多层节点构成的结构。即DOM结构把HTML结构抽象成一个树形结构。
+
+
+
+以一段HTML为例：123456...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/10</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2018/01/10/冒泡与捕获/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>冒泡与捕获</span>
+                    </h2>
+                <div class="abstract-content">
+                    冒泡与捕获冒泡与捕获是DOM事件的一种事件机制，也是一种事件流。
+基础知识1.操作系统最先知道鼠标点击，浏览器次之，因为操作系统是权限最高的软件。
+2.在一个页面里面，子元素被点击，意味着父元素也被点击了。
+
+图中 不论我的鼠标放在红色或绿色的div中，只要点击都会显示最外层div也同时被点击了。
+
+3.如果我同时监听了 child 和 parent，那么谁先通知我？这是个问题。
+捕获阶段
+parent 先通知，child 后通知。
+
+如图，输出结果依次为先点击红色区域，再点击绿色区域。
+冒泡阶段
+child 先通知，parent 后通知
+
+onclick 就是在冒泡阶段被通知
+
+IE ...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/10</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2018/01/04/JS数据类型-二/" >
                     <h2 class="abstract-title">
                         
@@ -371,83 +452,6 @@ HTTP是一个超文本传输协议（英文：HyperText Transfer Protocol，缩�
                 <!-- date  -->
                 <div class="abstract-date">
                     <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/14</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/如何阅读HTML5规范文档/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>如何阅读HTML5规范文档</span>
-                    </h2>
-                <div class="abstract-content">
-                    准备材料
-翻墙软件:可以是Shadowsocks之类的付费翻墙软件，也可以是其他的免费翻墙软件
-Chrome浏览器
-
-步骤
-在Chrome浏览器里输入HTML 5 specs
-点击HTML 5-W3C 也就是Google搜索结果第一个网址
-
-
-然后进入目录，根据目录指引找到需要读的标准文档即可。
-
-例如：我需要查找关于html根元素相关的信息我可以进行如下操作1.查看目录2.找到“4 The elements of HTML”这个目录3.点击进入目录，就能看到关于html根元素的信息。
-注意事项如果看不懂英文可以选择Chorme浏览器的内置翻译对照看。
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = HTML>HTML</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/浅谈HTML5元素/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>浅谈HTML5元素</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-HTML元素基本分为三类，空元素、行内元素（内联元素）、块级元素。
-
-空元素
-一个空元素（empty element）可能是 HTML，SVG，或者 MathML 里的一个不可能存在子节点（例如内嵌的元素或者元素内的文本）的element。这是mdn给与的定义。我的理解就是一个元素没有闭合标签，就是空元素。
-
-12&lt;img src=&quot;https//xxx.xxx.com/xxx.png&quot; alt=&quot;图片&quot; width=&quot;10px&quot;&gt;&lt;input type=&quot;text&quot;&gt;
-
-类似上述这...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = HTML>HTML</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
                 </div>
             </div>
         </article>
@@ -751,7 +755,13 @@ HTML元素基本分为三类，空元素、行内元素（内联元素）、块�
     
     
     
-    <div class="total-archive"> Total : 19 </div>
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 21 </div>
     
     <div class="post-archive">
     
@@ -760,6 +770,16 @@ HTML元素基本分为三类，空元素、行内元素（内联元素）、块�
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2018/12/19/Itrem2 oh-my-zsh git 快捷键/" >ng、vue、react</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2018/12/19/ng、vue、react/" >ng、vue、react</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -870,9 +890,11 @@ HTML元素基本分为三类，空元素、行内元素（内联元素）、块�
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     

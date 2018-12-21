@@ -179,22 +179,23 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="版本控制器"><a href="#版本控制器" class="headerlink" title="版本控制器"></a>版本控制器</h3><ul>
+        <h2 id="版本控制器-Version-Control-Systems"><a href="#版本控制器-Version-Control-Systems" class="headerlink" title="版本控制器 (Version Control Systems)"></a>版本控制器 (Version Control Systems)</h2><ul>
 <li><p>在未有工作工具流之前,使用的文件夹目录拷贝,效率低下,沟通成本高.</p>
 </li>
-<li><p>集中式版本控制系统</p>
+<li><p>集中式版本控制系统 </p>
 <ul>
 <li>SVN、VSS</li>
 </ul>
 </li>
-<li><p>分布式版本控制系统</p>
+<li><p>分布式版本控制系统 </p>
 <ul>
 <li>git<br><br><br>由于因在工作中只用过git版本控制器,也就是分布式版本控制器.所以只总结git的使用.并且最近在<code>极客时间</code>上学习<code>苏玲</code>老师的<code>&lt;玩转git三剑客&gt;</code>的视频课程,一起学习,一起总结.<br><br></li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><ol>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><blockquote>
+<ol>
 <li>最优的存储能力</li>
 <li>非凡的性能</li>
 <li>开源的</li>
@@ -202,7 +203,14 @@
 <li>支持离线操作</li>
 <li>很容易定制工作流程</li>
 </ol>
-
+</blockquote>
+<h3 id="git下载"><a href="#git下载" class="headerlink" title="git下载"></a>git下载</h3><blockquote>
+<p>下载链接 : <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+</blockquote>
+<h3 id="git最小配置"><a href="#git最小配置" class="headerlink" title="git最小配置"></a>git最小配置</h3><blockquote>
+<p>给git配置用户名和用户邮箱</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git config [--local | --global | --system] user.name &apos;Your name&apos; // 名称设置</span><br><span class="line">git config [--local | --global | --system] user.email &apos;Your email&apos; // 邮箱设置</span><br><span class="line"></span><br><span class="line">--local 区域内本仓库</span><br><span class="line">--global 全局仓库有效</span><br><span class="line">--system 系统登录用户有效</span><br><span class="line"></span><br><span class="line">// 设置之后 可以通过下面命令来查看设置是否成功</span><br><span class="line">git config --list --global</span><br><span class="line">// 设置的是全局 需加上--global 对全局查看</span><br><span class="line">// 若为local 必须有一个本地项目仓库</span><br></pre></td></tr></table></figure>
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -294,7 +302,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本控制器"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668;" class="headerlink" title="&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668;"></a>&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git"><span class="toc-number">2.</span> <span class="toc-text"><a href="#git" class="headerlink" title="git"></a>git</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#版本控制器-Version-Control-Systems"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668;-Version-Control-Systems" class="headerlink" title="&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668; (Version Control Systems)"></a>&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668; (Version Control Systems)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git"><span class="toc-number">2.</span> <span class="toc-text"><a href="#git" class="headerlink" title="git"></a>git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git下载"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#git&#x4E0B;&#x8F7D;" class="headerlink" title="git&#x4E0B;&#x8F7D;"></a>git&#x4E0B;&#x8F7D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git最小配置"><span class="toc-number">2.2.</span> <span class="toc-text"><a href="#git&#x6700;&#x5C0F;&#x914D;&#x7F6E;" class="headerlink" title="git&#x6700;&#x5C0F;&#x914D;&#x7F6E;"></a>git&#x6700;&#x5C0F;&#x914D;&#x7F6E;</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -308,6 +316,10 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
@@ -720,15 +732,15 @@
     
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     

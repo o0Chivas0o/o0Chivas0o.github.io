@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        lzy的Bbbblog
+        ng、vue、react · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >lzy的Bbbblog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">ng、vue、react</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>lzy的Bbbblog</a>
 </header>
@@ -62,21 +73,43 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            ng、vue、react
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/11/19</span>
+            </div>
         
     </div>
 </div>
@@ -144,111 +177,71 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/webstorm将项目上传到github/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>webstorm将项目上传到github</span>
-                    </h2>
-                <div class="abstract-content">
-                    如何在WebStorm上将文件上传到GitHub需要软件 : WebStorm
-我是mac笔记本，所以只展示mac下的webstrom如何将project文件上传到github，windows系统下和mac os 系统大同小异。
+            <main class="main post-page">
+    <article class="article-entry">
+        <ol>
+<li>Ng 脏值检查</li>
+<li>Vue 数据劫持</li>
+</ol>
+<p>脏值检查(angular.js实现双向绑定的基本原理):</p>
+<blockquote>
+<p>无法检测数据是否发生改变,必须通过一些特定的条件,在条件执行的时候,进行检测,如果数据改变,就执行更新方法</p>
+</blockquote>
+<p>例子:要检测公交车上的人数是否发生变化?</p>
+<ol>
+<li>setInterval</li>
+<li>在公交车关门时,就可以检测在公交车上的人数是否发生变化</li>
+</ol>
+<p>数据劫持:(Object.defineProperty)</p>
+<p>???</p>
+<p>观察者模式(发布订阅模式)<br>例子:</p>
 
-首先我们需要拥有一个GitHub账户，没有请自行创建，然后进入WebStorm。
-第一步:进入webstrom，点击左上角webstrom,或者COMMAND+，键进入preferences.
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/12/19/Itrem2 oh-my-zsh git 快捷键/" title= Itrem2 oh-my-zsh git 快捷键 >
+                    <span>Next Post</span>
+                    <span>Itrem2 oh-my-zsh git 快捷键</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2018/05/17/微信小程序CSS命名规范/" title= 微信小程序CSS命名规范 >
+                    <span>Previous Post</span>
+                    <span>微信小程序CSS命名规范</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
 
+        if (typeof LivereTower === 'function') { return; }
 
-第二步:进入preferences后，点击搜索框输入git，会有2个选项，点击GitHub，在host输入github.com，auth type处选择passwo...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 其他>其他</a>
-    
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/11/用Hexo搭建个人博客系统/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>用Hexo搭建个人博客系统</span>
-                    </h2>
-                <div class="abstract-content">
-                    这是一篇详细文章来讲述我用Mac搭建Hexo博客于Github上的完整历程，现在写下些经验来分享。
-环境配置Hexo官网本就有对Hexo安装及使用的详细介绍，墙裂推荐。这里来讲述自己安装的亲身步骤，或有区别。
+    <!--PC版-->
 
-Node.js用来生成静态页面。node.js官网，下载8.9.3LTS，一路安装即可。
+    <!--PC版-->
 
-Git用来将本地Hexo内容提交到Github上。Xcode自带Git，这里不再赘述。如果没有Xcode可以参考Hexo官网上的安装方法。
 
-终端(Iterm2)登录Iterm2官网，点击Download即可下载Iterm2，作为Mac上最强大的终端，墙裂推荐。(可以自动设置配色方案等等一...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 其他>其他</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/11</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/10/hello-world/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Hello World</span>
-                    </h2>
-                <div class="abstract-content">
-                    Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 其他>其他</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/10</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -296,6 +289,13 @@ More...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

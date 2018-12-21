@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-21T06:35:47.643Z</updated>
+  <updated>2018-12-21T06:36:58.506Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,18 @@
     <link href="http://yoursite.com/2018/12/21/git/"/>
     <id>http://yoursite.com/2018/12/21/git/</id>
     <published>2018-12-21T06:33:01.000Z</published>
-    <updated>2018-12-21T06:35:47.643Z</updated>
+    <updated>2018-12-21T06:36:58.506Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="版本控制器"><a href="#版本控制器" class="headerlink" title="版本控制器"></a>版本控制器</h3><p><br></p><ul><li><p>在未有工作工具流之前,使用的文件夹目录拷贝,效率低下,沟通成本高.</p></li><li><p>集中式版本控制系统</p><ul><li>SVN、VSS</li></ul></li><li><p>分布式版本控制系统</p><ul><li>git<br><br><br><br></li></ul></li></ul><hr><p><br><br>由于因在工作中只用过git版本控制器,也就是分布式版本控制器.所以只总结git的使用.并且最近在<code>极客时间</code>上学习<code>苏玲</code>老师的<code>&lt;玩转git三剑客&gt;</code>的视频课程,一起学习,一起总结.</p><h2 id=""><a href="#" class="headerlink" title=""></a><br></h2><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><ol><li>最优的存储能力</li><li>非凡的性能</li><li>开源的</li><li>很容易做备份</li><li>支持离线操作</li><li>很容易定制工作流程</li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="版本控制器"><a href="#版本控制器" class="headerlink" title="版本控制器"></a>版本控制器</h3><ul><li><p>在未有工作工具流之前,使用的文件夹目录拷贝,效率低下,沟通成本高.</p></li><li><p>集中式版本控制系统</p><ul><li>SVN、VSS</li></ul></li><li><p>分布式版本控制系统</p><ul><li>git<br><br><br>由于因在工作中只用过git版本控制器,也就是分布式版本控制器.所以只总结git的使用.并且最近在<code>极客时间</code>上学习<code>苏玲</code>老师的<code>&lt;玩转git三剑客&gt;</code>的视频课程,一起学习,一起总结.<br><br></li></ul></li></ul><hr><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><ol><li>最优的存储能力</li><li>非凡的性能</li><li>开源的</li><li>很容易做备份</li><li>支持离线操作</li><li>很容易定制工作流程</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;版本控制器&quot;&gt;&lt;a href=&quot;#版本控制器&quot; class=&quot;headerlink&quot; title=&quot;版本控制器&quot;&gt;&lt;/a&gt;版本控制器&lt;/h3&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;ul&gt;
+        &lt;h3 id=&quot;版本控制器&quot;&gt;&lt;a href=&quot;#版本控制器&quot; class=&quot;headerlink&quot; title=&quot;版本控制器&quot;&gt;&lt;/a&gt;版本控制器&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;在未有工作工具流之前,使用的文件夹目录拷贝,效率低下,沟通成本高.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;
       
     
     </summary>

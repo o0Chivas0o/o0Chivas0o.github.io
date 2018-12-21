@@ -198,7 +198,7 @@
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a><br></h2><p><br>  </p>
 <h2 id="12-21补充"><a href="#12-21补充" class="headerlink" title="12.21补充"></a>12.21补充</h2><p>微信H5分享存在的问题:</p>
 <ol>
-<li>SPA应用History模式,由于每次路由并不会刷新,会导致获取微信签名失败,所以在SPA应用History模式下,想要做到多页面均可分享,需启用Hash路由模式.<br>如:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&#123;</span><br><span class="line">mode:&apos;hash&apos;,</span><br><span class="line">base:&apos;xxx&apos;,</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>SPA应用History模式,由于每次路由并不会刷新,会导致获取微信签名失败,所以在SPA应用History模式下,想要做到多页面均可分享,需启用Hash路由模式.<br>参考(@yongheng2016的github分享):<a href="https://github.com/yongheng2016/blog/issues/78" target="_blank" rel="noopener">微信分享过程中遇到的问题总结（SPA/history模式）</a><br>如:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&#123;</span><br><span class="line">mode:&apos;hash&apos;,</span><br><span class="line">base:&apos;xxx&apos;,</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ol>
@@ -310,6 +310,12 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
     
     
     
@@ -710,9 +716,9 @@
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">其他</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     

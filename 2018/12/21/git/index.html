@@ -210,7 +210,7 @@
 <p>给git配置用户名和用户邮箱</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">git config [--local | --global | --system] user.name &apos;Your name&apos; // 名称设置</span><br><span class="line">git config [--local | --global | --system] user.email &apos;Your email&apos; // 邮箱设置</span><br><span class="line"></span><br><span class="line">--local 区域内本仓库</span><br><span class="line">--global 全局仓库有效</span><br><span class="line">--system 系统登录用户有效</span><br><span class="line"></span><br><span class="line">// 设置之后 可以通过下面命令来查看设置是否成功</span><br><span class="line">git config --list --global</span><br><span class="line">// 设置的是全局 需加上--global 对全局查看</span><br><span class="line">// 若为local 必须有一个本地项目仓库</span><br><span class="line"></span><br><span class="line">// 清除命令</span><br><span class="line">git config unset [--local | --global | --system] user.name &apos;Your name&apos; // 名称设置</span><br><span class="line">git config unset [--local | --global | --system] user.email &apos;Your email&apos; // 邮箱设置</span><br></pre></td></tr></table></figure>
-<p><br><br>——12.24日更新——</p>
+<p><br><br>——2018.12.24日更新——</p>
 <h3 id="建Git仓库"><a href="#建Git仓库" class="headerlink" title="建Git仓库"></a>建Git仓库</h3><p>两种场景:</p>
 <ol>
 <li><p>已有代码构建Git仓库:</p>
@@ -220,6 +220,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd 某个文件夹</span><br><span class="line">$ git init project__name</span><br><span class="line">$ cd project__name</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<p><br><br>——2018.12.26日更新——</p>
+<h3 id="为项目添加-gitignore文件"><a href="#为项目添加-gitignore文件" class="headerlink" title="为项目添加.gitignore文件"></a>为项目添加.gitignore文件</h3><blockquote>
+<p>通常提交项目会习惯性使用’git add .’的命令,这样的操作会将目录中所有文件都添加到文件暂缓区(git status 所展示的文件和文件所在地址),而实际项目提交当中会引用到大量的第三方库、方法，会导致将<code>node_modules</code>整个文件夹提交到暂缓区,推送到远程仓库会造成效率降低。所以会在每个项目文件夹中添加<code>.gitignore</code>文件来默认不上传这些文件。</p>
+</blockquote>
+<p>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">node_modules</span><br><span class="line">/dist</span><br><span class="line"></span><br><span class="line"># local env files</span><br><span class="line">.env.local</span><br><span class="line">.env.*.local</span><br><span class="line"></span><br><span class="line"># Log files</span><br><span class="line">npm-debug.log*</span><br><span class="line">yarn-debug.log*</span><br><span class="line">yarn-error.log*</span><br><span class="line"></span><br><span class="line"># Editor directories and files</span><br><span class="line">.idea</span><br><span class="line">.vscode</span><br><span class="line">*.suo</span><br><span class="line">*.ntvs*</span><br><span class="line">*.njsproj</span><br><span class="line">*.sln</span><br><span class="line">*.sw*</span><br></pre></td></tr></table></figure></p>
+<p>上述文件是通过<code>vue-cli</code>自动构建项目目录下的<code>.gitignore</code>文件,默认git不提交<code>各类编译器的配置文件</code>和<code>第三方npm包、方法、插件</code>文件。</p>
 <h2 id="Git-commit-规范"><a href="#Git-commit-规范" class="headerlink" title="Git commit 规范"></a>Git commit 规范</h2><blockquote>
 <p>引用<code>@知乎者也</code>的微信公众号文章:「我的commit规范」→[<a href="https://mp.weixin.qq.com/s?__biz=MzIyMzEyMDQ5MQ==&amp;mid=2656091498&amp;idx=1&amp;sn=8e15c57c3c1cb6c7579208aaad5ae256&amp;chksm=f387006ec4f08978606e1168d417869a02c42945eed246a310c6bc06e7538888484d857eaffc&amp;scene=4&amp;subscene=126&amp;ascene=0&amp;devicetype=android-26&amp;version=26070337&amp;nettype=WIFI&amp;abtest_cookie=BQABAAoACwANABMAFAAFACOXHgBZmR4AhJkeAImZHgCNmR4AAAA%3D&amp;lang=zh_CN&amp;pass_ticket=AAI4HCiVr%2FcBu7J0BPB0hr%2Fv6WUoYnaJG1b7tytCnHA4Oeh9WeRwR8brLOUDmOO2&amp;wx_header=1" target="_blank" rel="noopener">传送门</a>]<br>还有<code>@囧克斯</code>的译文作为参考:「如何撰写Git提交信息」→[<a href="https://jiongks.name/blog/git-commit/" target="_blank" rel="noopener">传送门</a>]</p>
 </blockquote>
@@ -324,7 +330,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#版本控制器-Version-Control-Systems"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668;-Version-Control-Systems" class="headerlink" title="&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668; (Version Control Systems)"></a>&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668; (Version Control Systems)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">2.</span> <span class="toc-text"><a href="#Git" class="headerlink" title="Git"></a>Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git下载"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#Git&#x4E0B;&#x8F7D;" class="headerlink" title="Git&#x4E0B;&#x8F7D;"></a>Git&#x4E0B;&#x8F7D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git最小配置"><span class="toc-number">2.2.</span> <span class="toc-text"><a href="#Git&#x6700;&#x5C0F;&#x914D;&#x7F6E;" class="headerlink" title="Git&#x6700;&#x5C0F;&#x914D;&#x7F6E;"></a>Git&#x6700;&#x5C0F;&#x914D;&#x7F6E;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建Git仓库"><span class="toc-number">2.3.</span> <span class="toc-text"><a href="#&#x5EFA;Git&#x4ED3;&#x5E93;" class="headerlink" title="&#x5EFA;Git&#x4ED3;&#x5E93;"></a>&#x5EFA;Git&#x4ED3;&#x5E93;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-commit-规范"><span class="toc-number">3.</span> <span class="toc-text"><a href="#Git-commit-&#x89C4;&#x8303;" class="headerlink" title="Git commit &#x89C4;&#x8303;"></a>Git commit &#x89C4;&#x8303;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#版本控制器-Version-Control-Systems"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668;-Version-Control-Systems" class="headerlink" title="&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668; (Version Control Systems)"></a>&#x7248;&#x672C;&#x63A7;&#x5236;&#x5668; (Version Control Systems)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">2.</span> <span class="toc-text"><a href="#Git" class="headerlink" title="Git"></a>Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git下载"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#Git&#x4E0B;&#x8F7D;" class="headerlink" title="Git&#x4E0B;&#x8F7D;"></a>Git&#x4E0B;&#x8F7D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git最小配置"><span class="toc-number">2.2.</span> <span class="toc-text"><a href="#Git&#x6700;&#x5C0F;&#x914D;&#x7F6E;" class="headerlink" title="Git&#x6700;&#x5C0F;&#x914D;&#x7F6E;"></a>Git&#x6700;&#x5C0F;&#x914D;&#x7F6E;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建Git仓库"><span class="toc-number">2.3.</span> <span class="toc-text"><a href="#&#x5EFA;Git&#x4ED3;&#x5E93;" class="headerlink" title="&#x5EFA;Git&#x4ED3;&#x5E93;"></a>&#x5EFA;Git&#x4ED3;&#x5E93;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为项目添加-gitignore文件"><span class="toc-number">2.4.</span> <span class="toc-text"><a href="#&#x4E3A;&#x9879;&#x76EE;&#x6DFB;&#x52A0;-gitignore&#x6587;&#x4EF6;" class="headerlink" title="&#x4E3A;&#x9879;&#x76EE;&#x6DFB;&#x52A0;.gitignore&#x6587;&#x4EF6;"></a>&#x4E3A;&#x9879;&#x76EE;&#x6DFB;&#x52A0;.gitignore&#x6587;&#x4EF6;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-commit-规范"><span class="toc-number">3.</span> <span class="toc-text"><a href="#Git-commit-&#x89C4;&#x8303;" class="headerlink" title="Git commit &#x89C4;&#x8303;"></a>Git commit &#x89C4;&#x8303;</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -338,8 +344,6 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -766,11 +770,11 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     

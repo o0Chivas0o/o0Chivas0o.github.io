@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        lzy的Bbbblog
+        some notes · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >lzy的Bbbblog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">some notes</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>lzy的Bbbblog</a>
 </header>
@@ -62,21 +73,43 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            some notes
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 其他>其他</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2019/01/29</span>
+            </div>
         
     </div>
 </div>
@@ -144,45 +177,58 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/12/21/vue-router/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Vue-Router、webpack个人配置</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-一些个人在vue构建项目中的router配置和webpack改动,仅在vue-cli 3.0版本下有效
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>由于今天更新MWeb找不到<code>mainlib.db</code>这个文件,才发现我记录了一个多月的笔记被删了… 太靠不住了,还是打算用这个来记录一些做h5页面以及学习中的一些问题,但是每次记录过后我都会备份到github.io这个博客来</p>
+</blockquote>
+<h1 id="2019-1-29"><a href="#2019-1-29" class="headerlink" title="2019.1.29"></a>2019.1.29</h1><blockquote>
+<p>高德地图在Vue中使用方法并在H5页面中应用需要注意几点</p>
+</blockquote>
+<ol>
+<li>高德地图的AMap对象是挂在window下的,所以无法在vue组件中通过this.data去修改vue的私有属性,因为两者的内外this指向不同,可以通过<code>绑定变量指向当前this</code>去解决这个问题.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">// file.vue</span><br><span class="line">&lt;template&gt;&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">const AMap = window.AMap  // 将AMap指向window.AMap</span><br><span class="line"></span><br><span class="line">export defalut&#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        isHere:false,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        // 由于我的项目仅仅使用定位方法 所以用这个方法来获取用户当前位置</span><br><span class="line">        getLocation()&#123;</span><br><span class="line">            const THIS = this</span><br><span class="line">            let mapObj = new AMap.Map(&apos;iCenter&apos;)</span><br><span class="line">            mapObj.plugin(&apos;AMap.Geolocation&apos;,() =&gt; &#123;</span><br><span class="line">              let geolocation = new AMap.Geolocation(&#123;</span><br><span class="line">                enableHighAccuracy:true,//是否使用高精度定位，默认:true</span><br><span class="line">                timeout:10000,          //超过10秒后停止定位，默认：无穷大</span><br><span class="line">                maximumAge:0,           //定位结果缓存0毫秒，默认：0</span><br><span class="line">                convert:true           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true</span><br><span class="line">              &#125;)</span><br><span class="line">              mapObj.addControl(geolocation)</span><br><span class="line">              geolocation.getCurrentPosition()</span><br><span class="line">              AMap.event.addListener(geolocation,&apos;complete&apos;,onComplete)//返回定位信息</span><br><span class="line">              AMap.event.addListener(geolocation,&apos;error&apos;,onError)      //返回定位出错信息</span><br><span class="line">              function onError ( data ) &#123;</span><br><span class="line">                // 定位出错</span><br><span class="line">                console.log(data)</span><br><span class="line">              &#125;</span><br><span class="line">    </span><br><span class="line">              function onComplete ( data ) &#123;</span><br><span class="line">                // 定位成功</span><br><span class="line">                THIS.isHere = true</span><br><span class="line">              &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">&lt;style&gt;&lt;style&gt;</span><br></pre></td></tr></table></figure>
 
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/12/27/zsh 快捷键/" title= zsh快捷键 >
+                    <span>Previous Post</span>
+                    <span>zsh快捷键</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
 
-vue-router在项目初始化过程中,会涉及到配置路由，而在使用vue-router的过程中，需要注意vue的两种路由模式，一个是默认的hash路由，另一个是history路由。
- 1. hash路由在路径后会带有一个#/例如:localhost:8080/#/
- 2. 而history路由则会将路径后的#/去掉,例如:localhost:8080/
+        if (typeof LivereTower === 'function') { return; }
 
-具体配置信息如下:123456789101112在router.js文件中,添加mode:&apos;history&apos...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
-    
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/12/21</span>
-                </div>
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
-    <!-- paginator  -->
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
@@ -230,6 +276,13 @@ vue-router在项目初始化过程中,会涉及到配置路由，而在使用vue
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-1-29"><span class="toc-number">1.</span> <span class="toc-text"><a href="#2019-1-29" class="headerlink" title="2019.1.29"></a>2019.1.29</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

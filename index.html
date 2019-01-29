@@ -162,6 +162,43 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2019/01/29/some notes/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>some notes</span>
+                    </h2>
+                <div class="abstract-content">
+                    
+由于今天更新MWeb找不到mainlib.db这个文件,才发现我记录了一个多月的笔记被删了… 太靠不住了,还是打算用这个来记录一些做h5页面以及学习中的一些问题,但是每次记录过后我都会备份到github.io这个博客来
+
+2019.1.29
+高德地图在Vue中使用方法并在H5页面中应用需要注意几点
+
+
+高德地图的AMap对象是挂在window下的,所以无法在vue组件中通过this.data去修改vue的私有属性,因为两者的内外this指向不同,可以通过绑定变量指向当前this去解决这个问题.
+
+123456789101112131415161718192021222324252627...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 其他>其他</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2019/01/29</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2018/12/27/zsh 快捷键/" >
                     <h2 class="abstract-title">
                         
@@ -485,37 +522,6 @@ JS函数JS数组闭包闭包总是和立即执行函数一起出现，立即执�
                 <!-- date  -->
                 <div class="abstract-date">
                     <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/02/09</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/01/29/自己实现AJAX/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>自己实现AJAX</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-　AJAX是一种实现在不刷新网页的情况下通过XmlHttpRequest()来访问服务器并根据数据的处理结果按照预期的方式对页面进行修改的技术。AJAX即Async JavaScript And Xml 是异步的JS和Xml的技术。
-
-AJAX的用法核心只有4句话1234567891011121314151617let xhr = new XMLHttpRequest()xhr.open()     // open有3个参数 xhr.open('method','path',true)// method 可以是GET POST DELETE PUT 等等 具体参考mdn// path ...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/29</span>
                 </div>
             </div>
         </article>
@@ -971,20 +977,26 @@ AJAX的用法核心只有4句话1234567891011121314151617let xhr = new XMLHttpRe
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-archive"> Total : 26 </div>
     
     <div class="post-archive">
     
     
     
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/29</span><a class="archive-post-title" href= "/2019/01/29/some notes/" >some notes</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
@@ -1037,11 +1049,6 @@ AJAX的用法核心只有4句话1234567891011121314151617let xhr = new XMLHttpRe
     
         <li class="archive-post-item">
             <span class="archive-post-date">01/29</span><a class="archive-post-title" href= "/2018/01/29/自己实现AJAX/" >自己实现AJAX</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/29</span><a class="archive-post-title" href= "/2018/01/29/some notes/" >some notes</a>
         </li>
     
     
@@ -1139,9 +1146,9 @@ AJAX的用法核心只有4句话1234567891011121314151617let xhr = new XMLHttpRe
     
         <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">其他</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     

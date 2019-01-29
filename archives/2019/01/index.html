@@ -149,21 +149,22 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2018/12/21/vue-router/" >
+            <a class="content-show-full" href = "/2019/01/29/some notes/" >
                     <h2 class="abstract-title">
                         
-                        <span>Vue-Router、webpack个人配置</span>
+                        <span>some notes</span>
                     </h2>
                 <div class="abstract-content">
                     
-一些个人在vue构建项目中的router配置和webpack改动,仅在vue-cli 3.0版本下有效
+由于今天更新MWeb找不到mainlib.db这个文件,才发现我记录了一个多月的笔记被删了… 太靠不住了,还是打算用这个来记录一些做h5页面以及学习中的一些问题,但是每次记录过后我都会备份到github.io这个博客来
+
+2019.1.29
+高德地图在Vue中使用方法并在H5页面中应用需要注意几点
 
 
-vue-router在项目初始化过程中,会涉及到配置路由，而在使用vue-router的过程中，需要注意vue的两种路由模式，一个是默认的hash路由，另一个是history路由。
- 1. hash路由在路径后会带有一个#/例如:localhost:8080/#/
- 2. 而history路由则会将路径后的#/去掉,例如:localhost:8080/
+高德地图的AMap对象是挂在window下的,所以无法在vue组件中通过this.data去修改vue的私有属性,因为两者的内外this指向不同,可以通过绑定变量指向当前this去解决这个问题.
 
-具体配置信息如下:123456789101112在router.js文件中,添加mode:&apos;history&apos...
+123456789101112131415161718192021222324252627...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -171,13 +172,13 @@ vue-router在项目初始化过程中,会涉及到配置路由，而在使用vue
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = 其他>其他</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/12/21</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2019/01/29</span>
                 </div>
             </div>
         </article>

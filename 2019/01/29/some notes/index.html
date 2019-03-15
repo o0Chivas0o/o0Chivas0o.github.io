@@ -194,6 +194,12 @@
 </blockquote>
 <p>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// 组件</span><br><span class="line">  &lt;button class=&quot;w-button&quot; :class=&quot;&#123;[`icon-$&#123;iconPosition&#125;`]:true&#125;&quot; @click=&quot;$emit(&apos;click&apos;)&quot;&gt;</span><br><span class="line">        &lt;w-icon v-if=&quot;icon &amp;&amp; !loading&quot; :name=&quot;icon&quot; class=&quot;icon&quot;&gt;&lt;/w-icon&gt;</span><br><span class="line">        &lt;w-icon v-if=&quot;loading&quot; name=&quot;loading&quot; class=&quot;loading icon&quot;&gt;&lt;/w-icon&gt;</span><br><span class="line">        &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">            &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// app.js中测试代码</span><br><span class="line">&#123;</span><br><span class="line">  const Constructor = Vue.extend(Button)</span><br><span class="line">  const vm = new Constructor(&#123;</span><br><span class="line">    propsData:&#123;</span><br><span class="line">      icon:&apos;settings&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  vm.$mount()</span><br><span class="line">  let spy = chai.spy(function () &#123;&#125;)</span><br><span class="line">  </span><br><span class="line">  // vm.$on(&apos;click&apos;) 中的click 对应组件中的$emit(&apos;click&apos;)</span><br><span class="line">  </span><br><span class="line">  vm.$on(&apos;click&apos;,spy)</span><br><span class="line">  </span><br><span class="line">  let button = vm.$el</span><br><span class="line">  button.click()</span><br><span class="line">  expect(spy).to.have.been.called()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>导致如此简单的问题是因为使用了click,将addEventListener中的click事件记混淆了,并且不清楚这里的$on与addEventListener有何区别,最主要的原因是父子间通讯不熟导致的这个原因,特此记录.</p>
+<h1 id="2019-03-01"><a href="#2019-03-01" class="headerlink" title="2019-03-01"></a>2019-03-01</h1><ol>
+<li>Karma（[ˈkɑrmə] 卡玛）是一个测试运行器，它可以呼起浏览器，加载测试脚本，然后运行测试用例</li>
+<li>Mocha（[ˈmoʊkə] 摩卡）是一个单元测试框架/库，它可以用来写测试用例</li>
+<li>Sinon（西农）是一个 spy / stub / mock 库，用以辅助测试（使用后才能理解）</li>
+</ol>
+<p>&gt;</p>
 
     </article>
     <!-- 前后页  -->
@@ -293,7 +299,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-1-29"><span class="toc-number">1.</span> <span class="toc-text"><a href="#2019-1-29" class="headerlink" title="2019.1.29"></a>2019.1.29</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-2-20"><span class="toc-number">2.</span> <span class="toc-text"><a href="#2019-2-20" class="headerlink" title="2019.2.20"></a>2019.2.20</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-1-29"><span class="toc-number">1.</span> <span class="toc-text"><a href="#2019-1-29" class="headerlink" title="2019.1.29"></a>2019.1.29</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-2-20"><span class="toc-number">2.</span> <span class="toc-text"><a href="#2019-2-20" class="headerlink" title="2019.2.20"></a>2019.2.20</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-03-01"><span class="toc-number">3.</span> <span class="toc-text"><a href="#2019-03-01" class="headerlink" title="2019-03-01"></a>2019-03-01</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -662,7 +668,30 @@
     
     
     
-    <div class="total-archive"> Total : 27 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 28 </div>
     
     <div class="post-archive">
     
@@ -671,6 +700,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href= "/2019/03/15/记录一些读书笔记/" >读书笔记</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -832,11 +866,11 @@
     
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
@@ -845,6 +879,8 @@
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">read</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">

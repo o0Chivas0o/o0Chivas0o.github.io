@@ -149,6 +149,50 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2018/11/19/ng、vue、react/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>ng、vue、react</span>
+                    </h2>
+                <div class="abstract-content">
+                    
+Ng 脏值检查
+Vue 数据劫持
+
+脏值检查(angular.js实现双向绑定的基本原理):
+
+无法检测数据是否发生改变,必须通过一些特定的条件,在条件执行的时候,进行检测,如果数据改变,就执行更新方法
+
+例子:要检测公交车上的人数是否发生变化?
+
+setInterval
+在公交车关门时,就可以检测在公交车上的人数是否发生变化
+
+数据劫持:(Object.defineProperty)
+???
+观察者模式(发布订阅模式)例子:
+
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/11/19</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2018/05/17/微信小程序CSS命名规范/" >
                     <h2 class="abstract-title">
                         
@@ -379,50 +423,6 @@ DOM可以将任何HTML或XML文档秒回成一个由多层节点构成的结构�
 
 
 以一段HTML为例：123456...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/10</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/01/10/冒泡与捕获/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>冒泡与捕获</span>
-                    </h2>
-                <div class="abstract-content">
-                    冒泡与捕获冒泡与捕获是DOM事件的一种事件机制，也是一种事件流。
-基础知识1.操作系统最先知道鼠标点击，浏览器次之，因为操作系统是权限最高的软件。
-2.在一个页面里面，子元素被点击，意味着父元素也被点击了。
-
-图中 不论我的鼠标放在红色或绿色的div中，只要点击都会显示最外层div也同时被点击了。
-
-3.如果我同时监听了 child 和 parent，那么谁先通知我？这是个问题。
-捕获阶段
-parent 先通知，child 后通知。
-
-如图，输出结果依次为先点击红色区域，再点击绿色区域。
-冒泡阶段
-child 先通知，parent 后通知
-
-onclick 就是在冒泡阶段被通知
-
-IE ...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -860,7 +860,30 @@ IE ...
     
     
     
-    <div class="total-archive"> Total : 27 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 28 </div>
     
     <div class="post-archive">
     
@@ -869,6 +892,11 @@ IE ...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href= "/2019/03/15/记录一些读书笔记/" >读书笔记</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1030,11 +1058,11 @@ IE ...
     
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
@@ -1043,6 +1071,8 @@ IE ...
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">read</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        lzy的Bbbblog
+        Vue的一些东西 · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >lzy的Bbbblog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Vue的一些东西</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>lzy的Bbbblog</a>
 </header>
@@ -62,21 +73,43 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            Vue的一些东西
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2019/04/09</span>
+            </div>
         
     </div>
 </div>
@@ -144,96 +177,58 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/01/03/JS数据类型/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>JS数据类型(一)</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-JS有7种数据类型，其中又分基本类型(简单类型)和复杂类型，复杂类型由基本类型组成。
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>编写轮子的过程中遇到的问题与总结,<br>轮子项目地址:<a href="https://github.com/o0Chivas0o/my-wheel" target="_blank" rel="noopener">https://github.com/o0Chivas0o/my-wheel</a></p>
+</blockquote>
+<ol>
+<li><p>Vue组件中Props的变量接受类型可以是指定单个或多个类型.props具体属性可查看vue官方文档:<a href="https://cn.vuejs.org/v2/guide/components-props.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/components-props.html</a></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//  props有3种写法:</span><br><span class="line">1.</span><br><span class="line">props:&#123;</span><br><span class="line">    xxx:[Number,String]</span><br><span class="line">&#125;</span><br><span class="line">2.</span><br><span class="line">props:&#123;</span><br><span class="line">    xxx:&#123;</span><br><span class="line">        type:[String,Number]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">3.</span><br><span class="line">props:[&apos;xxx&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组件中name属性建议规范命名,便于调试</p>
+</li>
+</ol>
 
-Number类型
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2019/03/15/记录一些读书笔记/" title= 读书笔记 >
+                    <span>Previous Post</span>
+                    <span>读书笔记</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
 
+        if (typeof LivereTower === 'function') { return; }
 
-二进制
-八进制
-十进制
-十六进制
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
 
-
-
-
-一般以0b开头
-一般以0开头
-1 , 1.1 , .1
-以0X开头
-
-
-
-12345js中一般可以.1表示1.1,可以用到科学计数法。1 + .1 === 1 + 1.1// 1.11.23e2 // 123
-String类型12&apos;你好&apos;,&quot;你好&quot;,&apos;&apos;,&quot;&quot;,&apos; &apos;,&quot; &quot;,都是字符串。空字符串的length属性为0...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
-    
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/03</span>
-                </div>
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/26/函数的声明方法/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>函数的声明方法</span>
-                    </h2>
-                <div class="abstract-content">
-                    函数的声明方法在JavaScript中函数一共有三种声明方法。
-function()命令)(声明一个具名函数)123function 函数名(e)&#123;   console.log(e)&#125;
-其中function命令声明的代码区块，就是一个函数。function后的就是函数名，如果一个函数没有函数名就是匿名函数。函数名之后就是一对括号，用来传递函数的参数.函数体放在大括号里面。这种声明方式，函数名必须要写，如果不写的话无法调用。
+    <!--PC版-->
+
+    <!--PC版-->
 
 
-函数表达式(变量赋值)12345function ()&#123;&#125; // 直接声明匿名函数会报错var Fn = function...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/26</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/tags/JavaScript/">#PREV</a><a class="page-number" href="/tags/JavaScript/">1</a><span class="page-number current">2</span>
-    </nav>
     
 </main>
             <!-- profile -->
@@ -281,6 +276,13 @@ function()命令)(声明一个具名函数)123function 函数名(e)&#123;   cons
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

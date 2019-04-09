@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-09T07:03:43.376Z</updated>
+  <updated>2019-04-09T07:16:20.161Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/04/09/Vue%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/"/>
     <id>http://yoursite.com/2019/04/09/Vue的一些东西/</id>
     <published>2019-04-09T06:42:38.000Z</published>
-    <updated>2019-04-09T07:03:43.376Z</updated>
+    <updated>2019-04-09T07:16:20.161Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>编写轮子的过程中遇到的问题与总结,<br>轮子项目地址:<a href="https://github.com/o0Chivas0o/my-wheel" target="_blank" rel="noopener">https://github.com/o0Chivas0o/my-wheel</a></p></blockquote><ol><li><p>Vue组件中Props的变量接受类型可以是指定单个或多个类型.props具体属性可查看vue官方文档:<a href="https://cn.vuejs.org/v2/guide/components-props.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/components-props.html</a></p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//  props有3种写法:</span><br><span class="line">1.</span><br><span class="line">props:&#123;</span><br><span class="line">    xxx:[Number,String]</span><br><span class="line">&#125;</span><br><span class="line">2.</span><br><span class="line">props:&#123;</span><br><span class="line">    xxx:&#123;</span><br><span class="line">        type:[String,Number]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">3.</span><br><span class="line">props:[&apos;xxx&apos;]</span><br></pre></td></tr></table></figure></li><li><p>组件中name属性建议规范命名,便于调试</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>编写轮子的过程中遇到的问题与总结,<br>轮子项目地址:<a href="https://github.com/o0Chivas0o/my-wheel" target="_blank" rel="noopener">https://github.com/o0Chivas0o/my-wheel</a></p></blockquote><ol><li><p>Vue组件中Props的变量接受类型可以是指定单个或多个类型.props具体属性可查看vue官方文档:<a href="https://cn.vuejs.org/v2/guide/components-props.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/components-props.html</a></p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//  props有2种写法:</span><br><span class="line">1.</span><br><span class="line">props:&#123;</span><br><span class="line">    xxx:&#123;</span><br><span class="line">        type:[String,Number]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">2.</span><br><span class="line">props:[&apos;xxx&apos;]</span><br></pre></td></tr></table></figure></li><li><p>组件中name属性建议规范命名,便于调试</p></li></ol>]]></content>
     
     <summary type="html">
     

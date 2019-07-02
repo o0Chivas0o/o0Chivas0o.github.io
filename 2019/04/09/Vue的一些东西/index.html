@@ -209,7 +209,15 @@
 <li><p>css中<code>margin-left:auto</code>可将元素放置在最右</p>
 </li>
 <li><p>porps 与 data的区别:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">prop:需要用户传值</span><br><span class="line">data:不需要用户传值</span><br><span class="line"></span><br><span class="line">function fn(prop1,prop2)&#123;</span><br><span class="line">    var data1 = prop1</span><br><span class="line">    data1 = 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">prop:需要用户传值</span><br><span class="line">data:不需要用户传值</span><br><span class="line"></span><br><span class="line">function fn(prop1,prop2)&#123;</span><br><span class="line">    var data1 = prop1</span><br><span class="line">    data1 = 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>通过<code>provide</code>和<code>inject</code>API完成<code>eventBus</code></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//top-level</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">export default&#123;</span><br><span class="line">...</span><br><span class="line">data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        eventBus:new Vue(),</span><br><span class="line">        yyy:false</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">provide:&#123;</span><br><span class="line">        eventBus:this.eventBus</span><br><span class="line">    &#125;,</span><br><span class="line">mounted()&#123;</span><br><span class="line">        this.eventBus.$emit(&apos;update:xxx&apos;,this.yyy)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//rest of level</span><br><span class="line">export default&#123;</span><br><span class="line">...</span><br><span class="line">inject:[&apos;eventBus&apos;],</span><br><span class="line">created()&#123;</span><br><span class="line">        this.eventBus.$on(&apos;update:xxx&apos;,()=&gt;&#123;</span><br><span class="line">        // 通过回调来改变值或进行其他操作</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组件生成过程中使用<code>mounted</code>钩子函数进行后续操作,因为<code>created</code>并不能确定组件是否完全生成</p>
+</li>
 </ol>
 
     </article>
@@ -884,17 +892,17 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">其他</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     

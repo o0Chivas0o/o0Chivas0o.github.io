@@ -219,6 +219,10 @@
 <li><p>组件生成过程中使用<code>mounted</code>钩子函数进行后续操作,因为<code>created</code>并不能确定组件是否完全生成</p>
 </li>
 </ol>
+<p>—2019-07-03—</p>
+<ol>
+<li><code>this.$children</code>的操作,只能获取到组件内的 <strong><em>子组件</em></strong> ,并不能获取到组件内的 <strong><em>子元素</em></strong></li>
+</ol>
 
     </article>
     <!-- 前后页  -->
@@ -325,18 +329,6 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -900,9 +892,9 @@
     
         <span class="sidebar-tag-name"><a href= "#">其他</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     

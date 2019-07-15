@@ -244,7 +244,12 @@
 </ul>
 <p><br></p>
 <h3 id="—2019-07-09—"><a href="#—2019-07-09—" class="headerlink" title="—2019-07-09—"></a>—2019-07-09—</h3><ul>
-<li>在编写某些标签上的自定义属性,如果用到拼接字符串,需用双引号包起来,如:  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;use :xlink:href=&quot;`#i-$&#123;name&#125;`&quot;&gt;&lt;/use&gt;</span><br><span class="line">// 在页面渲染时,通常都需要一些工具或者api进行转义,通常是用正则来匹配引号中的东西去渲染,如果不这样写会造成转义的问题</span><br></pre></td></tr></table></figure></li>
+<li>在编写某些标签上的自定义属性,如果用到拼接字符串,需用双引号包起来,如:  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;use :xlink:href=&quot;`#i-$&#123;name&#125;`&quot;&gt;&lt;/use&gt;</span><br><span class="line"> // 在页面渲染时,通常都需要一些工具或者api进行转义,通常是用正则来匹配引号中的东西去渲染,如果不这样写会造成转义的问题</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="—2019-07-15—"><a href="#—2019-07-15—" class="headerlink" title="—2019-07-15—"></a>—2019-07-15—</h3><ul>
+<li>递归组件的几种写法:  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">  //以cascader组件为例子</span><br><span class="line">  </span><br><span class="line">  // 1. 以组件中name为标识,通过组件name递归引用自身</span><br><span class="line">  &lt;template&gt;</span><br><span class="line">      &lt;div class=&quot;cascader-item&quot;&gt;</span><br><span class="line">           &#123;&#123;sourceItem.name&#125;&#125;</span><br><span class="line">           &lt;w-cascader-item</span><br><span class="line">           v-if=&quot;sourceItem.children&quot;</span><br><span class="line">           v-for=&quot;item in sourceItem.children&quot;</span><br><span class="line">           :sourceItem=&quot;item&quot;&gt;&lt;/w-cascader-item&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">  &lt;/template&gt;</span><br><span class="line">  </span><br><span class="line">  export default  &#123;</span><br><span class="line">      name: &apos;WCascaderItem&apos;,</span><br><span class="line">      props: &#123;</span><br><span class="line">          sourceItem: &#123;type: Object&#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">  // 2. 以下形式</span><br><span class="line">  &lt;template&gt;</span><br><span class="line">      &lt;div class=&quot;cascader-item&quot;&gt;</span><br><span class="line">           &#123;&#123;sourceItem.name&#125;&#125;</span><br><span class="line">           &lt;w-cascader-item</span><br><span class="line">           v-if=&quot;sourceItem.children&quot;</span><br><span class="line">           v-for=&quot;item in sourceItem.children&quot;</span><br><span class="line">           :sourceItem=&quot;item&quot;&gt;&lt;/w-cascader-item&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">  &lt;/template&gt;</span><br><span class="line">  </span><br><span class="line">  const WCascadearItem = &#123;</span><br><span class="line">      name: &apos;WCascaderItem&apos;,</span><br><span class="line">      components:&#123;WCascadearItem&#125;,</span><br><span class="line">      props: &#123;sourceItem: &#123;type: Object&#125;&#125;,</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  export default WCascadearItem</span><br><span class="line">  </span><br><span class="line">  // 上述两种形式都需要在父组件中 import 该组件, 并添加components属性使用该组件.</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
     </article>
@@ -338,7 +343,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-04-09—"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x2014;2019-04-09&#x2014;" class="headerlink" title="&#x2014;2019-04-09&#x2014;"></a>&#x2014;2019-04-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-06-17—"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x2014;2019-06-17&#x2014;" class="headerlink" title="&#x2014;2019-06-17&#x2014;"></a>&#x2014;2019-06-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-02—"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x2014;2019-07-02&#x2014;" class="headerlink" title="&#x2014;2019-07-02&#x2014;"></a>&#x2014;2019-07-02&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-03—"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x2014;2019-07-03&#x2014;" class="headerlink" title="&#x2014;2019-07-03&#x2014;"></a>&#x2014;2019-07-03&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-04—"><span class="toc-number">5.</span> <span class="toc-text"><a href="#&#x2014;2019-07-04&#x2014;" class="headerlink" title="&#x2014;2019-07-04&#x2014;"></a>&#x2014;2019-07-04&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-08—"><span class="toc-number">6.</span> <span class="toc-text"><a href="#&#x2014;2019-07-08&#x2014;" class="headerlink" title="&#x2014;2019-07-08&#x2014;"></a>&#x2014;2019-07-08&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-09—"><span class="toc-number">7.</span> <span class="toc-text"><a href="#&#x2014;2019-07-09&#x2014;" class="headerlink" title="&#x2014;2019-07-09&#x2014;"></a>&#x2014;2019-07-09&#x2014;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-04-09—"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x2014;2019-04-09&#x2014;" class="headerlink" title="&#x2014;2019-04-09&#x2014;"></a>&#x2014;2019-04-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-06-17—"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x2014;2019-06-17&#x2014;" class="headerlink" title="&#x2014;2019-06-17&#x2014;"></a>&#x2014;2019-06-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-02—"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x2014;2019-07-02&#x2014;" class="headerlink" title="&#x2014;2019-07-02&#x2014;"></a>&#x2014;2019-07-02&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-03—"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x2014;2019-07-03&#x2014;" class="headerlink" title="&#x2014;2019-07-03&#x2014;"></a>&#x2014;2019-07-03&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-04—"><span class="toc-number">5.</span> <span class="toc-text"><a href="#&#x2014;2019-07-04&#x2014;" class="headerlink" title="&#x2014;2019-07-04&#x2014;"></a>&#x2014;2019-07-04&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-08—"><span class="toc-number">6.</span> <span class="toc-text"><a href="#&#x2014;2019-07-08&#x2014;" class="headerlink" title="&#x2014;2019-07-08&#x2014;"></a>&#x2014;2019-07-08&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-09—"><span class="toc-number">7.</span> <span class="toc-text"><a href="#&#x2014;2019-07-09&#x2014;" class="headerlink" title="&#x2014;2019-07-09&#x2014;"></a>&#x2014;2019-07-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-15—"><span class="toc-number">8.</span> <span class="toc-text"><a href="#&#x2014;2019-07-15&#x2014;" class="headerlink" title="&#x2014;2019-07-15&#x2014;"></a>&#x2014;2019-07-15&#x2014;</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -352,6 +357,8 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -891,12 +898,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/浅谈HTML5元素/" >浅谈HTML5元素</a>
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/如何阅读HTML5规范文档/" >如何阅读HTML5规范文档</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/如何阅读HTML5规范文档/" >如何阅读HTML5规范文档</a>
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/浅谈HTML5元素/" >浅谈HTML5元素</a>
         </li>
     
     
@@ -919,17 +926,17 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">其他</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     

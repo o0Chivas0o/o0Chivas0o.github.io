@@ -71,9 +71,9 @@
     <link href="http://yoursite.com/2019/02/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9B%E5%B7%A5%E4%BD%9C%E4%B8%AD%E4%BC%9A%E4%BD%BF%E7%94%A8%E6%88%96%E5%B0%86%E4%BD%BF%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7/"/>
     <id>http://yoursite.com/2019/02/18/记录一些工作中会使用或将使用的工具/</id>
     <published>2019-02-18T02:36:24.000Z</published>
-    <updated>2019-02-18T03:05:38.713Z</updated>
+    <updated>2019-08-19T02:06:55.086Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p> 记录一些工作中或者在浏览论坛中看到的一些好玩有用的工具。</p></blockquote><ol><li>vue-slideout:<a href="https://github.com/vouill/vue-slideout，作为" target="_blank" rel="noopener">https://github.com/vouill/vue-slideout，作为</a></li><li>slideout:</li></ol>]]></content>
+    <content type="html"><![CDATA[<blockquote><p> 记录一些工作中或者在浏览论坛中看到的一些好玩有用的工具。</p></blockquote><ol><li>vue-slideout:<a href="https://github.com/vouill/vue-slideout，作为" target="_blank" rel="noopener">https://github.com/vouill/vue-slideout，作为</a></li><li>slideout:</li></ol><h3 id="—2019-08-18—"><a href="#—2019-08-18—" class="headerlink" title="—2019-08-18—"></a>—2019-08-18—</h3><blockquote><p>input placeholder 在ios垂直不居中 </p><pre><code>input::-webkit-input-placeholder {  vertical-align: center;  line-height: normal;  color: #aab2bd; //字体颜色  font-size: 12px; // 字体大小}</code></pre></blockquote>]]></content>
     
     <summary type="html">
     

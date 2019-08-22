@@ -291,6 +291,9 @@
 <li>v-if让元素不出现在页面,而v-show则元素一直在页面.</li>
 <li>v-if 为 true 时 元素 create 当 v-if 为false 时 元素 destory,而v-show 只改变style,并没有生命周期</li>
 </ol>
+<h3 id="—2019-08-22—"><a href="#—2019-08-22—" class="headerlink" title="—2019-08-22—"></a>—2019-08-22—</h3><blockquote>
+<p>浏览器会合并css属性,例如:<br>el.style.height = 0<br>el.style.height = <code>120px</code><br>这样浏览器会认为你要的是120px的高度,在vue中使用动画钩子函数,会使动画失效<br>此时加上 el.getBoundingClientRect()去强制计算高度<br>这样动画就不会失效</p>
+</blockquote>
 
     </article>
     <!-- 前后页  -->
@@ -383,7 +386,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-04-09—"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x2014;2019-04-09&#x2014;" class="headerlink" title="&#x2014;2019-04-09&#x2014;"></a>&#x2014;2019-04-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-06-17—"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x2014;2019-06-17&#x2014;" class="headerlink" title="&#x2014;2019-06-17&#x2014;"></a>&#x2014;2019-06-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-02—"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x2014;2019-07-02&#x2014;" class="headerlink" title="&#x2014;2019-07-02&#x2014;"></a>&#x2014;2019-07-02&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-03—"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x2014;2019-07-03&#x2014;" class="headerlink" title="&#x2014;2019-07-03&#x2014;"></a>&#x2014;2019-07-03&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-04—"><span class="toc-number">5.</span> <span class="toc-text"><a href="#&#x2014;2019-07-04&#x2014;" class="headerlink" title="&#x2014;2019-07-04&#x2014;"></a>&#x2014;2019-07-04&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-08—"><span class="toc-number">6.</span> <span class="toc-text"><a href="#&#x2014;2019-07-08&#x2014;" class="headerlink" title="&#x2014;2019-07-08&#x2014;"></a>&#x2014;2019-07-08&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-09—"><span class="toc-number">7.</span> <span class="toc-text"><a href="#&#x2014;2019-07-09&#x2014;" class="headerlink" title="&#x2014;2019-07-09&#x2014;"></a>&#x2014;2019-07-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-15—"><span class="toc-number">8.</span> <span class="toc-text"><a href="#&#x2014;2019-07-15&#x2014;" class="headerlink" title="&#x2014;2019-07-15&#x2014;"></a>&#x2014;2019-07-15&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-17—"><span class="toc-number">9.</span> <span class="toc-text"><a href="#&#x2014;2019-07-17&#x2014;" class="headerlink" title="&#x2014;2019-07-17&#x2014;"></a>&#x2014;2019-07-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-19—"><span class="toc-number">10.</span> <span class="toc-text"><a href="#&#x2014;2019-07-19&#x2014;" class="headerlink" title="&#x2014;2019-07-19&#x2014;"></a>&#x2014;2019-07-19&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-08-20—"><span class="toc-number">11.</span> <span class="toc-text"><a href="#&#x2014;2019-08-20&#x2014;" class="headerlink" title="&#x2014;2019-08-20&#x2014;"></a>&#x2014;2019-08-20&#x2014;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-04-09—"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x2014;2019-04-09&#x2014;" class="headerlink" title="&#x2014;2019-04-09&#x2014;"></a>&#x2014;2019-04-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-06-17—"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x2014;2019-06-17&#x2014;" class="headerlink" title="&#x2014;2019-06-17&#x2014;"></a>&#x2014;2019-06-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-02—"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x2014;2019-07-02&#x2014;" class="headerlink" title="&#x2014;2019-07-02&#x2014;"></a>&#x2014;2019-07-02&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-03—"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x2014;2019-07-03&#x2014;" class="headerlink" title="&#x2014;2019-07-03&#x2014;"></a>&#x2014;2019-07-03&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-04—"><span class="toc-number">5.</span> <span class="toc-text"><a href="#&#x2014;2019-07-04&#x2014;" class="headerlink" title="&#x2014;2019-07-04&#x2014;"></a>&#x2014;2019-07-04&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-08—"><span class="toc-number">6.</span> <span class="toc-text"><a href="#&#x2014;2019-07-08&#x2014;" class="headerlink" title="&#x2014;2019-07-08&#x2014;"></a>&#x2014;2019-07-08&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-09—"><span class="toc-number">7.</span> <span class="toc-text"><a href="#&#x2014;2019-07-09&#x2014;" class="headerlink" title="&#x2014;2019-07-09&#x2014;"></a>&#x2014;2019-07-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-15—"><span class="toc-number">8.</span> <span class="toc-text"><a href="#&#x2014;2019-07-15&#x2014;" class="headerlink" title="&#x2014;2019-07-15&#x2014;"></a>&#x2014;2019-07-15&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-17—"><span class="toc-number">9.</span> <span class="toc-text"><a href="#&#x2014;2019-07-17&#x2014;" class="headerlink" title="&#x2014;2019-07-17&#x2014;"></a>&#x2014;2019-07-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-19—"><span class="toc-number">10.</span> <span class="toc-text"><a href="#&#x2014;2019-07-19&#x2014;" class="headerlink" title="&#x2014;2019-07-19&#x2014;"></a>&#x2014;2019-07-19&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-08-20—"><span class="toc-number">11.</span> <span class="toc-text"><a href="#&#x2014;2019-08-20&#x2014;" class="headerlink" title="&#x2014;2019-08-20&#x2014;"></a>&#x2014;2019-08-20&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-08-22—"><span class="toc-number">12.</span> <span class="toc-text"><a href="#&#x2014;2019-08-22&#x2014;" class="headerlink" title="&#x2014;2019-08-22&#x2014;"></a>&#x2014;2019-08-22&#x2014;</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -397,50 +400,6 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

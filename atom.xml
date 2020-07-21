@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-21T14:36:18.235Z</updated>
+  <updated>2020-07-21T14:57:01.036Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浏览器工作原理</title>
+    <link href="http://yoursite.com/2020/07/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
+    <id>http://yoursite.com/2020/07/21/浏览器工作原理/</id>
+    <published>2020-07-21T14:37:38.000Z</published>
+    <updated>2020-07-21T14:57:01.036Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近在极客时间学习<code>&lt;浏览器工作原理&gt;</code>一课的一些笔记</p></blockquote><h2 id="第一课"><a href="#第一课" class="headerlink" title="第一课"></a>第一课</h2><ol><li><p>浏览器进化的三个阶段</p><ol><li>应用程序化</li><li>web应用移动化</li><li>web操作系统化</li></ol></li><li><p>了解浏览器工作原理的两大优势</p><ol><li>准确评估项目的可行性(需多语言基础,及后端知识)</li><li>更高纬度审视页面,如:<ol><li>用户请求首屏加载慢<ol><li>ssr技术 , 如Airbnb主</li><li>缓存(cache-control) , 优化接口请求次数 , 打包文件体积优化(gzip)</li></ol></li><li>操作dom某个功能元素,如button反应迟钝<ol><li>优化该元素功能函数的内部逻辑(减少console.log()、优化冗余逻辑)</li><li>审视当前页面的性能消耗 , 如减少监听器 或 通过eventhub实现发布订阅等</li></ol></li><li>web中动画没有60帧<ol><li>??? 没遇到过做动画的情况</li></ol></li></ol></li></ol></li><li><p>首屏加载问题</p><ol><li>DNS, HTTP解析</li><li>DOM 解析</li><li>CSS 阻塞</li><li><p>JS 阻塞</p><p><em>以上任意一步产生问题,均将造成加载延迟</em></p></li></ol></li></ol><hr><h2 id="第二课"><a href="#第二课" class="headerlink" title="第二课"></a>第二课</h2><blockquote><p>打开浏览器,如 <code>chorme</code> 会有4个进程</p></blockquote><ol><li><p>进程和线程的四大特点 :</p><ol><li>进程 中任意线程出错 , 导致整个 进程 崩溃</li><li><code>线程</code> 之间共享 <code>进程</code> 中的数据</li><li>当一个进程关闭之后,操作系统会回收进程所占用的内存</li><li>进程之间的内容相互隔离</li></ol></li><li><p>单进程浏览器缺点:</p><ol><li>不稳定<ol><li>一个插件会引起整个浏览器崩溃</li><li>复杂的JavaScript代码也会引起浏览器崩溃</li></ol></li><li>不流畅<ol><li>如代码中有无限循环的判断条件,单进程会独占所有内存来执行</li></ol></li><li>不安全<ol><li>插件可以通过 c/c++来编写,即 可以访问操作系统人以资源</li><li>页面脚本则可通过浏览器漏洞获取系统权限(盗号)</li></ol></li></ol></li><li><p>多线程浏览器解决以上问题</p><ol><li>不稳定<ol><li>进程相互隔离,不会导致浏览器崩溃</li></ol></li><li>不流畅<ol><li>即使 js文件 渲染阻塞也仅仅影响 <code>当前</code> 页面,同时内存泄露也只需关闭当前页面便能垃圾回收</li></ol></li><li>不安全 <ol><li>多进程有额外的安全沙箱, chorme 吧插件进程所在安全沙箱内(safe sandbox)</li></ol></li></ol></li><li><p>最新浏览器具备5个进程</p><ol><li>浏览器主进程<ol><li>界面显示,用户交互,子进程管理,存储等</li></ol></li><li>GPU进程<ol><li>实现 3D CSS 效果</li></ol></li><li>网络进程<ol><li>负责网络资源加载</li></ol></li><li>渲染进程<ol><li>HTML,CSS,JS文件的渲染</li></ol></li><li><p>插件进程</p><ol><li>运行插件</li></ol><p><em>打开浏览器至少有以上4个进程(除插件)</em></p></li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;最近在极客时间学习&lt;code&gt;&amp;lt;浏览器工作原理&amp;gt;&lt;/code&gt;一课的一些笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;第一课&quot;&gt;&lt;a href=&quot;#第一课&quot; class=&quot;headerlink&quot; title=&quot;第一课&quot;&gt;&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="浏览器工作原理" scheme="http://yoursite.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue的一些东西</title>
@@ -32,22 +58,6 @@
         &lt;blockquote&gt;
 &lt;p&gt;编写轮子的过程中遇到的问题与总结,&lt;br&gt;轮子项目地址:&lt;a href=&quot;https://github.com/o0Chivas0o/my-wheel&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.c
       
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue的一些东西</title>
-    <link href="http://yoursite.com/2019/04/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
-    <id>http://yoursite.com/2019/04/09/浏览器工作原理/</id>
-    <published>2019-04-09T06:42:38.000Z</published>
-    <updated>2020-07-21T14:28:51.502Z</updated>
-    
-    <summary type="html">
     
     </summary>
     

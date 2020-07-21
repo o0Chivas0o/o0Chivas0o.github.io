@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        读书笔记 · lzy的Bbbblog
+        浏览器工作原理 · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -63,7 +63,7 @@
                 <a href="/" >lzy的Bbbblog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">读书笔记</a>
+                <a href="#" class="post-name">浏览器工作原理</a>
             </div>
     </div>
     
@@ -84,7 +84,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            读书笔记
+            浏览器工作原理
             <!-- 404 -->
             
         </h1>
@@ -102,13 +102,13 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = read>read</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = 浏览器工作原理>浏览器工作原理</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2019/03/15</span>
+                <span class="post-intro-time">2020/07/21</span>
             </div>
         
     </div>
@@ -180,25 +180,133 @@
             <main class="main post-page">
     <article class="article-entry">
         <blockquote>
-<p>先预留出来此篇博客</p>
+<p>最近在极客时间学习<code>&lt;浏览器工作原理&gt;</code>一课的一些笔记</p>
 </blockquote>
+<h2 id="第一课"><a href="#第一课" class="headerlink" title="第一课"></a>第一课</h2><ol>
+<li><p>浏览器进化的三个阶段</p>
+<ol>
+<li>应用程序化</li>
+<li>web应用移动化</li>
+<li>web操作系统化</li>
+</ol>
+</li>
+<li><p>了解浏览器工作原理的两大优势</p>
+<ol>
+<li>准确评估项目的可行性(需多语言基础,及后端知识)</li>
+<li>更高纬度审视页面,如:<ol>
+<li>用户请求首屏加载慢<ol>
+<li>ssr技术 , 如Airbnb主</li>
+<li>缓存(cache-control) , 优化接口请求次数 , 打包文件体积优化(gzip)</li>
+</ol>
+</li>
+<li>操作dom某个功能元素,如button反应迟钝<ol>
+<li>优化该元素功能函数的内部逻辑(减少console.log()、优化冗余逻辑)</li>
+<li>审视当前页面的性能消耗 , 如减少监听器 或 通过eventhub实现发布订阅等</li>
+</ol>
+</li>
+<li>web中动画没有60帧<ol>
+<li>??? 没遇到过做动画的情况</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>首屏加载问题</p>
+<ol>
+<li>DNS, HTTP解析</li>
+<li>DOM 解析</li>
+<li>CSS 阻塞</li>
+<li><p>JS 阻塞</p>
+<p><em>以上任意一步产生问题,均将造成加载延迟</em></p>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="第二课"><a href="#第二课" class="headerlink" title="第二课"></a>第二课</h2><blockquote>
+<p>打开浏览器,如 <code>chorme</code> 会有4个进程</p>
+</blockquote>
+<ol>
+<li><p>进程和线程的四大特点 :</p>
+<ol>
+<li>进程 中任意线程出错 , 导致整个 进程 崩溃</li>
+<li><code>线程</code> 之间共享 <code>进程</code> 中的数据</li>
+<li>当一个进程关闭之后,操作系统会回收进程所占用的内存</li>
+<li>进程之间的内容相互隔离</li>
+</ol>
+</li>
+<li><p>单进程浏览器缺点:</p>
+<ol>
+<li>不稳定<ol>
+<li>一个插件会引起整个浏览器崩溃</li>
+<li>复杂的JavaScript代码也会引起浏览器崩溃</li>
+</ol>
+</li>
+<li>不流畅<ol>
+<li>如代码中有无限循环的判断条件,单进程会独占所有内存来执行</li>
+</ol>
+</li>
+<li>不安全<ol>
+<li>插件可以通过 c/c++来编写,即 可以访问操作系统人以资源</li>
+<li>页面脚本则可通过浏览器漏洞获取系统权限(盗号)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>多线程浏览器解决以上问题</p>
+<ol>
+<li>不稳定<ol>
+<li>进程相互隔离,不会导致浏览器崩溃</li>
+</ol>
+</li>
+<li>不流畅<ol>
+<li>即使 js文件 渲染阻塞也仅仅影响 <code>当前</code> 页面,同时内存泄露也只需关闭当前页面便能垃圾回收</li>
+</ol>
+</li>
+<li>不安全 <ol>
+<li>多进程有额外的安全沙箱, chorme 吧插件进程所在安全沙箱内(safe sandbox)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>最新浏览器具备5个进程</p>
+<ol>
+<li>浏览器主进程<ol>
+<li>界面显示,用户交互,子进程管理,存储等</li>
+</ol>
+</li>
+<li>GPU进程<ol>
+<li>实现 3D CSS 效果</li>
+</ol>
+</li>
+<li>网络进程<ol>
+<li>负责网络资源加载</li>
+</ol>
+</li>
+<li>渲染进程<ol>
+<li>HTML,CSS,JS文件的渲染</li>
+</ol>
+</li>
+<li><p>插件进程</p>
+<ol>
+<li>运行插件</li>
+</ol>
+<p><em>打开浏览器至少有以上4个进程(除插件)</em></p>
+</li>
+</ol>
+</li>
+</ol>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2019/04/09/Vue的一些东西/" title= Vue的一些东西 >
-                    <span>Next Post</span>
-                    <span>Vue的一些东西</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2019/02/18/记录一些工作中会使用或将使用的工具/" title= 记录一些工作中会使用或将使用的工具 >
+                <a href= "/2019/04/09/Vue的一些东西/" title= Vue的一些东西 >
                     <span>Previous Post</span>
-                    <span>记录一些工作中会使用或将使用的工具</span>
+                    <span>Vue的一些东西</span>
                 </a>
             </li>
         
@@ -281,7 +389,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一课"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E00;&#x8BFE;" class="headerlink" title="&#x7B2C;&#x4E00;&#x8BFE;"></a>&#x7B2C;&#x4E00;&#x8BFE;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二课"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E8C;&#x8BFE;" class="headerlink" title="&#x7B2C;&#x4E8C;&#x8BFE;"></a>&#x7B2C;&#x4E8C;&#x8BFE;</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>

@@ -279,21 +279,24 @@
 <p>module.export = {<br>  …<br>  css:{</p>
 <pre><code>includePath:[path.join(__dirname,&apos;src&apos;)]
 </code></pre><p>  }<br>  …<br>}</p>
-<p><strong>dirname 是当前项目的目录<br>src 是引用文件所在目录<br>不用`${</strong>dirname}/src`写法,是因为windows下,路径可能是’//‘这种<br>```</p>
+<p><strong>dirname 是当前项目的目录<br>src 是引用文件所在目录<br>不用`${</strong>dirname}/src`写法,是因为windows下,路径可能是’//‘这种</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    </span><br><span class="line">###  ---2019-08-20---</span><br><span class="line">&gt; v-if 和 v-show的区别</span><br><span class="line"></span><br><span class="line">1. v-if让元素不出现在页面,而v-show则元素一直在页面.</span><br><span class="line">2. v-if 为 true 时 元素 create 当 v-if 为false 时 元素 destory,而v-show 只改变style,并没有生命周期</span><br><span class="line">    </span><br><span class="line">### ---2019-08-22---</span><br><span class="line">&gt; 浏览器会合并css属性,例如:</span><br><span class="line">&gt; el.style.height = 0 </span><br><span class="line">&gt; el.style.height = `120px`</span><br><span class="line">&gt; 这样浏览器会认为你要的是120px的高度,在vue中使用动画钩子函数,会使动画失效</span><br><span class="line">&gt; 此时加上 el.getBoundingClientRect()去强制计算高度</span><br><span class="line">&gt; 这样动画就不会失效</span><br><span class="line"></span><br><span class="line">### ---2019-08-26---</span><br><span class="line">&gt; 表单验证有两种,及时验证,异步验证,参考`validate.js`</span><br><span class="line"></span><br><span class="line">1. 及时验证</span><br><span class="line">    1. 邮箱正则 `/^.+@.+$/`</span><br><span class="line">    2. 手机 `/\d&#123;10&#125;` 或 `/\d&#123;11&#125;`</span><br><span class="line">2. 异步验证</span><br><span class="line">    1. 需要用到查询数据的</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&gt; 一个关于引用类型的知识点 具体参考:https://segmentfault.com/a/1190000006769676</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="—2019-08-20—"><a href="#—2019-08-20—" class="headerlink" title="—2019-08-20—"></a>—2019-08-20—</h3><blockquote>
-<p>v-if 和 v-show的区别</p>
-</blockquote>
-<ol>
-<li>v-if让元素不出现在页面,而v-show则元素一直在页面.</li>
-<li>v-if 为 true 时 元素 create 当 v-if 为false 时 元素 destory,而v-show 只改变style,并没有生命周期</li>
-</ol>
-<h3 id="—2019-08-22—"><a href="#—2019-08-22—" class="headerlink" title="—2019-08-22—"></a>—2019-08-22—</h3><blockquote>
-<p>浏览器会合并css属性,例如:<br>el.style.height = 0<br>el.style.height = <code>120px</code><br>这样浏览器会认为你要的是120px的高度,在vue中使用动画钩子函数,会使动画失效<br>此时加上 el.getBoundingClientRect()去强制计算高度<br>这样动画就不会失效</p>
-</blockquote>
+<p>let a = {}<br>ensureObject(a.x)<br>a.x // undefined<br>ensureObject(a,x)<br>a.x // {}</p>
+<p>用var操作符定义的变量将成为作用域中的局部变量。就是说函数中 使用var定义一个变量，这个变量在函数退出后就会被销毁。</p>
+<p>基本类型：存储在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置。<br>引用类型：存储在堆中的对象，也就是说，存储在变量处的值是一个指针，指向堆中的对象。</p>
+<p>// 错误的<br>function ensureObject (obj) {<br>  if (typeof obj !== ‘object’) {<br>    obj = {}<br>  }<br>}</p>
+<p>// 正确的<br>function ensureObject (obj, key) {<br>  if (typeof obj[key] !== ‘object’) {<br>    obj[key] = {}<br>  }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---2019-09-17---</span><br><span class="line"></span><br><span class="line">&gt; uploader 组件 涉及到简单的node.js构建的静态服务器,其中有一些需要注意的地方</span><br><span class="line"></span><br><span class="line">---2020-07-20---</span><br><span class="line"></span><br><span class="line">&gt; 发现table组件 并不能在 column 中 添加标签 如 a 标签进行其他操作,于是修改结构,将table自身column 属性,更改为 table-column 组件 , 通过 slot 来构建table 的 column , 其中发现需要声明一个组件来完成该操作</span><br></pre></td></tr></table></figure></p>
+<template><br> <template v-if="column.render"><br>        <vnodes :vnodes="column.render({value: item[column.field]})"></vnodes><br>    </template><br>    <template v-else=""><br>        <br>    </template><br></template>
+
+
+<p>…<br>export default {<br>    components: {<br>          WIcon,<br>          vnodes: {<br>            functional: true,<br>            render: (h, context) =&gt; context.props.vnodes<br>          }<br>        },<br>    …<br>    mounted:(){<br>          this.columns = this.$slots.default.map(node =&gt; {<br>        let {text, field, width} = node.componentOptions.propsData<br>        let render = node.data.scopedSlots &amp;&amp; node.data.scopedSlots.default<br>        return {text, field, width, render}<br>      })<br>    }<br>}</p>
+<p>// 外层引用</p>
+<p><template><br>    <div><br> <w-table :data-source="dataSource" bordered="" :orderby.sync="orderBy" @update:orderby="order" expend-field="description" :height="200" :selected-items.sync="selected" :loading="loading"><br>        <w-table-column text="姓名" field="name" :width="100"><br>          <template slot-scope="props"><br>          &lt;–! 通过slot-scope,可以得到传递给table-column的属性的值 再进行操作即可–&gt;<br>            <a href="#"></a><br>          </template><br>        </w-table-column><br>      </w-table><br>    </div></template></p>
+<p><template><br>```</template></p>
 
     </article>
     <!-- 前后页  -->
@@ -301,9 +304,9 @@
         
         
             <li class="previous">
-                <a href= "/2019/03/15/记录一些读书笔记/" title= 读书笔记 >
+                <a href= "/2019/04/09/浏览器工作原理/" title= Vue的一些东西 >
                     <span>Previous Post</span>
-                    <span>读书笔记</span>
+                    <span>Vue的一些东西</span>
                 </a>
             </li>
         
@@ -386,7 +389,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-04-09—"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x2014;2019-04-09&#x2014;" class="headerlink" title="&#x2014;2019-04-09&#x2014;"></a>&#x2014;2019-04-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-06-17—"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x2014;2019-06-17&#x2014;" class="headerlink" title="&#x2014;2019-06-17&#x2014;"></a>&#x2014;2019-06-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-02—"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x2014;2019-07-02&#x2014;" class="headerlink" title="&#x2014;2019-07-02&#x2014;"></a>&#x2014;2019-07-02&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-03—"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x2014;2019-07-03&#x2014;" class="headerlink" title="&#x2014;2019-07-03&#x2014;"></a>&#x2014;2019-07-03&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-04—"><span class="toc-number">5.</span> <span class="toc-text"><a href="#&#x2014;2019-07-04&#x2014;" class="headerlink" title="&#x2014;2019-07-04&#x2014;"></a>&#x2014;2019-07-04&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-08—"><span class="toc-number">6.</span> <span class="toc-text"><a href="#&#x2014;2019-07-08&#x2014;" class="headerlink" title="&#x2014;2019-07-08&#x2014;"></a>&#x2014;2019-07-08&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-09—"><span class="toc-number">7.</span> <span class="toc-text"><a href="#&#x2014;2019-07-09&#x2014;" class="headerlink" title="&#x2014;2019-07-09&#x2014;"></a>&#x2014;2019-07-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-15—"><span class="toc-number">8.</span> <span class="toc-text"><a href="#&#x2014;2019-07-15&#x2014;" class="headerlink" title="&#x2014;2019-07-15&#x2014;"></a>&#x2014;2019-07-15&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-17—"><span class="toc-number">9.</span> <span class="toc-text"><a href="#&#x2014;2019-07-17&#x2014;" class="headerlink" title="&#x2014;2019-07-17&#x2014;"></a>&#x2014;2019-07-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-19—"><span class="toc-number">10.</span> <span class="toc-text"><a href="#&#x2014;2019-07-19&#x2014;" class="headerlink" title="&#x2014;2019-07-19&#x2014;"></a>&#x2014;2019-07-19&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-08-20—"><span class="toc-number">11.</span> <span class="toc-text"><a href="#&#x2014;2019-08-20&#x2014;" class="headerlink" title="&#x2014;2019-08-20&#x2014;"></a>&#x2014;2019-08-20&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-08-22—"><span class="toc-number">12.</span> <span class="toc-text"><a href="#&#x2014;2019-08-22&#x2014;" class="headerlink" title="&#x2014;2019-08-22&#x2014;"></a>&#x2014;2019-08-22&#x2014;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-04-09—"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x2014;2019-04-09&#x2014;" class="headerlink" title="&#x2014;2019-04-09&#x2014;"></a>&#x2014;2019-04-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-06-17—"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x2014;2019-06-17&#x2014;" class="headerlink" title="&#x2014;2019-06-17&#x2014;"></a>&#x2014;2019-06-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-02—"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x2014;2019-07-02&#x2014;" class="headerlink" title="&#x2014;2019-07-02&#x2014;"></a>&#x2014;2019-07-02&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-03—"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x2014;2019-07-03&#x2014;" class="headerlink" title="&#x2014;2019-07-03&#x2014;"></a>&#x2014;2019-07-03&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-04—"><span class="toc-number">5.</span> <span class="toc-text"><a href="#&#x2014;2019-07-04&#x2014;" class="headerlink" title="&#x2014;2019-07-04&#x2014;"></a>&#x2014;2019-07-04&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-08—"><span class="toc-number">6.</span> <span class="toc-text"><a href="#&#x2014;2019-07-08&#x2014;" class="headerlink" title="&#x2014;2019-07-08&#x2014;"></a>&#x2014;2019-07-08&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-09—"><span class="toc-number">7.</span> <span class="toc-text"><a href="#&#x2014;2019-07-09&#x2014;" class="headerlink" title="&#x2014;2019-07-09&#x2014;"></a>&#x2014;2019-07-09&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-15—"><span class="toc-number">8.</span> <span class="toc-text"><a href="#&#x2014;2019-07-15&#x2014;" class="headerlink" title="&#x2014;2019-07-15&#x2014;"></a>&#x2014;2019-07-15&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-17—"><span class="toc-number">9.</span> <span class="toc-text"><a href="#&#x2014;2019-07-17&#x2014;" class="headerlink" title="&#x2014;2019-07-17&#x2014;"></a>&#x2014;2019-07-17&#x2014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#—2019-07-19—"><span class="toc-number">10.</span> <span class="toc-text"><a href="#&#x2014;2019-07-19&#x2014;" class="headerlink" title="&#x2014;2019-07-19&#x2014;"></a>&#x2014;2019-07-19&#x2014;</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -767,7 +770,14 @@
     
     
     
-    <div class="total-archive"> Total : 29 </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 30 </div>
     
     <div class="post-archive">
     
@@ -780,6 +790,11 @@
     
         <li class="archive-post-item">
             <span class="archive-post-date">04/09</span><a class="archive-post-title" href= "/2019/04/09/Vue的一些东西/" >Vue的一些东西</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/09</span><a class="archive-post-title" href= "/2019/04/09/浏览器工作原理/" >Vue的一些东西</a>
         </li>
     
     
@@ -947,15 +962,15 @@
     
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">其他</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     

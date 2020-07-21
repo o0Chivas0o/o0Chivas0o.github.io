@@ -289,7 +289,7 @@
 <p>用var操作符定义的变量将成为作用域中的局部变量。就是说函数中 使用var定义一个变量，这个变量在函数退出后就会被销毁。</p>
 <p>基本类型：存储在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置。<br>引用类型：存储在堆中的对象，也就是说，存储在变量处的值是一个指针，指向堆中的对象。</p>
 <p>// 错误的<br>function ensureObject (obj) {<br>  if (typeof obj !== ‘object’) {<br>    obj = {}<br>  }<br>}</p>
-<p>// 正确的<br>function ensureObject (obj, key) {<br>  if (typeof obj[key] !== ‘object’) {<br>    obj[key] = {}<br>  }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---2019-09-17---</span><br><span class="line"></span><br><span class="line">&gt; uploader 组件 涉及到简单的node.js构建的静态服务器,其中有一些需要注意的地方</span><br><span class="line"></span><br><span class="line">---2020-07-20---</span><br><span class="line"></span><br><span class="line">&gt; 发现table组件 并不能在 column 中 添加标签 如 a 标签进行其他操作,于是修改结构,将table自身column 属性,更改为 table-column 组件 , 通过 slot 来构建table 的 column , 其中发现需要声明一个组件来完成该操作</span><br></pre></td></tr></table></figure></p>
+<p>// 正确的<br>function ensureObject (obj, key) {<br>  if (typeof obj[key] !== ‘object’) {<br>    obj[key] = {}<br>  }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---2019-09-17---</span><br><span class="line"></span><br><span class="line">&gt; uploader 组件 涉及到简单的node.js构建的静态服务器,其中有一些需要注意的地方</span><br><span class="line"></span><br><span class="line">---2020-07-20---</span><br><span class="line"></span><br><span class="line">&gt; 发现table组件 并不能在 column 中 添加标签 如 a 标签进行其他操作,于是修改结构,将table自身column 属性,更改为 table-column 组件 , 通过 slot 来构建table 的 column , 其中发现需要声明一个组件来完成该操作.</span><br><span class="line"></span><br><span class="line">1. 需要构建一个组件来渲染子组件中的html标签</span><br><span class="line">2. 外层引用 需要用到 slot-scope 的属性</span><br></pre></td></tr></table></figure></p>
 <template><br> <template v-if="column.render"><br>        <vnodes :vnodes="column.render({value: item[column.field]})"></vnodes><br>    </template><br>    <template v-else=""><br>        <br>    </template><br></template>
 
 
@@ -403,12 +403,6 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -962,9 +956,9 @@
     
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">其他</a></span>
     
@@ -972,9 +966,9 @@
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">read</a></span>
     

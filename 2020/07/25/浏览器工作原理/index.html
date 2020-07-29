@@ -224,7 +224,7 @@
 </li>
 </ol>
 <hr>
-<h1 id="宏观视角下的浏览器的学习"><a href="#宏观视角下的浏览器的学习" class="headerlink" title="宏观视角下的浏览器的学习"></a>宏观视角下的浏览器的学习</h1><h2 id="第一课"><a href="#第一课" class="headerlink" title="第一课"></a>第一课</h2><blockquote>
+<h1 id="宏观视角下的浏览器的学习"><a href="#宏观视角下的浏览器的学习" class="headerlink" title="宏观视角下的浏览器的学习"></a>宏观视角下的浏览器的学习</h1><h2 id="第一课-打开chorme有4个进程"><a href="#第一课-打开chorme有4个进程" class="headerlink" title="第一课 (打开chorme有4个进程)"></a>第一课 (打开chorme有4个进程)</h2><blockquote>
 <p>打开浏览器,如 <code>chorme</code> 会有4个进程</p>
 </blockquote>
 <ol>
@@ -297,7 +297,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="第二课"><a href="#第二课" class="headerlink" title="第二课"></a>第二课</h2><blockquote>
+<h2 id="第二课-TCP"><a href="#第二课-TCP" class="headerlink" title="第二课 (TCP)"></a>第二课 (TCP)</h2><blockquote>
 <p>FP(first paint):指从页面加载到首次开始绘制的时长.<br>首先要确定一个观点, 互联网中文件传输是通过 <code>数据包</code> 来传输的.</p>
 </blockquote>
 <ol>
@@ -365,7 +365,7 @@
 </li>
 </ol>
 <hr>
-<h2 id="第三课"><a href="#第三课" class="headerlink" title="第三课"></a>第三课</h2><blockquote>
+<h2 id="第三课-构建HTTP请求"><a href="#第三课-构建HTTP请求" class="headerlink" title="第三课 (构建HTTP请求)"></a>第三课 (构建HTTP请求)</h2><blockquote>
 <p>主要是关于浏览器构建HTTP请求的过程<br>HTTP是 建立在 TCP 连接基础 之上的, 一种允许浏览器向服务器获取资源的协议，是 Web 的基础</p>
 </blockquote>
 <ol>
@@ -410,7 +410,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="第四课-为4-6的总结"><a href="#第四课-为4-6的总结" class="headerlink" title="第四课(为4-6的总结)"></a>第四课(为4-6的总结)</h2><blockquote>
+<h2 id="第四课-为4-6的总结-页面从导航到展示的过程"><a href="#第四课-为4-6的总结-页面从导航到展示的过程" class="headerlink" title="第四课(为4-6的总结 页面从导航到展示的过程)"></a>第四课(为4-6的总结 页面从导航到展示的过程)</h2><blockquote>
 <p>只解决一个问题,从输入URL到页面展示，这中间发生了什么？</p>
 </blockquote>
 <ol>
@@ -501,7 +501,94 @@
 </li>
 </ol>
 <hr>
-<h1 id="浏览器中JavaScript执行机制"><a href="#浏览器中JavaScript执行机制" class="headerlink" title="浏览器中JavaScript执行机制"></a>浏览器中JavaScript执行机制</h1><h2 id="第一课-1"><a href="#第一课-1" class="headerlink" title="第一课"></a>第一课</h2>
+<h1 id="浏览器中JavaScript执行机制"><a href="#浏览器中JavaScript执行机制" class="headerlink" title="浏览器中JavaScript执行机制"></a>浏览器中JavaScript执行机制</h1><h2 id="第一课-变量提升"><a href="#第一课-变量提升" class="headerlink" title="第一课 (变量提升)"></a>第一课 (变量提升)</h2><blockquote>
+<p>需要搞懂js 的执行上下文</p>
+</blockquote>
+<ol>
+<li><p>以 <code>var a = 1</code> 为例, 到输出结果的过程</p>
+<ol>
+<li>对语句进行词法分析, 结果为 <code>var , a , = , 2</code></li>
+<li>进行语法分析, 形成抽象语法树, 其根(root)为 var 的顶级节点, 叶子节点为 a 和 2</li>
+<li>代码生成, 创建一个 a 的变量(LHS), 并将 2 赋值给 a (RHS), 过程为 , <code>var a</code> 和 <code>a = 2</code></li>
+</ol>
+</li>
+<li><p>变量提升</p>
+<ol>
+<li>上述过程清晰阐述了语句 <code>var a = 1</code> 的过程, 在期间,使用 <code>var</code> 来声明变量, 会使得 <code>var a</code> 语句提升到 全局执行上下文的最前面, 再对其进行赋值操作.</li>
+<li>这就是为什么 console.log(a) 在前 var a = 2 在后 ,却能打出 a 的值为2的分析过程</li>
+<li>如果在此过程中声明函数<code>function a(){}</code> , a 会被 function 覆盖.</li>
+</ol>
+</li>
+</ol>
+<h2 id="第二课-调用栈"><a href="#第二课-调用栈" class="headerlink" title="第二课 (调用栈)"></a>第二课 (调用栈)</h2><blockquote>
+<p>总得来说, 执行函数, 是先将函数压入调用栈, 执行完毕后, 再弹出调用栈的操作<br>栈的特点是后进先出, js的调用栈称为执行上下文栈</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = 2</span><br><span class="line">function add()&#123;</span><br><span class="line">var b = 10</span><br><span class="line">return  a+b</span><br><span class="line">&#125;</span><br><span class="line">add()</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>考虑上述代码 , 其执行顺序为 :</p>
+<ol>
+<li>从全局执行上下文中，取出 add 函数代码。</li>
+<li>对 add 函数的这段代码进行编译，并创建该函数的执行上下文和可执行代码。</li>
+<li>执行代码，输出结果。</li>
+</ol>
+</li>
+<li><p>抽象对js函数执行的理解 , 大致步骤如下 :</p>
+<ol>
+<li>创建全局上下文，并将其压入栈底。</li>
+<li>第二步是调用 add 函数。</li>
+<li>如果 add 函数内部还有函数 , 将 add 内部执行函数 压入 调用栈</li>
+<li>当 <code>add 内部函数</code> 执行完毕 , 返回结果 , 并弹出栈 , 开始执行 add 函数</li>
+<li>当 add 函数 执行完毕 , 返回值</li>
+</ol>
+</li>
+</ol>
+<h2 id="第三课-作用域和闭包"><a href="#第三课-作用域和闭包" class="headerlink" title="第三课 (作用域和闭包)"></a>第三课 (作用域和闭包)</h2><blockquote>
+<p>作用域是指 变量与函数的可访问范围<br>ES6之前 , 作用域分 全局作用域 和 函数作用域<br>ES6之后 , 出现 块级作用域</p>
+</blockquote>
+<ol>
+<li>全局作用域 : 对象在代码中的任何地方都能访问，其生命周期伴随着页面的生命周期。用 <code>var</code> 声明的变量, 存储在 <code>变量环境</code> 中</li>
+<li>函数作用域 : 函数内部定义的变量或者函数，并且定义的变量或者函数只能在函数内部被访问。函数执行结束之后，函数内部定义的变量会被销毁。<ol>
+<li>闭包 :</li>
+</ol>
+</li>
+<li>块级作用域 : 比如函数、判断语句、循环语句，甚至单独的一个{}都可以被看作是一个块级作用域 , 块级作用域内的变量 仅在块级作用域内有效。<ol>
+<li>在块级作用域内使用 <code>let</code> 和 <code>const</code> 声明变量 , 会形成 暂死区 , 此时得不到变量的值,但是 <code>词法环境</code> 中却存在该变量</li>
+</ol>
+</li>
+<li>作用域链 : 当前执行函数, 如果引用了本身没有的变量 , 会从本层的外层寻找该变量 , 考虑函数执行上下文 , 并分析 outer 为 上一个函数的作用域 , 还是 全局作用域.</li>
+</ol>
+<h2 id="第四课-this"><a href="#第四课-this" class="headerlink" title="第四课 (this)"></a>第四课 (this)</h2><blockquote>
+<p>关键字 <code>this</code> 不会凭空出现 , 分析其 执行上下文 , 就能得出 <code>this</code> 的指向</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;</span><br><span class="line">    name:&apos;xxx&apos;,</span><br><span class="line">    getName(name)&#123;</span><br><span class="line">        console.log(this)</span><br><span class="line">        console.log(this.name)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">let x = obj.getName</span><br></pre></td></tr></table></figure>
+<ol>
+<li>绑定 <code>this</code> 的 三种形式 : <ol>
+<li>显示绑定 : <ol>
+<li>obj.getName.call(obj)</li>
+<li>obj.getName.apply(obj)</li>
+<li>obj.getName.bind(this)()<ol>
+<li>.bind()操作只返回一个函数,需要自己手动调用</li>
+<li>.call()和.apply()不需要手动调用,会自动调用,仅仅是传参不同</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>隐式绑定 :<ol>
+<li>x() === window.x.call(window) , 结果为 window 和 空</li>
+</ol>
+</li>
+<li>new 操作的 this 指向 new 出来的那个对象 , new 的操作如下<ol>
+<li>新建一个临时对象 let newTemp = {}</li>
+<li>调用 createObj.call(newTemp)</li>
+<li>执行 createObj 函数</li>
+<li>返回这个临时对象</li>
+</ol>
+</li>
+<li>箭头函数中的 this 与执行上下文中的 this 相同 </li>
+</ol>
+</li>
+</ol>
+
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -593,7 +680,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开篇词的学习"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5F00;&#x7BC7;&#x8BCD;&#x7684;&#x5B66;&#x4E60;" class="headerlink" title="&#x5F00;&#x7BC7;&#x8BCD;&#x7684;&#x5B66;&#x4E60;"></a>&#x5F00;&#x7BC7;&#x8BCD;&#x7684;&#x5B66;&#x4E60;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#宏观视角下的浏览器的学习"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x5B8F;&#x89C2;&#x89C6;&#x89D2;&#x4E0B;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5B66;&#x4E60;" class="headerlink" title="&#x5B8F;&#x89C2;&#x89C6;&#x89D2;&#x4E0B;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5B66;&#x4E60;"></a>&#x5B8F;&#x89C2;&#x89C6;&#x89D2;&#x4E0B;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5B66;&#x4E60;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一课"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E00;&#x8BFE;" class="headerlink" title="&#x7B2C;&#x4E00;&#x8BFE;"></a>&#x7B2C;&#x4E00;&#x8BFE;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二课"><span class="toc-number">2.2.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E8C;&#x8BFE;" class="headerlink" title="&#x7B2C;&#x4E8C;&#x8BFE;"></a>&#x7B2C;&#x4E8C;&#x8BFE;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三课"><span class="toc-number">2.3.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E09;&#x8BFE;" class="headerlink" title="&#x7B2C;&#x4E09;&#x8BFE;"></a>&#x7B2C;&#x4E09;&#x8BFE;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四课-为4-6的总结"><span class="toc-number">2.4.</span> <span class="toc-text"><a href="#&#x7B2C;&#x56DB;&#x8BFE;-&#x4E3A;4-6&#x7684;&#x603B;&#x7ED3;" class="headerlink" title="&#x7B2C;&#x56DB;&#x8BFE;(&#x4E3A;4-6&#x7684;&#x603B;&#x7ED3;)"></a>&#x7B2C;&#x56DB;&#x8BFE;(&#x4E3A;4-6&#x7684;&#x603B;&#x7ED3;)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器中JavaScript执行机制"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x6D4F;&#x89C8;&#x5668;&#x4E2D;JavaScript&#x6267;&#x884C;&#x673A;&#x5236;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;&#x4E2D;JavaScript&#x6267;&#x884C;&#x673A;&#x5236;"></a>&#x6D4F;&#x89C8;&#x5668;&#x4E2D;JavaScript&#x6267;&#x884C;&#x673A;&#x5236;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一课-1"><span class="toc-number">3.1.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E00;&#x8BFE;-1" class="headerlink" title="&#x7B2C;&#x4E00;&#x8BFE;"></a>&#x7B2C;&#x4E00;&#x8BFE;</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开篇词的学习"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5F00;&#x7BC7;&#x8BCD;&#x7684;&#x5B66;&#x4E60;" class="headerlink" title="&#x5F00;&#x7BC7;&#x8BCD;&#x7684;&#x5B66;&#x4E60;"></a>&#x5F00;&#x7BC7;&#x8BCD;&#x7684;&#x5B66;&#x4E60;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#宏观视角下的浏览器的学习"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x5B8F;&#x89C2;&#x89C6;&#x89D2;&#x4E0B;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5B66;&#x4E60;" class="headerlink" title="&#x5B8F;&#x89C2;&#x89C6;&#x89D2;&#x4E0B;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5B66;&#x4E60;"></a>&#x5B8F;&#x89C2;&#x89C6;&#x89D2;&#x4E0B;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5B66;&#x4E60;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一课-打开chorme有4个进程"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E00;&#x8BFE;-&#x6253;&#x5F00;chorme&#x6709;4&#x4E2A;&#x8FDB;&#x7A0B;" class="headerlink" title="&#x7B2C;&#x4E00;&#x8BFE; (&#x6253;&#x5F00;chorme&#x6709;4&#x4E2A;&#x8FDB;&#x7A0B;)"></a>&#x7B2C;&#x4E00;&#x8BFE; (&#x6253;&#x5F00;chorme&#x6709;4&#x4E2A;&#x8FDB;&#x7A0B;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二课-TCP"><span class="toc-number">2.2.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E8C;&#x8BFE;-TCP" class="headerlink" title="&#x7B2C;&#x4E8C;&#x8BFE; (TCP)"></a>&#x7B2C;&#x4E8C;&#x8BFE; (TCP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三课-构建HTTP请求"><span class="toc-number">2.3.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E09;&#x8BFE;-&#x6784;&#x5EFA;HTTP&#x8BF7;&#x6C42;" class="headerlink" title="&#x7B2C;&#x4E09;&#x8BFE; (&#x6784;&#x5EFA;HTTP&#x8BF7;&#x6C42;)"></a>&#x7B2C;&#x4E09;&#x8BFE; (&#x6784;&#x5EFA;HTTP&#x8BF7;&#x6C42;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四课-为4-6的总结-页面从导航到展示的过程"><span class="toc-number">2.4.</span> <span class="toc-text"><a href="#&#x7B2C;&#x56DB;&#x8BFE;-&#x4E3A;4-6&#x7684;&#x603B;&#x7ED3;-&#x9875;&#x9762;&#x4ECE;&#x5BFC;&#x822A;&#x5230;&#x5C55;&#x793A;&#x7684;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x7B2C;&#x56DB;&#x8BFE;(&#x4E3A;4-6&#x7684;&#x603B;&#x7ED3; &#x9875;&#x9762;&#x4ECE;&#x5BFC;&#x822A;&#x5230;&#x5C55;&#x793A;&#x7684;&#x8FC7;&#x7A0B;)"></a>&#x7B2C;&#x56DB;&#x8BFE;(&#x4E3A;4-6&#x7684;&#x603B;&#x7ED3; &#x9875;&#x9762;&#x4ECE;&#x5BFC;&#x822A;&#x5230;&#x5C55;&#x793A;&#x7684;&#x8FC7;&#x7A0B;)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器中JavaScript执行机制"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x6D4F;&#x89C8;&#x5668;&#x4E2D;JavaScript&#x6267;&#x884C;&#x673A;&#x5236;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;&#x4E2D;JavaScript&#x6267;&#x884C;&#x673A;&#x5236;"></a>&#x6D4F;&#x89C8;&#x5668;&#x4E2D;JavaScript&#x6267;&#x884C;&#x673A;&#x5236;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一课-变量提升"><span class="toc-number">3.1.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E00;&#x8BFE;-&#x53D8;&#x91CF;&#x63D0;&#x5347;" class="headerlink" title="&#x7B2C;&#x4E00;&#x8BFE; (&#x53D8;&#x91CF;&#x63D0;&#x5347;)"></a>&#x7B2C;&#x4E00;&#x8BFE; (&#x53D8;&#x91CF;&#x63D0;&#x5347;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二课-调用栈"><span class="toc-number">3.2.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E8C;&#x8BFE;-&#x8C03;&#x7528;&#x6808;" class="headerlink" title="&#x7B2C;&#x4E8C;&#x8BFE; (&#x8C03;&#x7528;&#x6808;)"></a>&#x7B2C;&#x4E8C;&#x8BFE; (&#x8C03;&#x7528;&#x6808;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三课-作用域和闭包"><span class="toc-number">3.3.</span> <span class="toc-text"><a href="#&#x7B2C;&#x4E09;&#x8BFE;-&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;" class="headerlink" title="&#x7B2C;&#x4E09;&#x8BFE; (&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;)"></a>&#x7B2C;&#x4E09;&#x8BFE; (&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四课-this"><span class="toc-number">3.4.</span> <span class="toc-text"><a href="#&#x7B2C;&#x56DB;&#x8BFE;-this" class="headerlink" title="&#x7B2C;&#x56DB;&#x8BFE; (this)"></a>&#x7B2C;&#x56DB;&#x8BFE; (this)</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -607,8 +694,6 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -1173,21 +1258,21 @@
     
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">浏览器工作原理</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">read</a></span>
     

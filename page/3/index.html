@@ -162,6 +162,50 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2018/01/10/冒泡与捕获/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>冒泡与捕获</span>
+                    </h2>
+                <div class="abstract-content">
+                    冒泡与捕获冒泡与捕获是DOM事件的一种事件机制，也是一种事件流。
+基础知识1.操作系统最先知道鼠标点击，浏览器次之，因为操作系统是权限最高的软件。
+2.在一个页面里面，子元素被点击，意味着父元素也被点击了。
+
+图中 不论我的鼠标放在红色或绿色的div中，只要点击都会显示最外层div也同时被点击了。
+
+3.如果我同时监听了 child 和 parent，那么谁先通知我？这是个问题。
+捕获阶段
+parent 先通知，child 后通知。
+
+如图，输出结果依次为先点击红色区域，再点击绿色区域。
+冒泡阶段
+child 先通知，parent 后通知
+
+onclick 就是在冒泡阶段被通知
+
+IE ...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/10</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2018/01/04/JS数据类型-二/" >
                     <h2 class="abstract-title">
                         
@@ -496,41 +540,6 @@ HTML元素基本分为三类，空元素、行内元素（内联元素）、块�
                 <!-- date  -->
                 <div class="abstract-date">
                     <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/11/用Hexo搭建个人博客系统/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>用Hexo搭建个人博客系统</span>
-                    </h2>
-                <div class="abstract-content">
-                    这是一篇详细文章来讲述我用Mac搭建Hexo博客于Github上的完整历程，现在写下些经验来分享。
-环境配置Hexo官网本就有对Hexo安装及使用的详细介绍，墙裂推荐。这里来讲述自己安装的亲身步骤，或有区别。
-
-Node.js用来生成静态页面。node.js官网，下载8.9.3LTS，一路安装即可。
-
-Git用来将本地Hexo内容提交到Github上。Xcode自带Git，这里不再赘述。如果没有Xcode可以参考Hexo官网上的安装方法。
-
-终端(Iterm2)登录Iterm2官网，点击Download即可下载Iterm2，作为Mac上最强大的终端，墙裂推荐。(可以自动设置配色方案等等一...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 其他>其他</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/11</span>
                 </div>
             </div>
         </article>
@@ -1033,7 +1042,24 @@ Git用来将本地Hexo内容提交到Github上。Xcode自带Git，这里不再�
     
     
     
-    <div class="total-archive"> Total : 31 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 32 </div>
     
     <div class="post-archive">
     
@@ -1042,6 +1068,11 @@ Git用来将本地Hexo内容提交到Github上。Xcode自带Git，这里不再�
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/19</span><a class="archive-post-title" href= "/2020/08/19/Vue3/" >Vue 3</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1230,21 +1261,21 @@ Git用来将本地Hexo内容提交到Github上。Xcode自带Git，这里不再�
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">浏览器</a></span>
+        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">浏览器</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
     

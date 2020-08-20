@@ -45,9 +45,9 @@
     <link href="http://yoursite.com/2020/08/15/%E5%9B%BE%E8%A7%A3GoogleV8/"/>
     <id>http://yoursite.com/2020/08/15/图解GoogleV8/</id>
     <published>2020-08-15T08:04:38.000Z</published>
-    <updated>2020-08-15T08:24:08.015Z</updated>
+    <updated>2020-08-20T12:57:09.823Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>最近在极客时间学习<code>&lt;图解 Google V8&gt;</code>一课的一些笔记</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>最近在极客时间学习<code>&lt;图解 Google V8&gt;</code>一课的一些笔记</p></blockquote><h1 id="宏观视角"><a href="#宏观视角" class="headerlink" title="宏观视角"></a>宏观视角</h1><h2 id="开篇词"><a href="#开篇词" class="headerlink" title="开篇词"></a>开篇词</h2><blockquote><p>V8 是 JavaScript 虚拟机的一种。我们可以简单地把 JavaScript 虚拟机理解成是一个翻译程序，将人类能够理解的编程语言 JavaScript，翻译成机器能够理解的机器语言。</p></blockquote><ol><li>V8执行代码流水线使用到的技术<ol><li>隐藏类:将 JavaScript 中动态类型转换为静态类型的一种技术，可以消除动态类型的语言执行速度过慢的问题</li><li>惰性解析:为了加速代码的启动速度，通过对惰性解析机制的学习，你可以优化你的代码更加适应这个机制，从而提高程序性能。</li><li>事件循环系统和垃圾回收机制。</li></ol></li></ol><h2 id="V8如何执行一段JS代码"><a href="#V8如何执行一段JS代码" class="headerlink" title="V8如何执行一段JS代码"></a>V8如何执行一段JS代码</h2><blockquote><p>V8 是一个由 Google 开发的开源 JavaScript 引擎，目前用在 Chrome 浏览器和 Node.js 中，其核心功能是执行易于人类理解的 JavaScript 代码。<br>很多浏览器有自己的 JavaScript 引擎，如苹果公司在 Safari 中就是用 JavaScriptCore 虚拟机，Firefox 使用了 TraceMonkey 虚拟机，而 Chrome 则使用了 V8 虚拟机。</p></blockquote><ol><li>什么是V8<ol><li>V8是一个虚拟计算机，也称虚拟机。虚拟机通过模拟实际计算机的各种功能来实现代码的执行。如CPU、堆栈、寄存器等。</li></ol></li><li>高级代码为什么需要先编译再执行？CPU无法识别高级语言所输出的代码。<ol><li>CPU是如何识别代码的<ol><li>CPU执行操作是根据指令集来的</li><li>与CPU沟通是通过二进制代码实现的</li><li>指令集就是机器语言</li></ol></li><li>高级语言无法直接与CPU交流，因此需要解析执行。<ol><li>解释执行<ol><li>源代码被解析器编译为中间代码</li><li>中间代码被解释器解释</li><li>输出结果</li></ol></li><li>编译执行<ol><li>源代码被解析器编译为中间代码</li><li>中间代码被编译器编译为机器代码</li><li>机器执行机器代码</li><li>输出结果</li></ol></li></ol></li></ol></li><li>V8是如何执行JavaScript代码的? 通过混合编译执行和解释执行两种手段执行的(JIT)<ol><li>准备执行JavaScript的基础环境<ol><li>JavaScript 全局执行上下文就包含了执行过程中的全局信息，比如一些内置函数，全局变量等信息；</li><li>全局作用域包含了一些全局变量，在执行过程中的数据都需要存放在内存中；</li><li>而 V8 是采用了经典的堆和栈的内存管理模式，所以 V8 还需要初始化内存中的堆和栈结构；</li><li>另外，想要我们的 V8 系统活起来，还需要初始化消息循环系统，消息循环系统包含了消息驱动器和消息队列，它如同 V8 的心脏，不断接受消息并决策如何处理消息。</li></ol></li><li>结构化代码字符串，结构化:词法分析。</li><li>抽象语法树(AST)，便于V8理解的结构。</li><li>生成字节码。字节码：介于AST与机器代码间的代码。</li><li>解释器按照字节码顺序解释字节码。</li></ol></li></ol>]]></content>
     
     <summary type="html">
     
@@ -56,7 +56,7 @@
         &lt;blockquote&gt;
 &lt;p&gt;最近在极客时间学习&lt;code&gt;&amp;lt;图解 Google V8&amp;gt;&lt;/code&gt;一课的一些笔记&lt;/p&gt;
 &lt;/blockquote&gt;
-
+&lt;h1 id=&quot;宏观视角&quot;&gt;&lt;a href=&quot;#宏观视角&quot; class=&quot;headerlink&quot; title=&quot;
       
     
     </summary>

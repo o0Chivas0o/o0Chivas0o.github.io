@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        lzy的Bbbblog
+        Vue 3 · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >lzy的Bbbblog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Vue 3</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>lzy的Bbbblog</a>
 </header>
@@ -62,21 +73,43 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            Vue 3
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2020/12/20</span>
+            </div>
         
     </div>
 </div>
@@ -144,45 +177,79 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/02/24/Cookie、Seesion、LocalStorage/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Cookie、Session、LocalStorage</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-这是一篇关于Cookie和Session还有LocalStorage和SessionStorage的总结的博客。demo展示在:https://github.com/o0Chivas0o/demo/tree/master/node-demo/sign-up-demo      功能做的不是很完善,但是能帮助理解Cookie以及Session。
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="Vue-3的一些操作"><a href="#Vue-3的一些操作" class="headerlink" title="Vue 3的一些操作"></a>Vue 3的一些操作</h1><ol>
+<li>setup中修改属性的值需要 <code>target.value</code> 去获取到值.</li>
+<li><code>inheritAttrs:false</code> 取消默认绑定</li>
+<li>使用 <code>$attrs/context.attrs</code> 可以获取所有属性</li>
+<li>使用 <code>v-bind=$attrs</code> 批量绑定属性</li>
+<li><code>props</code> 和 <code>attrs</code> 的区别<ol>
+<li>props 要先声明才能取值，attrs 不用先声明</li>
+<li>props 不包含时间，attrs包含</li>
+<li>props 没有声明的属性，会转移到attrs里面</li>
+<li>props 支持 string 类型以外的类型，attrs 只有个string类型</li>
+</ol>
+</li>
+<li>钩子函数的变更<ol>
+<li>Vue2.X: beforeCreate-&gt;created-&gt;beforeMount-&gt;mounted-&gt;beforeUpdate-&gt;updated-&gt;beforeDestroy-&gt;destroyed</li>
+<li>Vue3.X(options): beforeCreate-&gt;created-&gt;beforeMount-&gt;mounted-&gt;beforeUpdate-&gt;updated-&gt;beforeUnmount-&gt;unmounted</li>
+<li>Vue3.X(hook setup):onBeforeMount-&gt;onMounted-&gt;onBeforeUpdate-&gt;onUpdated-&gt;onBeforeUnmont-&gt;onUnmounted</li>
+<li><code>setup</code> 围绕 <code>beforeCreate</code> 和 <code>created</code>运行的，不需要显示的定义</li>
+</ol>
+</li>
+</ol>
+<h1 id="ui-库的-css-注意事项"><a href="#ui-库的-css-注意事项" class="headerlink" title="ui 库的 css 注意事项"></a>ui 库的 css 注意事项</h1><ol>
+<li>不使用scoped属性<ol>
+<li><code>data-v-[hash]</code> 中的 <code>[hash]</code> 每次运行会变</li>
+<li>必须输出稳定不变的class选择器, 方便使用者覆盖</li>
+</ol>
+</li>
+<li>必须加前缀<ol>
+<li>避免被误覆盖</li>
+</ol>
+</li>
+</ol>
 
-CookieCookie 有几个特点,
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2020/08/30/浏览器工作原理/" title= 浏览器工作原理 >
+                    <span>Previous Post</span>
+                    <span>浏览器工作原理</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
 
-服务端通过Set-Cookie来设置Cookie,Cookie的本质就是一串字符串。
-客户端得到这个字符串后，每次登陆这个网页，都会携带上这串字符串。
-服务端再通过这串字符串去找到对应的隐私信息。
-Co...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = HTTP&JavaScript>HTTP&JavaScript</a>
-    
+        if (typeof LivereTower === 'function') { return; }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/02/24</span>
-                </div>
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
-    <!-- paginator  -->
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
@@ -230,6 +297,13 @@ Co...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-3的一些操作"><span class="toc-number">1.</span> <span class="toc-text"><a href="#Vue-3&#x7684;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;" class="headerlink" title="Vue 3&#x7684;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;"></a>Vue 3&#x7684;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ui-库的-css-注意事项"><span class="toc-number">2.</span> <span class="toc-text"><a href="#ui-&#x5E93;&#x7684;-css-&#x6CE8;&#x610F;&#x4E8B;&#x9879;" class="headerlink" title="ui &#x5E93;&#x7684; css &#x6CE8;&#x610F;&#x4E8B;&#x9879;"></a>ui &#x5E93;&#x7684; css &#x6CE8;&#x610F;&#x4E8B;&#x9879;</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

@@ -149,21 +149,26 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2018/02/24/Cookie、Seesion、LocalStorage/" >
+            <a class="content-show-full" href = "/2020/12/20/Vue3/" >
                     <h2 class="abstract-title">
                         
-                        <span>Cookie、Session、LocalStorage</span>
+                        <span>Vue 3</span>
                     </h2>
                 <div class="abstract-content">
-                    
-这是一篇关于Cookie和Session还有LocalStorage和SessionStorage的总结的博客。demo展示在:https://github.com/o0Chivas0o/demo/tree/master/node-demo/sign-up-demo      功能做的不是很完善,但是能帮助理解Cookie以及Session。
+                    Vue 3的一些操作
+setup中修改属性的值需要 target.value 去获取到值.
+inheritAttrs:false 取消默认绑定
+使用 $attrs/context.attrs 可以获取所有属性
+使用 v-bind=$attrs 批量绑定属性
+props 和 attrs 的区别
+props 要先声明才能取值，attrs 不用先声明
+props 不包含时间，attrs包含
+props 没有声明的属性，会转移到attrs里面
+props 支持 string 类型以外的类型，attrs 只有个string类型
 
-CookieCookie 有几个特点,
 
-服务端通过Set-Cookie来设置Cookie,Cookie的本质就是一串字符串。
-客户端得到这个字符串后，每次登陆这个网页，都会携带上这串字符串。
-服务端再通过这串字符串去找到对应的隐私信息。
-Co...
+钩子函数的变更
+Vue2.X: beforeCreate-&gt;...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -171,13 +176,13 @@ Co...
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = HTTP&JavaScript>HTTP&JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/02/24</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2020/12/20</span>
                 </div>
             </div>
         </article>

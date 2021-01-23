@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        自己实现一个jQuery · lzy的Bbbblog
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20171020 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >lzy的Bbbblog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">自己实现一个jQuery</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>lzy的Bbbblog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            自己实现一个jQuery
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/01/19</span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>首先有必要介绍一下jQuery，据<a href="https://trends.builtwith.com/javascript/" target="_blank" rel="noopener">统计</a>在市面上近70%的公司的页面使用了jQuery这个库，所以还是有必要了解一下jQuery的使用方法以及一些特性。</p>
+</blockquote>
+<h3 id="jQuery的文档"><a href="#jQuery的文档" class="headerlink" title="jQuery的文档"></a>jQuery的文档</h3><h4 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a>原文地址</h4><p><a href="http://api.jquery.com/" target="_blank" rel="noopener">http://api.jquery.com/</a></p>
+<h4 id="译文地址"><a href="#译文地址" class="headerlink" title="译文地址"></a>译文地址</h4><p><a href="https://www.jquery123.com/" target="_blank" rel="noopener">https://www.jquery123.com/</a> </p>
+<h3 id="jQuery的类型"><a href="#jQuery的类型" class="headerlink" title="jQuery的类型"></a>jQuery的类型</h3><p>在页面引入jQuery之后用在控制台输入<code>typeof jQuery</code>得到的结果是<code>&#39;function&#39;</code><br><img src="//i.loli.net/2018/01/19/5a61a8b42d761.jpg" alt=""></p>
+<p>所以jQuery的类型就是一个函数,那么既然jQuery是一个函数,我就可以用利用这个结果封装一个自己的简易的jQuery。</p>
+<h3 id="自己封装一个简单的jQuery"><a href="#自己封装一个简单的jQuery" class="headerlink" title="自己封装一个简单的jQuery"></a>自己封装一个简单的jQuery</h3><h4 id="封装一个函数"><a href="#封装一个函数" class="headerlink" title="封装一个函数"></a>封装一个函数</h4><p>node.getSiblings()<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSiblings</span>(<span class="params">node</span>)</span>&#123;</span><br><span class="line"><span class="keyword">let</span> allChildren = node.parentNode.children</span><br><span class="line">  <span class="keyword">let</span> array = &#123;</span><br><span class="line">    length: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; allChildren.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (allChildren[i] !== node) &#123;</span><br><span class="line">      array[array.length] = allChildren[i] <span class="comment">// 让输出的伪数组不包含本元素</span></span><br><span class="line">      array.length += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//例如 li.getSiblings.call(li)</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="封装第二个函数"><a href="#封装第二个函数" class="headerlink" title="封装第二个函数"></a>封装第二个函数</h4><p>node.addClass()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function addClass(node, classes) &#123;</span><br><span class="line">  classes.forEach( (value) =&gt; node.classList.add(value) ) </span><br><span class="line">  //遍历节点 给所有节点添加或者单个节点添加类名</span><br><span class="line">&#125;</span><br><span class="line">  //例如 li.addClass.call(li,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])</span><br></pre></td></tr></table></figure></p>
+<h4 id="命名问题"><a href="#命名问题" class="headerlink" title="命名问题"></a>命名问题</h4><blockquote>
+<p>封装了一个函数总不能告诉大家 我今天写了一个库比较好用,大家都来用node.xxxx(),node.xx()来用这个库吧,所以需要一个命名空间。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> leeDom = &#123;&#125;  <span class="comment">// 声明一个新对象</span></span><br><span class="line">leeDom.getSiblings(node) </span><br><span class="line">leeDom.addClass(node, [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br><span class="line"><span class="comment">// 把函数挂到对象下 引用方式直接leeDom.XXX()即可调用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 然而我又觉得写leeDom很麻烦,要6个字符,所以我可以设置一个alisa</span></span><br><span class="line"><span class="built_in">window</span>.$ = leeDom</span><br><span class="line"><span class="comment">//这样是不是就很像jquery了?</span></span><br></pre></td></tr></table></figure>
+<h4 id="我想把node放到前面怎么办"><a href="#我想把node放到前面怎么办" class="headerlink" title="我想把node放到前面怎么办?"></a>我想把node放到前面怎么办?</h4><p>类似于<code>li.addClass(&#39;hi&#39;)</code>这种更像jquery的写法。</p>
+<h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h5><p>扩展 Node 接口<br>直接在 Node.prototype 上加函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.addClass = <span class="function"><span class="keyword">function</span>(<span class="params">classes</span>)</span>&#123;</span><br><span class="line">  classes.forEach(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;node.classList.add(value)&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这样就可以通过 li.addClass('hi') 这样的方式来操作了</span></span><br><span class="line"><span class="comment">// 不过这样直接在原型链上修改不推荐,谁知道你会不会把别人写的函数给覆盖了,</span></span><br><span class="line"><span class="comment">// 或者把原本的函数给覆盖了</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二:"></a>方法二:</h5><p>新的接口 BetterNode<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Node2</span>(<span class="params">node</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        element: node,</span><br><span class="line">        getSiblings: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        addClass: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> node =<span class="built_in">document</span>.getElementById(<span class="string">'x'</span>)</span><br><span class="line"><span class="keyword">let</span> node2 = Node2(node)</span><br><span class="line">node2.getSiblings()</span><br><span class="line">node2.addClass()</span><br><span class="line"><span class="comment">// 这样可以完全避免在Node接口上操作</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 把Node 2 改成jQuery</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jQuery</span>(<span class="params">node</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        element: node,</span><br><span class="line">        getSiblings: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        addClass: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 再来一个alisa</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.$ = jQuery</span><br></pre></td></tr></table></figure></p>
+<h4 id="给自己写的jQuery添加text-功能"><a href="#给自己写的jQuery添加text-功能" class="headerlink" title="给自己写的jQuery添加text()功能"></a>给自己写的jQuery添加text()功能</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.jQuery = <span class="function"><span class="keyword">function</span>(<span class="params">nodeOrSelector</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> nodes = &#123;&#125;</span><br><span class="line">  <span class="comment">// 判断输入类型</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> nodeOrSelector === <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="comment">// 输出的是伪数组</span></span><br><span class="line">    <span class="keyword">let</span> temp = <span class="built_in">document</span>.querySelectorAll(nodeOrSelector)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; temp.length; i++) &#123;</span><br><span class="line">      nodes[i] = temp[i]</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.length = temp.length</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nodeOrSelector <span class="keyword">instanceof</span> Node) &#123;</span><br><span class="line">    <span class="comment">// 为了一致性 也输出伪数组</span></span><br><span class="line">    nodes = &#123;</span><br><span class="line">      <span class="number">0</span>: nodeOrSelector,</span><br><span class="line">      length: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  nodes.getSiblings = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  nodes.addClass = <span class="function"><span class="keyword">function</span>(<span class="params">classes</span>) </span>&#123;</span><br><span class="line">    classes.forEach(<span class="function">(<span class="params">value</span>) =&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nodes.length; i++)&#123;</span><br><span class="line">        nodes[i].classList.add(value)                                           &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  nodes.getText = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> texts = []</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ;i&lt;nodes.length;i++)&#123;</span><br><span class="line">      texts.push(nodes[i].textContent)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> texts</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  nodes.setText = <span class="function"><span class="keyword">function</span>(<span class="params">text</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;nodes.length;i++)&#123;</span><br><span class="line">      nodes[i].textContent = text</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> nodes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我觉得jquery的好处不仅仅把很难操作的DOM变得容易操作了,还有他的链式操作也是很精髓的,比如<br><code>$(#div).addClass(&#39;active&#39;).removeClass(&#39;highlight&#39;)</code>这样的操作,这种操作经常在CSS中用来切换样式。</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/01/26/立即执行函数/" title= 立即执行函数 >
+                    <span>Next Post</span>
+                    <span>立即执行函数</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2018/01/10/DOM的增删改查/" title= DOM的增删改查 >
+                    <span>Previous Post</span>
+                    <span>DOM的增删改查</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+
+        if (typeof LivereTower === 'function') { return; }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:326656669@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/o0Chivas0o" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+            
+                <a href="https://www.zhihu.com/people/lzy-/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
+            
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery的文档"><span class="toc-number">1.</span> <span class="toc-text"><a href="#jQuery&#x7684;&#x6587;&#x6863;" class="headerlink" title="jQuery&#x7684;&#x6587;&#x6863;"></a>jQuery&#x7684;&#x6587;&#x6863;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原文地址"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#&#x539F;&#x6587;&#x5730;&#x5740;" class="headerlink" title="&#x539F;&#x6587;&#x5730;&#x5740;"></a>&#x539F;&#x6587;&#x5730;&#x5740;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#译文地址"><span class="toc-number">1.2.</span> <span class="toc-text"><a href="#&#x8BD1;&#x6587;&#x5730;&#x5740;" class="headerlink" title="&#x8BD1;&#x6587;&#x5730;&#x5740;"></a>&#x8BD1;&#x6587;&#x5730;&#x5740;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery的类型"><span class="toc-number">2.</span> <span class="toc-text"><a href="#jQuery&#x7684;&#x7C7B;&#x578B;" class="headerlink" title="jQuery&#x7684;&#x7C7B;&#x578B;"></a>jQuery&#x7684;&#x7C7B;&#x578B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自己封装一个简单的jQuery"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x81EA;&#x5DF1;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;jQuery" class="headerlink" title="&#x81EA;&#x5DF1;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;jQuery"></a>&#x81EA;&#x5DF1;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;jQuery</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#封装一个函数"><span class="toc-number">3.1.</span> <span class="toc-text"><a href="#&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x51FD;&#x6570;" class="headerlink" title="&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x51FD;&#x6570;"></a>&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#封装第二个函数"><span class="toc-number">3.2.</span> <span class="toc-text"><a href="#&#x5C01;&#x88C5;&#x7B2C;&#x4E8C;&#x4E2A;&#x51FD;&#x6570;" class="headerlink" title="&#x5C01;&#x88C5;&#x7B2C;&#x4E8C;&#x4E2A;&#x51FD;&#x6570;"></a>&#x5C01;&#x88C5;&#x7B2C;&#x4E8C;&#x4E2A;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命名问题"><span class="toc-number">3.3.</span> <span class="toc-text"><a href="#&#x547D;&#x540D;&#x95EE;&#x9898;" class="headerlink" title="&#x547D;&#x540D;&#x95EE;&#x9898;"></a>&#x547D;&#x540D;&#x95EE;&#x9898;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#我想把node放到前面怎么办"><span class="toc-number">3.4.</span> <span class="toc-text"><a href="#&#x6211;&#x60F3;&#x628A;node&#x653E;&#x5230;&#x524D;&#x9762;&#x600E;&#x4E48;&#x529E;" class="headerlink" title="&#x6211;&#x60F3;&#x628A;node&#x653E;&#x5230;&#x524D;&#x9762;&#x600E;&#x4E48;&#x529E;?"></a>&#x6211;&#x60F3;&#x628A;node&#x653E;&#x5230;&#x524D;&#x9762;&#x600E;&#x4E48;&#x529E;?</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#方法一"><span class="toc-number">3.4.1.</span> <span class="toc-text"><a href="#&#x65B9;&#x6CD5;&#x4E00;" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E00;:"></a>&#x65B9;&#x6CD5;&#x4E00;:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#方法二"><span class="toc-number">3.4.2.</span> <span class="toc-text"><a href="#&#x65B9;&#x6CD5;&#x4E8C;" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E8C;:"></a>&#x65B9;&#x6CD5;&#x4E8C;:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#给自己写的jQuery添加text-功能"><span class="toc-number">3.5.</span> <span class="toc-text"><a href="#&#x7ED9;&#x81EA;&#x5DF1;&#x5199;&#x7684;jQuery&#x6DFB;&#x52A0;text-&#x529F;&#x80FD;" class="headerlink" title="&#x7ED9;&#x81EA;&#x5DF1;&#x5199;&#x7684;jQuery&#x6DFB;&#x52A0;text()&#x529F;&#x80FD;"></a>&#x7ED9;&#x81EA;&#x5DF1;&#x5199;&#x7684;jQuery&#x6DFB;&#x52A0;text()&#x529F;&#x80FD;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 33 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/23</span><a class="archive-post-title" href= "/2021/01/23/webpack/" >Webpack</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2020/12/20/Vue3/" >Vue 3</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/30</span><a class="archive-post-title" href= "/2020/08/30/浏览器工作原理/" >浏览器工作原理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2020/08/15/图解GoogleV8/" >V8 引擎的学习</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/09</span><a class="archive-post-title" href= "/2019/04/09/Vue的一些东西/" >Vue的一些东西</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href= "/2019/03/15/记录一些读书笔记/" >读书笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2019/02/18/记录一些工作中会使用或将使用的工具/" >记录一些工作中会使用或将使用的工具</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/29</span><a class="archive-post-title" href= "/2019/01/29/some notes/" >some notes</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/27</span><a class="archive-post-title" href= "/2018/12/27/zsh 快捷键/" >zsh快捷键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span><a class="archive-post-title" href= "/2018/12/26/Markdown基础语法/" >Markdown基础语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/git/" >git使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/vue-router/" >Vue-Router、webpack个人配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2018/12/19/Itrem2 oh-my-zsh git 快捷键/" >Itrem2 oh-my-zsh git 快捷键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2018/11/19/ng、vue、react/" >ng、vue、react</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/17</span><a class="archive-post-title" href= "/2018/05/17/微信小程序CSS命名规范/" >微信小程序CSS命名规范</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/2018/02/24/Cookie、Seesion、LocalStorage/" >Cookie、Session、LocalStorage</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/2018/02/09/JS要点整理/" >JS要点整理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/29</span><a class="archive-post-title" href= "/2018/01/29/自己实现AJAX/" >自己实现AJAX</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/26</span><a class="archive-post-title" href= "/2018/01/26/立即执行函数/" >立即执行函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/19</span><a class="archive-post-title" href= "/2018/01/19/自己实现一个jQuery/" >自己实现一个jQuery</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2018/01/10/DOM的增删改查/" >DOM的增删改查</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2018/01/10/冒泡与捕获/" >冒泡与捕获</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2018/01/04/JS数据类型-二/" >JS数据类型(二)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2018/01/03/JS数据类型/" >JS数据类型(一)</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span><a class="archive-post-title" href= "/2017/12/26/函数的声明方法/" >函数的声明方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/flex布局/" >flex布局</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/2017/12/15/css垂直居中的几种办法/" >css垂直居中的几种办法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/我对http的一些简单理解/" >我对http的一些简单理解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/如何阅读HTML5规范文档/" >如何阅读HTML5规范文档</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/浅谈HTML5元素/" >浅谈HTML5元素</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/webstorm将项目上传到github/" >webstorm将项目上传到github</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2017/12/11/用Hexo搭建个人博客系统/" >用Hexo搭建个人博客系统</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href= "/2017/12/10/hello-world/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">HTTP&JavaScript</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">webpack</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">浏览器</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">read</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+

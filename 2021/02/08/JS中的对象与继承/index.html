@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        lzy的Bbbblog
+        JS中的对象与继承 · lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >lzy的Bbbblog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">JS中的对象与继承</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>lzy的Bbbblog</a>
 </header>
@@ -62,21 +73,43 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            JS中的对象与继承
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2021/02/08</span>
+            </div>
         
     </div>
 </div>
@@ -144,118 +177,72 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/05/17/微信小程序CSS命名规范/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>微信小程序CSS命名规范</span>
-                    </h2>
-                <div class="abstract-content">
-                    微信小程序CSS命名示例
-小程序CSS命名方式尽量使用 BEM 命名 , Block+Element+Modify.
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="JS中的对象与继承"><a href="#JS中的对象与继承" class="headerlink" title="JS中的对象与继承"></a>JS中的对象与继承</h1><blockquote>
+<p>本节是阅读《高级程序设计(第四版)》的第八章 <strong>对象、类与面向对象编程</strong> 的总结以及自己的一些理解。</p>
+</blockquote>
+<p>主要解决如下几个问题:</p>
+<ol>
+<li><a href="#1.理解对象">理解对象</a></li>
+<li><a href="#2.理解对象创建过程">理解对象创建过程</a></li>
+<li><a href="#3.理解继承">理解继承</a></li>
+<li><a href="#4.理解类">理解类</a></li>
+</ol>
+<h1 id="1-理解对象"><a href="#1-理解对象" class="headerlink" title="1.理解对象"></a>1.理解对象</h1><blockquote>
+<p>对象创建的形式一般是创建一个 <code>Object</code> 的实例，然后给它添加属性和方法。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// old</span></span><br><span class="line"><span class="keyword">let</span> animal = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">animal.name = <span class="string">'dog'</span></span><br><span class="line">animal.age = <span class="number">8</span></span><br><span class="line">animal.leg = <span class="number">4</span></span><br><span class="line">animal.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// now</span></span><br><span class="line"><span class="comment">// 对象字面量形式声明</span></span><br><span class="line"><span class="keyword">let</span> animal = &#123;</span><br><span class="line">  name: <span class="string">'cat'</span>,</span><br><span class="line">  age: <span class="number">2</span>,</span><br><span class="line">  legs: <span class="number">4</span>,</span><br><span class="line">  sayName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>目录 :</p>
+<ol>
+<li><a href="#1.1属性的类型">1.1属性的类型</a></li>
+<li><a href="#1.2定义多个属性">1.2定义多个属性</a></li>
+<li><a href="#1.3读取属性的特征">1.3读取属性的特征</a></li>
+<li><a href="#1.4合并对象">1.4合并对象</a></li>
+<li><a href="#1.5对象标识符及判定">1.5对象标识符及判定</a></li>
+<li><a href="#1.6增强对象语法">1.6增强对象语法</a></li>
+<li><a href="#1.7对象解构">1.7对象解构</a></li>
+</ol>
+<h2 id="1-1属性的类型"><a href="#1-1属性的类型" class="headerlink" title="1.1属性的类型"></a>1.1属性的类型</h2><h3 id="1-1-1数据类型"><a href="#1-1-1数据类型" class="headerlink" title="1.1.1数据类型"></a>1.1.1数据类型</h3><h3 id="1-1-2访问器类型"><a href="#1-1-2访问器类型" class="headerlink" title="1.1.2访问器类型"></a>1.1.2访问器类型</h3><h2 id="1-2定义多个属性"><a href="#1-2定义多个属性" class="headerlink" title="1.2定义多个属性"></a>1.2定义多个属性</h2><h2 id="1-3读取属性的特征"><a href="#1-3读取属性的特征" class="headerlink" title="1.3读取属性的特征"></a>1.3读取属性的特征</h2><h2 id="1-4合并对象"><a href="#1-4合并对象" class="headerlink" title="1.4合并对象"></a>1.4合并对象</h2><h2 id="1-5对象标识符及判定"><a href="#1-5对象标识符及判定" class="headerlink" title="1.5对象标识符及判定"></a>1.5对象标识符及判定</h2><h2 id="1-6增强对象语法"><a href="#1-6增强对象语法" class="headerlink" title="1.6增强对象语法"></a>1.6增强对象语法</h2><h3 id="1-6-1简写"><a href="#1-6-1简写" class="headerlink" title="1.6.1简写"></a>1.6.1简写</h3><h3 id="1-6-2可计算变量"><a href="#1-6-2可计算变量" class="headerlink" title="1.6.2可计算变量"></a>1.6.2可计算变量</h3><h3 id="1-6-3简写语法"><a href="#1-6-3简写语法" class="headerlink" title="1.6.3简写语法"></a>1.6.3简写语法</h3><h2 id="1-7对象解构"><a href="#1-7对象解构" class="headerlink" title="1.7对象解构"></a>1.7对象解构</h2><h3 id="1-7-1嵌套解构"><a href="#1-7-1嵌套解构" class="headerlink" title="1.7.1嵌套解构"></a>1.7.1嵌套解构</h3><h3 id="1-7-2部分解构"><a href="#1-7-2部分解构" class="headerlink" title="1.7.2部分解构"></a>1.7.2部分解构</h3><h3 id="1-7-3参数上下文匹配"><a href="#1-7-3参数上下文匹配" class="headerlink" title="1.7.3参数上下文匹配"></a>1.7.3参数上下文匹配</h3><h1 id="2-理解对象创建过程"><a href="#2-理解对象创建过程" class="headerlink" title="2.理解对象创建过程"></a>2.理解对象创建过程</h1><h1 id="3-理解继承"><a href="#3-理解继承" class="headerlink" title="3.理解继承"></a>3.理解继承</h1><h1 id="4-理解类"><a href="#4-理解类" class="headerlink" title="4.理解类"></a>4.理解类</h1>
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2021/01/23/webpack/" title= Webpack >
+                    <span>Previous Post</span>
+                    <span>Webpack</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
 
-例如: 1234&lt;view class="view__container"&gt;    &lt;icon class="view__container__icon"&gt;&lt;/icon&gt;    &lt;text class="view__container__text"&gt;&lt;/text&gt;&lt;/view&gt;
-BEM规范
-BEM 即(block,element,modifier)的命名方式
+        if (typeof LivereTower === 'function') { return; }
 
-如:1234-   中划线 ：仅作为连...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
-    
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/05/17</span>
-                </div>
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/19/flex布局/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>flex布局</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-网页布局一直是CSS的一个重点应用,布局的传统方法是基于盒模型,依赖display属性+position属性+float属性。它对于那些特殊布局方法非常不方便,比如,垂直居中。2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+    <!--PC版-->
 
-Flex是什么Flex 是Flexible Box的缩写,意味着弹性布局,它可以应用到任意一个容器上。123div&#123;display:flex;&#125;
-也可以应用到行内元素上:123span&#123;display:in...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/19</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/15/css垂直居中的几种办法/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>css垂直居中的几种办法</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-div垂直居中一直是css布局中的热点，下面归纳总结一下div垂直居中的几种办法。
-
-table元素自带属性
-这里有必要介绍一下table元素的属性，在css没有出现之前，HTMLtable元素常常用于页面布局。这种办法在HTML4之后便不再推荐使用。
+    <!--PC版-->
 
 
-具体参考MDNtable元素
-
-具体例子:http://js.jirengu.com/dodel/1/edit
-
-
-
-HTML代码:
-1234567&lt;table class="parent"&gt;  &lt;tr&gt;    &lt;td class="child"&gt;   这是一串文字.这是一串文字.这是一串文字.这...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/15</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -303,6 +290,13 @@ HTML代码:
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS中的对象与继承"><span class="toc-number">1.</span> <span class="toc-text"><a href="#JS&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x4E0E;&#x7EE7;&#x627F;" class="headerlink" title="JS&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x4E0E;&#x7EE7;&#x627F;"></a>JS&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x4E0E;&#x7EE7;&#x627F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-理解对象"><span class="toc-number">2.</span> <span class="toc-text"><a href="#1-&#x7406;&#x89E3;&#x5BF9;&#x8C61;" class="headerlink" title="1.&#x7406;&#x89E3;&#x5BF9;&#x8C61;"></a>1.&#x7406;&#x89E3;&#x5BF9;&#x8C61;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1属性的类型"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#1-1&#x5C5E;&#x6027;&#x7684;&#x7C7B;&#x578B;" class="headerlink" title="1.1&#x5C5E;&#x6027;&#x7684;&#x7C7B;&#x578B;"></a>1.1&#x5C5E;&#x6027;&#x7684;&#x7C7B;&#x578B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1数据类型"><span class="toc-number">2.1.1.</span> <span class="toc-text"><a href="#1-1-1&#x6570;&#x636E;&#x7C7B;&#x578B;" class="headerlink" title="1.1.1&#x6570;&#x636E;&#x7C7B;&#x578B;"></a>1.1.1&#x6570;&#x636E;&#x7C7B;&#x578B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2访问器类型"><span class="toc-number">2.1.2.</span> <span class="toc-text"><a href="#1-1-2&#x8BBF;&#x95EE;&#x5668;&#x7C7B;&#x578B;" class="headerlink" title="1.1.2&#x8BBF;&#x95EE;&#x5668;&#x7C7B;&#x578B;"></a>1.1.2&#x8BBF;&#x95EE;&#x5668;&#x7C7B;&#x578B;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2定义多个属性"><span class="toc-number">2.2.</span> <span class="toc-text"><a href="#1-2&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x5C5E;&#x6027;" class="headerlink" title="1.2&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x5C5E;&#x6027;"></a>1.2&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x5C5E;&#x6027;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3读取属性的特征"><span class="toc-number">2.3.</span> <span class="toc-text"><a href="#1-3&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x5F81;" class="headerlink" title="1.3&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x5F81;"></a>1.3&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x5F81;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4合并对象"><span class="toc-number">2.4.</span> <span class="toc-text"><a href="#1-4&#x5408;&#x5E76;&#x5BF9;&#x8C61;" class="headerlink" title="1.4&#x5408;&#x5E76;&#x5BF9;&#x8C61;"></a>1.4&#x5408;&#x5E76;&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5对象标识符及判定"><span class="toc-number">2.5.</span> <span class="toc-text"><a href="#1-5&#x5BF9;&#x8C61;&#x6807;&#x8BC6;&#x7B26;&#x53CA;&#x5224;&#x5B9A;" class="headerlink" title="1.5&#x5BF9;&#x8C61;&#x6807;&#x8BC6;&#x7B26;&#x53CA;&#x5224;&#x5B9A;"></a>1.5&#x5BF9;&#x8C61;&#x6807;&#x8BC6;&#x7B26;&#x53CA;&#x5224;&#x5B9A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6增强对象语法"><span class="toc-number">2.6.</span> <span class="toc-text"><a href="#1-6&#x589E;&#x5F3A;&#x5BF9;&#x8C61;&#x8BED;&#x6CD5;" class="headerlink" title="1.6&#x589E;&#x5F3A;&#x5BF9;&#x8C61;&#x8BED;&#x6CD5;"></a>1.6&#x589E;&#x5F3A;&#x5BF9;&#x8C61;&#x8BED;&#x6CD5;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1简写"><span class="toc-number">2.6.1.</span> <span class="toc-text"><a href="#1-6-1&#x7B80;&#x5199;" class="headerlink" title="1.6.1&#x7B80;&#x5199;"></a>1.6.1&#x7B80;&#x5199;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2可计算变量"><span class="toc-number">2.6.2.</span> <span class="toc-text"><a href="#1-6-2&#x53EF;&#x8BA1;&#x7B97;&#x53D8;&#x91CF;" class="headerlink" title="1.6.2&#x53EF;&#x8BA1;&#x7B97;&#x53D8;&#x91CF;"></a>1.6.2&#x53EF;&#x8BA1;&#x7B97;&#x53D8;&#x91CF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3简写语法"><span class="toc-number">2.6.3.</span> <span class="toc-text"><a href="#1-6-3&#x7B80;&#x5199;&#x8BED;&#x6CD5;" class="headerlink" title="1.6.3&#x7B80;&#x5199;&#x8BED;&#x6CD5;"></a>1.6.3&#x7B80;&#x5199;&#x8BED;&#x6CD5;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7对象解构"><span class="toc-number">2.7.</span> <span class="toc-text"><a href="#1-7&#x5BF9;&#x8C61;&#x89E3;&#x6784;" class="headerlink" title="1.7&#x5BF9;&#x8C61;&#x89E3;&#x6784;"></a>1.7&#x5BF9;&#x8C61;&#x89E3;&#x6784;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-1嵌套解构"><span class="toc-number">2.7.1.</span> <span class="toc-text"><a href="#1-7-1&#x5D4C;&#x5957;&#x89E3;&#x6784;" class="headerlink" title="1.7.1&#x5D4C;&#x5957;&#x89E3;&#x6784;"></a>1.7.1&#x5D4C;&#x5957;&#x89E3;&#x6784;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-2部分解构"><span class="toc-number">2.7.2.</span> <span class="toc-text"><a href="#1-7-2&#x90E8;&#x5206;&#x89E3;&#x6784;" class="headerlink" title="1.7.2&#x90E8;&#x5206;&#x89E3;&#x6784;"></a>1.7.2&#x90E8;&#x5206;&#x89E3;&#x6784;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-3参数上下文匹配"><span class="toc-number">2.7.3.</span> <span class="toc-text"><a href="#1-7-3&#x53C2;&#x6570;&#x4E0A;&#x4E0B;&#x6587;&#x5339;&#x914D;" class="headerlink" title="1.7.3&#x53C2;&#x6570;&#x4E0A;&#x4E0B;&#x6587;&#x5339;&#x914D;"></a>1.7.3&#x53C2;&#x6570;&#x4E0A;&#x4E0B;&#x6587;&#x5339;&#x914D;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-理解对象创建过程"><span class="toc-number">3.</span> <span class="toc-text"><a href="#2-&#x7406;&#x89E3;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;" class="headerlink" title="2.&#x7406;&#x89E3;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;"></a>2.&#x7406;&#x89E3;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-理解继承"><span class="toc-number">4.</span> <span class="toc-text"><a href="#3-&#x7406;&#x89E3;&#x7EE7;&#x627F;" class="headerlink" title="3.&#x7406;&#x89E3;&#x7EE7;&#x627F;"></a>3.&#x7406;&#x89E3;&#x7EE7;&#x627F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-理解类"><span class="toc-number">5.</span> <span class="toc-text"><a href="#4-&#x7406;&#x89E3;&#x7C7B;" class="headerlink" title="4.&#x7406;&#x89E3;&#x7C7B;"></a>4.&#x7406;&#x89E3;&#x7C7B;</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

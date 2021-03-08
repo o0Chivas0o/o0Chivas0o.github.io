@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        V8 引擎的学习 · lzy的Bbbblog
+        lzy的Bbbblog
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -50,22 +50,11 @@
     
 </head>
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >lzy的Bbbblog</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">V8 引擎的学习</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>lzy的Bbbblog</a>
 </header>
@@ -73,43 +62,21 @@
         <div class="site-intro">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            V8 引擎的学习
-            <!-- 404 -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <!-- 文章页标签  -->
-            
-                <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 浏览器>浏览器</a>
-    
-</div>
-            
-            <div class="post-intro-meta">
-                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2020/08/15</span>
-            </div>
         
     </div>
 </div>
@@ -177,134 +144,50 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <blockquote>
-<p>最近在极客时间学习<code>&lt;图解 Google V8&gt;</code>一课的一些笔记</p>
-</blockquote>
-<h1 id="宏观视角"><a href="#宏观视角" class="headerlink" title="宏观视角"></a>宏观视角</h1><h2 id="开篇词"><a href="#开篇词" class="headerlink" title="开篇词"></a>开篇词</h2><blockquote>
-<p>V8 是 JavaScript 虚拟机的一种。我们可以简单地把 JavaScript 虚拟机理解成是一个翻译程序，将人类能够理解的编程语言 JavaScript，翻译成机器能够理解的机器语言。</p>
-</blockquote>
-<ol>
-<li>V8执行代码流水线使用到的技术<ol>
-<li>隐藏类:将 JavaScript 中动态类型转换为静态类型的一种技术，可以消除动态类型的语言执行速度过慢的问题</li>
-<li>惰性解析:为了加速代码的启动速度，通过对惰性解析机制的学习，你可以优化你的代码更加适应这个机制，从而提高程序性能。</li>
-<li>事件循环系统和垃圾回收机制。</li>
-</ol>
-</li>
-</ol>
-<h2 id="V8如何执行一段JS代码"><a href="#V8如何执行一段JS代码" class="headerlink" title="V8如何执行一段JS代码"></a>V8如何执行一段JS代码</h2><blockquote>
-<p>V8 是一个由 Google 开发的开源 JavaScript 引擎，目前用在 Chrome 浏览器和 Node.js 中，其核心功能是执行易于人类理解的 JavaScript 代码。<br>很多浏览器有自己的 JavaScript 引擎，如苹果公司在 Safari 中就是用 JavaScriptCore 虚拟机，Firefox 使用了 TraceMonkey 虚拟机，而 Chrome 则使用了 V8 虚拟机。</p>
-</blockquote>
-<ol>
-<li>什么是V8<ol>
-<li>V8是一个虚拟计算机，也称虚拟机。虚拟机通过模拟实际计算机的各种功能来实现代码的执行。如CPU、堆栈、寄存器等。</li>
-</ol>
-</li>
-<li>高级代码为什么需要先编译再执行？CPU无法识别高级语言所输出的代码。<ol>
-<li>CPU是如何识别代码的<ol>
-<li>CPU执行操作是根据指令集来的</li>
-<li>与CPU沟通是通过二进制代码实现的</li>
-<li>指令集就是机器语言</li>
-</ol>
-</li>
-<li>高级语言无法直接与CPU交流，因此需要解析执行。<ol>
-<li>解释执行<ol>
-<li>源代码被解析器编译为中间代码</li>
-<li>中间代码被解释器解释</li>
-<li>输出结果</li>
-</ol>
-</li>
-<li>编译执行<ol>
-<li>源代码被解析器编译为中间代码</li>
-<li>中间代码被编译器编译为机器代码</li>
-<li>机器执行机器代码</li>
-<li>输出结果</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>V8是如何执行JavaScript代码的? 通过混合编译执行和解释执行两种手段执行的(JIT)<ol>
-<li>准备执行JavaScript的基础环境<ol>
-<li>JavaScript 全局执行上下文就包含了执行过程中的全局信息，比如一些内置函数，全局变量等信息；</li>
-<li>全局作用域包含了一些全局变量，在执行过程中的数据都需要存放在内存中；</li>
-<li>而 V8 是采用了经典的堆和栈的内存管理模式，所以 V8 还需要初始化内存中的堆和栈结构；</li>
-<li>另外，想要我们的 V8 系统活起来，还需要初始化消息循环系统，消息循环系统包含了消息驱动器和消息队列，它如同 V8 的心脏，不断接受消息并决策如何处理消息。</li>
-</ol>
-</li>
-<li>结构化代码字符串，结构化:词法分析。</li>
-<li>抽象语法树(AST)，便于V8理解的结构。</li>
-<li>生成字节码。字节码：介于AST与机器代码间的代码。</li>
-<li>解释器按照字节码顺序解释字节码。</li>
-</ol>
-</li>
-</ol>
-<h1 id="JavaScript设计思想"><a href="#JavaScript设计思想" class="headerlink" title="JavaScript设计思想"></a>JavaScript设计思想</h1><h2 id="函数即对象"><a href="#函数即对象" class="headerlink" title="函数即对象"></a>函数即对象</h2><blockquote>
-<p>JavaScript 中的函数就是一种特殊的对象，我们把 JavaScript 中的函数称为一等公民 (First Class Function)。</p>
-</blockquote>
-<ol>
-<li>什么是JavaScript对象<ol>
-<li>原始类型:string,number,boolean,undefined,null,symbol,bigInt</li>
-<li>对象类型:object</li>
-<li>函数类型:对象的方法,如,a.speak()</li>
-</ol>
-</li>
-<li>函数的本质<ol>
-<li>name属性记录函数名</li>
-<li>code属性记录函数体</li>
-</ol>
-</li>
-<li>函数是一等公民</li>
-</ol>
+            <main class="main index-page">
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2021/03/13/React Hooks 学习/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>React Hooks 学习&amp;总结</span>
+                    </h2>
+                <div class="abstract-content">
+                    
+这是一篇关于本人 React Hooks 学习的总结文章，因为有一定 Vue 3 的编写经验，所以学起来不是那么吃力，下面一些总结仅代表个人看法。
 
-    </article>
-    <!-- 前后页  -->
-    <ul class="post-pager">
-        
-            <li class="next">
-                <a href= "/2020/08/30/浏览器工作原理/" title= 浏览器工作原理 >
-                    <span>Next Post</span>
-                    <span>浏览器工作原理</span>
-                </a>
-            </li>
-        
-        
-            <li class="previous">
-                <a href= "/2019/04/09/Vue的一些东西/" title= Vue的一些东西 >
-                    <span>Previous Post</span>
-                    <span>Vue的一些东西</span>
-                </a>
-            </li>
-        
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjI5Ni84ODU3">
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
+React Hooks 对应 API
+useState
+useReducer
+useContext
+useEffect、useLayoutEffect
+useMemo、useCallback
+useRef、forwardRef、useImperativeHandle
+自定义hook
+stale closure
 
-        if (typeof LivereTower === 'function') { return; }
-
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+useStateuseReduceruseContextuseEffect、useLayoutEffectuseMemo、use...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = React>React</a>
+    
 </div>
-<!-- City版安装代码已完成 -->
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2021/03/13</span>
+                </div>
+            </div>
+        </article>
     
-    
-    <!--PC版-->
-
-    <!--PC版-->
-
-
+    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -352,13 +235,6 @@
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper">
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#宏观视角"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5B8F;&#x89C2;&#x89C6;&#x89D2;" class="headerlink" title="&#x5B8F;&#x89C2;&#x89C6;&#x89D2;"></a>&#x5B8F;&#x89C2;&#x89C6;&#x89D2;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开篇词"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#&#x5F00;&#x7BC7;&#x8BCD;" class="headerlink" title="&#x5F00;&#x7BC7;&#x8BCD;"></a>&#x5F00;&#x7BC7;&#x8BCD;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#V8如何执行一段JS代码"><span class="toc-number">1.2.</span> <span class="toc-text"><a href="#V8&#x5982;&#x4F55;&#x6267;&#x884C;&#x4E00;&#x6BB5;JS&#x4EE3;&#x7801;" class="headerlink" title="V8&#x5982;&#x4F55;&#x6267;&#x884C;&#x4E00;&#x6BB5;JS&#x4EE3;&#x7801;"></a>V8&#x5982;&#x4F55;&#x6267;&#x884C;&#x4E00;&#x6BB5;JS&#x4EE3;&#x7801;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript设计思想"><span class="toc-number">2.</span> <span class="toc-text"><a href="#JavaScript&#x8BBE;&#x8BA1;&#x601D;&#x60F3;" class="headerlink" title="JavaScript&#x8BBE;&#x8BA1;&#x601D;&#x60F3;"></a>JavaScript&#x8BBE;&#x8BA1;&#x601D;&#x60F3;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数即对象"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#&#x51FD;&#x6570;&#x5373;&#x5BF9;&#x8C61;" class="headerlink" title="&#x51FD;&#x6570;&#x5373;&#x5BF9;&#x8C61;"></a>&#x51FD;&#x6570;&#x5373;&#x5BF9;&#x8C61;</span></a></li></ol></li></ol>
-    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

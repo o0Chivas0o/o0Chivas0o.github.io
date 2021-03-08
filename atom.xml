@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-08T09:49:18.055Z</updated>
+  <updated>2021-03-08T09:52:00.983Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2021/03/13/React%20Hooks%20%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2021/03/13/React Hooks 学习/</id>
     <published>2021-03-13T08:18:32.000Z</published>
-    <updated>2021-03-08T09:49:18.055Z</updated>
+    <updated>2021-03-08T09:52:00.983Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>这是一篇关于本人 <code>React Hooks</code> 学习的总结文章，因为有一定 <code>Vue 3</code> 的编写经验，所以学起来不是那么吃力，下面一些总结仅代表个人看法。</p></blockquote><h1 id="React-Hooks-对应-API"><a href="#React-Hooks-对应-API" class="headerlink" title="React Hooks 对应 API"></a><code>React Hooks</code> 对应 <code>API</code></h1><ol><li><a href="#useState">useState</a></li><li><a href="#useReducer">useReducer</a></li><li><a href="#useContext">useContext</a></li><li><a href="#useEffect、useLayoutEffect">useEffect、useLayoutEffect</a></li><li><a href="#useMemo、useCallback">useMemo、useCallback</a></li><li><a href="#useRef、forwardRef、useImperativeHandle">useRef、forwardRef、useImperativeHandle</a></li><li><a href="#自定义hook">自定义hook</a></li><li><a href="#stale closure">stale closure</a></li></ol><h1 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h1><h1 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h1><h1 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h1><h1 id="useEffect、useLayoutEffect"><a href="#useEffect、useLayoutEffect" class="headerlink" title="useEffect、useLayoutEffect"></a>useEffect、useLayoutEffect</h1><h1 id="useMemo、useCallback"><a href="#useMemo、useCallback" class="headerlink" title="useMemo、useCallback"></a>useMemo、useCallback</h1><h1 id="useRef、forwardRef、useImperativeHandle"><a href="#useRef、forwardRef、useImperativeHandle" class="headerlink" title="useRef、forwardRef、useImperativeHandle"></a>useRef、forwardRef、useImperativeHandle</h1><h1 id="自定义hook"><a href="#自定义hook" class="headerlink" title="自定义hook"></a>自定义hook</h1><h1 id="stale-closure"><a href="#stale-closure" class="headerlink" title="stale closure"></a>stale closure</h1>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>这是一篇关于本人 <code>React Hooks</code> 学习的总结文章，因为有一定 <code>Vue 3</code> 的编写经验，所以学起来不是那么吃力，下面一些总结仅代表个人看法。</p></blockquote><h1 id="React-Hooks-对应-API"><a href="#React-Hooks-对应-API" class="headerlink" title="React Hooks 对应 API"></a><code>React Hooks</code> 对应 <code>API</code></h1><ol><li><a href="#useState">useState</a></li><li><a href="#useReducer">useReducer</a></li><li><a href="#useContext">useContext</a></li><li><a href="#useEffect、useLayoutEffect">useEffect、useLayoutEffect</a></li><li><a href="#useMemo、useCallback">useMemo、useCallback</a></li><li><a href="#useRef、forwardRef、useImperativeHandle">useRef、forwardRef、useImperativeHandle</a></li><li><a href="#自定义hook">自定义hook</a></li><li><a href="#stale-closure">stale-closure</a></li></ol><h1 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h1><h1 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h1><h1 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h1><h1 id="useEffect、useLayoutEffect"><a href="#useEffect、useLayoutEffect" class="headerlink" title="useEffect、useLayoutEffect"></a>useEffect、useLayoutEffect</h1><h1 id="useMemo、useCallback"><a href="#useMemo、useCallback" class="headerlink" title="useMemo、useCallback"></a>useMemo、useCallback</h1><h1 id="useRef、forwardRef、useImperativeHandle"><a href="#useRef、forwardRef、useImperativeHandle" class="headerlink" title="useRef、forwardRef、useImperativeHandle"></a>useRef、forwardRef、useImperativeHandle</h1><h1 id="自定义hook"><a href="#自定义hook" class="headerlink" title="自定义hook"></a>自定义hook</h1><h1 id="stale-closure"><a href="#stale-closure" class="headerlink" title="stale-closure"></a>stale-closure</h1>]]></content>
     
     <summary type="html">
     

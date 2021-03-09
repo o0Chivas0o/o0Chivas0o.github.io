@@ -1,1060 +1,629 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-    <title>
-        
-        lzy的Bbbblog
-        
-    </title>
-    <link rel="icon" href= /assests/favicon.ico>
-    <!-- TODO: 在font-face加载完毕后改变字体  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
-    <!-- 提前加载place holder  -->
-    <style type="text/css">
-        @font-face {
-            font-family: 'Oswald-Regular';
-            src: url(/font/Oswald-Regular.ttf);
-        }
-    </style>
-    <style type="text/css">
-        .site-intro-placeholder {
-            position: absolute;
-            z-index: -2;
-            top: 0;
-            left: 0px;
-            width: calc(100% + 300px);
-            height: 100%;
-            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
-            background-position: center center;
-            transform: translate3d(-226px, 0, 0);
-            animation: gradient-move 2.5s ease-out 0s 1;
-        }
-        @keyframes gradient-move {
-        0% {
-            transform: translate3d(-226px, 0, 0);
-        }
-        100% {
-            transform: translate3d(0, 0, 0);
-        }
-    }
-</style>
-    <link rel="stylesheet" href = /css/style.css?v=20171020 />
-    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
-    
-    <script src="/scripts/main.js" defer></script>
-    <!-- 百度统计  -->
-    
-    <!-- 谷歌统计  -->
-    
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>标签 - Vue</title>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/index.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/jquery-3.4.1.min.js"></script>
 </head>
-    
-    
-<header class="header">
-
-    <div class="header-sidebar-menu">&#xe775;</div>
-    <!-- post页的toggle banner  -->
-    
-    <a class="home-link" href=/>lzy的Bbbblog</a>
-</header>
-    <div class="wrapper">
-        <div class="site-intro">
-    
-    <!-- 主页  -->
-            
-    <div class="site-intro-img" style="background-image: url(/)"></div>
-    <div class="site-intro-placeholder"></div>
-    <div class="site-intro-meta">
-        <!-- 标题  -->
-        <h1 class="intro-title">
-            <!-- 主页  -->
-            
-        </h1>
-        <!-- 副标题 -->
-        <p class="intro-subtitle">
-            <!-- 主页副标题  -->
-            
-        </p>
-        <!-- 文章页meta -->
-        
-    </div>
-</div>
-        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
-        <script>
-            var browser = {
-                    versions: function () {
-                        var u = window.navigator.userAgent;
-                        return {
-                            userAgent: u,
-                            trident: u.indexOf('Trident') > -1, //IE内核
-                            presto: u.indexOf('Presto') > -1, //opera内核
-                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
-                            iPad: u.indexOf('iPad') > -1, //是否为iPad
-                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
-                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
-                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
-                        };
-                    }()
-                }
-
-            function fontLoaded(){
-                console.log('font loaded');
-                if (document.getElementsByClassName('site-intro-meta')) {
-                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
-                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
-                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
-                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
-                        if (postIntroTags) {
-                            postIntroTags.classList.add('post-fade-in');
-                        }
-                        if (postIntroMeat) {
-                            postIntroMeat.classList.add('post-fade-in');
-                        }
-                    }
-                }
-                
-            console.log("userAgent:" + browser.versions.userAgent);
-            // UC不支持跨域，所以直接显示
-            if (browser.versions.uc) {
-                console.log("UCBrowser");
-                fontLoaded();
-            } else {
-                WebFont.load({
-                    custom: {
-                        families: ['Oswald-Regular']
-                    },
-                    loading: function () {  //所有字体开始加载
-                        // console.log('loading');
-                    },
-                    active: function () {  //所有字体已渲染
-                        fontLoaded();
-                    },
-                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
-                        console.log('inactive: timeout');
-                        fontLoaded();
-                    },
-                    timeout: 7000 // Set the timeout to two seconds
-                });
-            }
-        </script>
-        <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2020/12/20/Vue3/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Vue 3</span>
-                    </h2>
-                <div class="abstract-content">
-                    Vue 3的一些操作
-setup中修改属性的值需要 target.value 去获取到值.
-inheritAttrs:false 取消默认绑定
-使用 $attrs/context.attrs 可以获取所有属性
-使用 v-bind=$attrs 批量绑定属性
-props 和 attrs 的区别
-props 要先声明才能取值，attrs 不用先声明
-props 不包含时间，attrs包含
-props 没有声明的属性，会转移到attrs里面
-props 支持 string 类型以外的类型，attrs 只有个string类型
-
-
-钩子函数的变更
-Vue2.X: beforeCreate-&gt;...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2020/12/20</span>
-                </div>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header" >
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-title"></h1>
+                <h2 class="header-description" id="hitokoto"></h2>
+                <h3 class="header-info" id="hitokotoAuthor"></h3>
+                <!--
+                <h1 class="header-subtitle"></h1>
+                <p class="header-subinfo"></p>
+                -->
             </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2019/04/09/Vue的一些东西/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Vue的一些东西</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-编写轮子的过程中遇到的问题与总结,轮子项目地址:https://github.com/o0Chivas0o/my-wheel
-
-—2019-04-09—
-Vue组件中Props的变量接受类型可以是指定单个或多个类型.props具体属性可查看vue官方文档:https://cn.vuejs.org/v2/guide/components-props.html
- 123456789//  props有2种写法:1.props:&#123;    xxx:&#123;        type:[String,Number]    &#125;&#125;2.props:[&apos;xxx&...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2019/04/09</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/12/21/vue-router/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Vue-Router、webpack个人配置</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-一些个人在vue构建项目中的router配置和webpack改动,仅在vue-cli 3.0版本下有效
-
-
-vue-router在项目初始化过程中,会涉及到配置路由，而在使用vue-router的过程中，需要注意vue的两种路由模式，一个是默认的hash路由，另一个是history路由。
- 1. hash路由在路径后会带有一个#/例如:localhost:8080/#/
- 2. 而history路由则会将路径后的#/去掉,例如:localhost:8080/
-
-具体配置信息如下:123456789101112在router.js文件中,添加mode:&apos;history&apos...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/12/21</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
-</main>
-            <!-- profile -->
-            
         </div>
-        <footer class="footer footer-unloaded">
-    <!-- social  -->
+        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
+            <span class="hidden">Scroll Down</span>
+            <i class="scroll-down-icon iconfont icon-return"></i>
+        </a>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div class="articles">
     
-    <div class="social">
-        
+        <div class="article">
+            <div class="article-title">
+                <a href="/2020/12/20/Vue3/">Vue 3</a>
+                
+            </div>
+            <div class="article-abstract">
+                
+            </div>
+            <div class="clear"></div>
+            <div class="article-info">
+                <span>
+                    <i class="iconfont icon-time"></i> 发表时间：2020-12-20
+                </span>
+                
+                    <span id="/2020/12/20/Vue3/" class="leancloud_visitors" data-flag-title="Vue 3">
+                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                    </span>
+                
+                <span>
+                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2020/12/20/Vue3/"></span>
+                </span>
+            </div>
+            <div class="clear"></div>     
+        </div>
     
-        
-            
-                <a href="mailto:326656669@qq.com" class="iconfont-archer email" title=email ></a>
-            
-        
+        <div class="article">
+            <div class="article-title">
+                <a href="/2019/04/09/Vue的一些东西/">Vue的一些东西</a>
+                
+            </div>
+            <div class="article-abstract">
+                
+            </div>
+            <div class="clear"></div>
+            <div class="article-info">
+                <span>
+                    <i class="iconfont icon-time"></i> 发表时间：2019-04-09
+                </span>
+                
+                    <span id="/2019/04/09/Vue的一些东西/" class="leancloud_visitors" data-flag-title="Vue的一些东西">
+                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                    </span>
+                
+                <span>
+                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2019/04/09/Vue的一些东西/"></span>
+                </span>
+            </div>
+            <div class="clear"></div>     
+        </div>
     
-        
-            
-                <a href="//github.com/o0Chivas0o" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
+        <div class="article">
+            <div class="article-title">
+                <a href="/2018/12/21/vue-router/">Vue-Router、webpack个人配置</a>
+                
+            </div>
+            <div class="article-abstract">
+                
+            </div>
+            <div class="clear"></div>
+            <div class="article-info">
+                <span>
+                    <i class="iconfont icon-time"></i> 发表时间：2018-12-21
+                </span>
+                
+                    <span id="/2018/12/21/vue-router/" class="leancloud_visitors" data-flag-title="Vue-Router、webpack个人配置">
+                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                    </span>
+                
+                <span>
+                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2018/12/21/vue-router/"></span>
+                </span>
+            </div>
+            <div class="clear"></div>     
+        </div>
     
-        
-            
-                <a href="https://www.zhihu.com/people/lzy-/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
-            
-        
     
-        
-            
-                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
-            
-        
-    
+</div>
 
     </div>
-    
-    <!-- powered by Hexo  -->
-    <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
-    </div>
-    <!-- 不蒜子  -->
-    
-</footer>
-    </div>
-    <!-- toc -->
-    
-    <div class="back-top">&#xe639;</div>
-    <div class="sidebar">
-    <div class="sidebar-header sidebar-header-show-archive">
-        <div class="sidebar-category">
-            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
-            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
         </div>
     </div>
-    <div class="sidebar-content sidebar-content-show-archive">
-          <div class="sidebar-archive">
-    <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="total-archive"> Total : 35 </div>
-    
-    <div class="post-archive">
-    
-    
-    
-    
-    <div class="archive-year"> 2021 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/13</span><a class="archive-post-title" href= "/2021/03/13/React Hooks 学习/" >React Hooks 学习&总结</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/08</span><a class="archive-post-title" href= "/2021/02/08/JS中的对象与继承/" >JS中的对象与继承</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/23</span><a class="archive-post-title" href= "/2021/01/23/webpack/" >Webpack</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2020 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2020/12/20/Vue3/" >Vue 3</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/30</span><a class="archive-post-title" href= "/2020/08/30/浏览器工作原理/" >浏览器工作原理</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2020/08/15/图解GoogleV8/" >V8 引擎的学习</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span><a class="archive-post-title" href= "/2019/04/09/Vue的一些东西/" >Vue的一些东西</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/15</span><a class="archive-post-title" href= "/2019/03/15/记录一些读书笔记/" >读书笔记</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2019/02/18/记录一些工作中会使用或将使用的工具/" >记录一些工作中会使用或将使用的工具</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/29</span><a class="archive-post-title" href= "/2019/01/29/some notes/" >some notes</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/27</span><a class="archive-post-title" href= "/2018/12/27/zsh 快捷键/" >zsh快捷键</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/26</span><a class="archive-post-title" href= "/2018/12/26/Markdown基础语法/" >Markdown基础语法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/git/" >git使用</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/vue-router/" >Vue-Router、webpack个人配置</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2018/12/19/Itrem2 oh-my-zsh git 快捷键/" >Itrem2 oh-my-zsh git 快捷键</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/19</span><a class="archive-post-title" href= "/2018/11/19/ng、vue、react/" >ng、vue、react</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/17</span><a class="archive-post-title" href= "/2018/05/17/微信小程序CSS命名规范/" >微信小程序CSS命名规范</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/2018/02/24/Cookie、Seesion、LocalStorage/" >Cookie、Session、LocalStorage</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/2018/02/09/JS要点整理/" >JS要点整理</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/29</span><a class="archive-post-title" href= "/2018/01/29/自己实现AJAX/" >自己实现AJAX</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/26</span><a class="archive-post-title" href= "/2018/01/26/立即执行函数/" >立即执行函数</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/19</span><a class="archive-post-title" href= "/2018/01/19/自己实现一个jQuery/" >自己实现一个jQuery</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2018/01/10/DOM的增删改查/" >DOM的增删改查</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2018/01/10/冒泡与捕获/" >冒泡与捕获</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2018/01/04/JS数据类型-二/" >JS数据类型(二)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2018/01/03/JS数据类型/" >JS数据类型(一)</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2017 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/26</span><a class="archive-post-title" href= "/2017/12/26/函数的声明方法/" >函数的声明方法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/flex布局/" >flex布局</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/2017/12/15/css垂直居中的几种办法/" >css垂直居中的几种办法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/我对http的一些简单理解/" >我对http的一些简单理解</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/如何阅读HTML5规范文档/" >如何阅读HTML5规范文档</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/浅谈HTML5元素/" >浅谈HTML5元素</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/webstorm将项目上传到github/" >webstorm将项目上传到github</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2017/12/11/用Hexo搭建个人博客系统/" >用Hexo搭建个人博客系统</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/10</span><a class="archive-post-title" href= "/2017/12/10/hello-world/" >Hello World</a>
-        </li>
-    
-    </div>
-  </div>
-        <div class="sidebar-tags">
-    <div class="sidebar-tags-name">
-    
-        <span class="sidebar-tag-name"><a href= "#">Shell</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">HTTP</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">React</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">其他</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">webpack</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">浏览器</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">HTML</a></span>
-    
-    </div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
-    3、在根目录_config.yml里添加配置：
-    <pre style="color: #888; font-size: 0.6rem;">
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: false
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: false
-    tags: true</pre>
-    </div> 
-    <div class="sidebar-tag-list"></div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
 </div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
     </div>
-</div> 
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
     <script>
-    var jsInfo = {
-        root: '/'
-    }
+    window.config = {
+        GitHubUserName     : 'o0Chivas0o',
+        GitHubRepositories : 'Hexo-LiveForCode',
+
+        BlogUser      : 'o0Chivas0o',
+        BlogAvatar    : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/sidebar/avatar.jpg',
+        BlogStartDate : '2017-08-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, Welcome My Blog',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/website/logo.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/5240253819/profile?topnav=1&amp;wvr=6'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/o0Chivas0o'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : '',
+            wechat  : ''
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '7DXTZU7AXA',
+            apiKey        : '9095ee0938b9ef9b95c54eb3dde5e4dc',
+            indexName     : 'blog',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'qMN4M0wlUs24WXma38U5Jwqh-gzGzoHsz',
+            appKey         : 'Jtwpw8WyQbC47IyIPh8FrvK9',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : 'Rich ? DoSomethingLike() : DoSomethingNeed()'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/o0Chivas0o/o0Chivas0o.github.io',
+            name : 'lzy Blooooog'
+        }  
+    };
 </script>
-    <!-- 不蒜子  -->
-    
-    <!-- CNZZ统计  -->
-    
-    </div>
-    </body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/index.js"></script>
+</body>
 </html>
-
-

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>Vue的一些东西</title>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="myBlog" type="application/atom+xml">
+</head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">Vue的一些东西</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2019-04-09
+                        </span>
+                        
+                            <span id="/2019/04/09/Vue的一些东西/" class="leancloud_visitors" data-flag-title="Vue的一些东西">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2019/04/09/Vue的一些东西/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <blockquote>
+<p>编写轮子的过程中遇到的问题与总结,<br>轮子项目地址:<a target="_blank" rel="noopener" href="https://github.com/o0Chivas0o/my-wheel">https://github.com/o0Chivas0o/my-wheel</a></p>
+</blockquote>
+<h3 id="—2019-04-09—"><a href="#—2019-04-09—" class="headerlink" title="—2019-04-09—"></a>—2019-04-09—</h3><ol>
+<li>Vue组件中Props的变量接受类型可以是指定单个或多个类型.props具体属性可查看vue官方文档:<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components-props.html">https://cn.vuejs.org/v2/guide/components-props.html</a> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//  props有2种写法:</span><br><span class="line">1.</span><br><span class="line">props:&#123;</span><br><span class="line">    xxx:&#123;</span><br><span class="line">        type:[String,Number]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">2.</span><br><span class="line">props:[&#x27;xxx&#x27;]</span><br></pre></td></tr></table></figure></li>
+<li>组件中name属性建议规范命名,便于调试 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//通过 this.$option.name 可以获取到当前组件的名字</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="—2019-06-17—"><a href="#—2019-06-17—" class="headerlink" title="—2019-06-17—"></a>—2019-06-17—</h3><ol>
+<li>props中的default的值如果是对象或者数组,需要用函数return一个对象或数组 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">    object:&#123;</span><br><span class="line">        type:Object,</span><br><span class="line">        default:() =&gt; &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                a:&#x27;1&#x27;,</span><br><span class="line">                b:&#x27;2&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    array:&#123;</span><br><span class="line">        type:Array,</span><br><span class="line">        default:() =&gt; &#123;</span><br><span class="line">            return [</span><br><span class="line">                &#x27;a&#x27;,&#x27;b&#x27;,&#x27;c</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+<br/>
+### ---2019-07-02---</li>
+</ol>
+<ul>
+<li><p>vue 默认合并 :style 和 class里的东西</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;w-tabs class=&#x27;lee&#x27;&gt;&lt;/w-tabs&gt;</span><br><span class="line">// html 中 class 为 class=&#x27;tabs lee&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.sync的用法</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;w-tabs :selected.sync=&quot;selectedTab&quot;&gt;</span><br><span class="line">&lt;w-tabs selected=&quot;selectedTab&quot;  @update:selected=&quot;selectedTab = $event&quot;&gt;</span><br><span class="line">// 两种写法是等价的</span><br></pre></td></tr></table></figure>
+</li>
+<li><p> vue 的事件不会冒泡</p>
+</li>
+<li><p> css中<code>margin-left:auto</code>可将元素放置在最右</p>
+</li>
+<li><p>porps 与 data的区别</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">prop:需要用户传值</span><br><span class="line">data:不需要用户传值</span><br><span class="line"></span><br><span class="line">function fn(prop1,prop2)&#123;</span><br><span class="line">    var data1 = prop1</span><br><span class="line">    data1 = 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过<code>provide</code>和<code>inject</code> API完成<code>eventBus</code></p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//top-level</span><br><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line">export default&#123;</span><br><span class="line">...</span><br><span class="line">data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        eventBus:new Vue(),</span><br><span class="line">        yyy:false</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">provide:&#123;</span><br><span class="line">        eventBus:this.eventBus</span><br><span class="line">    &#125;,</span><br><span class="line">mounted()&#123;</span><br><span class="line">        this.eventBus.$emit(&#x27;update:xxx&#x27;,this.yyy)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//rest of level</span><br><span class="line">export default&#123;</span><br><span class="line">...</span><br><span class="line">inject:[&#x27;eventBus&#x27;],</span><br><span class="line">created()&#123;</span><br><span class="line">        this.eventBus.$on(&#x27;update:xxx&#x27;,()=&gt;&#123;</span><br><span class="line">        // 通过回调来改变值或进行其他操作</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>组件生成过程中使用<code>mounted</code>钩子函数进行后续操作,因为<code>created</code>并不能确定组件是否完全生成</p>
+<br/>
+<br/>
+### ---2019-07-03---</li>
+<li><p><code>this.$children</code>的操作,只能获取到组件内的 <em><strong>子组件</strong></em> ,并不能获取到组件内的 <em><strong>子元素</strong></em></p>
+<br/>
+<br/> 
+### ---2019-07-04---</li>
+<li><p>编写<code>popover</code>组件的思路,</p>
+<ul>
+<li>点击<code>button</code>使其展示或关闭,此方法仅能通过按钮来展示或关闭,满足不了更多的需求且有bug.  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div class=&quot;popover&quot; @click=&quot;xxx&quot;&gt;</span><br><span class="line">    &lt;div class=&#x27;content-wrapper&#x27; v-if=&quot;visible&quot;&gt;</span><br><span class="line">        &lt;slot name=&#x27;content&#x27;&gt;&lt;/slot&gt; // 等价展示内容</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;slot&gt;&lt;slot&gt; // 等价按钮</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">// 靠变量visible使其关闭或显示</span><br><span class="line">&lt;script&gt;</span><br><span class="line">...</span><br><span class="line">data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        visible:false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">    xxx()&#123;</span><br><span class="line">        this.visible = !this.visible</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>使其点击 <em><strong>body元素</strong></em> 就能关闭popove  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">// 接上段代码,更改methods中的xxx函数</span><br><span class="line">xxx()&#123;</span><br><span class="line">    this.visible = !this.visible</span><br><span class="line">    if(this.visible)&#123;</span><br><span class="line">        document.addEventListener(&#x27;click&#x27;,()=&gt;&#123;</span><br><span class="line">            this.visible = false</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 然而以上代码会产生几个bug</span><br><span class="line">// 1. 监听器并没有删除,点击一次监听器在增加一个</span><br><span class="line">// 2. 监听是同时进行的,当visible变为ture的瞬间,监听器便将其值更改为false,所以页面中看不到visible</span><br><span class="line">// 3. 需要使用this.$nextTick或者setTimeout 来使其是异步操作</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 完善以上代码</span><br><span class="line"> xxx()&#123;</span><br><span class="line">    this.visible = !this.visible</span><br><span class="line">    if(this.visible)&#123;</span><br><span class="line">    // 这个操作是因为</span><br><span class="line">    // 1. 箭头函数不具名</span><br><span class="line">    // 2. 如果修改为function x()&#123;&#125;.bind(this) 会新生成另一个函数,与x函数不同,所以提出来这样写</span><br><span class="line">        let x = () =&gt; &#123;</span><br><span class="line">            this.visible = false</span><br><span class="line">            document.removeEventListener(&#x27;click&#x27;,x)</span><br><span class="line">        &#125;</span><br><span class="line">        this.$nextTick(()=&gt;&#123;</span><br><span class="line">            document.addEventListener(&#x27;click&#x27;,x)</span><br><span class="line">        &#125;)    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 此时点击外层的document元素也能使其关闭内容展示</span><br></pre></td></tr></table></figure></li>
+<li>但是用户如果需要复制popover弹出层的内容,而这段代码不能满足该需求,所以修改如下结构.  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    // vue中给@click事件添加修饰符.stop便阻止冒泡,仅添加这一项便能满足如下需求</span><br><span class="line">    &lt;div class=&quot;popover&quot; @click.stop=&quot;xxx&quot;&gt;</span><br><span class="line">        &lt;div class=&#x27;content-wrapper&#x27; v-if=&quot;visible&quot; @click.stop&gt;</span><br><span class="line">            &lt;slot name=&#x27;content&#x27;&gt;&lt;/slot&gt; // 等价展示内容</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;slot&gt;&lt;slot&gt; // 等价按钮</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">    </span><br><span class="line">    // 靠变量visible使其关闭或显示</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    ...</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            visible:false</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        xxx()&#123;</span><br><span class="line">            this.visible = !this.visible</span><br><span class="line">            let x = () =&gt; &#123;</span><br><span class="line">                this.visible = false</span><br><span class="line">                document.removeEventListener(&#x27;click&#x27;,x)</span><br><span class="line">            &#125;</span><br><span class="line">            this.$nextTick(()=&gt;&#123;</span><br><span class="line">                document.addEventListener(&#x27;click&#x27;,x)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<br/>    </li>
+</ul>
+</li>
+</ul>
+<h3 id="—2019-07-08—"><a href="#—2019-07-08—" class="headerlink" title="—2019-07-08—"></a>—2019-07-08—</h3><ul>
+<li><code>popover</code>组件,还需要注意几点.<ul>
+<li>点击按钮开启,点击其他位置只关闭一次.(事件监听)</li>
+<li>popover显示内容,不能被具有<code>overflow:hidden</code>属性的元素遮挡,解决办法很简单,通过<code>$refs.popoverContent</code>找到popover显示内容,并通过<code>document.body.appendChild(popoverContent)</code>插入到body中.</li>
+<li>在寻找popover的位置时,如果页面出现滚动条,还会出现位置不正确的bug,需要在定位的同时,加上scroll的距离,例如:<code>this.$refs.contentWrapper.style.left = left + window.scrollX + &#39;px&#39;</code>,该情况下是x方向出现滚动条的定位.</li>
+</ul>
+</li>
+</ul>
+<br/>
+### ---2019-07-09---
+- 在编写某些标签上的自定义属性,如果用到拼接字符串,需用双引号包起来,如:
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;use :xlink:href=&quot;`#i-$&#123;name&#125;`&quot;&gt;&lt;/use&gt;</span><br><span class="line">// 在页面渲染时,通常都需要一些工具或者api进行转义,通常是用正则来匹配引号中的东西去渲染,如果不这样写会造成转义的问题</span><br></pre></td></tr></table></figure>
+
+<h3 id="—2019-07-15—"><a href="#—2019-07-15—" class="headerlink" title="—2019-07-15—"></a>—2019-07-15—</h3><ul>
+<li>递归组件的几种写法.  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">  //以cascader组件为例子</span><br><span class="line">  </span><br><span class="line">  // 1. 以组件中name为标识,通过组件name递归引用自身</span><br><span class="line">  &lt;template&gt;</span><br><span class="line">      &lt;div class=&quot;cascader-item&quot;&gt;</span><br><span class="line">           &#123;&#123;sourceItem.name&#125;&#125;</span><br><span class="line">           &lt;w-cascader-item</span><br><span class="line">           v-if=&quot;sourceItem.children&quot;</span><br><span class="line">           v-for=&quot;item in sourceItem.children&quot;</span><br><span class="line">           :sourceItem=&quot;item&quot;&gt;&lt;/w-cascader-item&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">  &lt;/template&gt;</span><br><span class="line">  </span><br><span class="line">  export default  &#123;</span><br><span class="line">      name: &#x27;WCascaderItem&#x27;,</span><br><span class="line">      props: &#123;</span><br><span class="line">          sourceItem: &#123;type: Object&#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">  // 2. 以下形式</span><br><span class="line">  &lt;template&gt;</span><br><span class="line">      &lt;div class=&quot;cascader-item&quot;&gt;</span><br><span class="line">           &#123;&#123;sourceItem.name&#125;&#125;</span><br><span class="line">           &lt;w-cascader-item</span><br><span class="line">           v-if=&quot;sourceItem.children&quot;</span><br><span class="line">           v-for=&quot;item in sourceItem.children&quot;</span><br><span class="line">           :sourceItem=&quot;item&quot;&gt;&lt;/w-cascader-item&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">  &lt;/template&gt;</span><br><span class="line">  </span><br><span class="line">  const WCascadearItem = &#123;</span><br><span class="line">      name: &#x27;WCascaderItem&#x27;,</span><br><span class="line">      components:&#123;WCascadearItem&#125;,</span><br><span class="line">      props: &#123;sourceItem: &#123;type: Object&#125;&#125;,</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  export default WCascadearItem</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  // 上述两种形式都需要在父组件中 import 该组件, 并添加components属性使用该组件.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li>scss <code>@mixin</code> 和 <code>placeholder</code> 的区别<ul>
+<li><code>@mixin</code> 会将属性重复写在被选择器选中的元素内(重复写属性)</li>
+<li><code>placeholder</code> 会将选择器提取出来写在属性前(不会重复) </li>
+</ul>
+</li>
+</ul>
+<h3 id="—2019-07-17—"><a href="#—2019-07-17—" class="headerlink" title="—2019-07-17—"></a>—2019-07-17—</h3><ul>
+<li>编写组件需要用到数组记录的过程当中需注意:<ul>
+<li>vue是不允许直接修改数组的,需要使用<code>this.$set(target,index,value)</code>这样的api来动态修改数组内的值</li>
+<li>或者使用<code>this.target.push()</code>或者<code>this.target.splice()</code>等数组方法来间接修改数组内的值.</li>
+<li>切记勿使用<code>this.array = value</code>来修改值</li>
+<li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/reactivity.html">参考-深入响应式原理</a></li>
+</ul>
+</li>
+<li>vue编写组件,<em><strong>不允许</strong></em> 子组件 <em><strong>直接</strong></em> 修改props的值</li>
+<li>组件的编写尽量单项数据流的思路去做,省去很多麻烦</li>
+</ul>
+<h3 id="—2019-07-19—"><a href="#—2019-07-19—" class="headerlink" title="—2019-07-19—"></a>—2019-07-19—</h3><ul>
+<li>Vue自定义指令<ul>
+<li>组件如果需要操作dom,尽量封装到Vue指令中,<code>v-xxx</code>这种</li>
+<li>具体编写查看vue文档,下面是cascader轮子中用到的自定义指令:</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// click-outside.js</span><br><span class="line">let onClickDocument = (e) =&gt; &#123;</span><br><span class="line">    let &#123;target&#125; = e</span><br><span class="line">    callbacks.forEach((item) =&gt; &#123;</span><br><span class="line">        if (target === item.el || item.el.contains(target)) &#123;return&#125;</span><br><span class="line">        item.callback()</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;</span><br><span class="line">            </span><br><span class="line">// cascader.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;cascader&quot; ref=&quot;cascader&quot; v-click-outside=&quot;close&quot;&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">            </span><br><span class="line">import ClickOutside from &#x27;./click-outside&#x27;</span><br><span class="line">export defalut &#123;</span><br><span class="line">...</span><br><span class="line">directives: &#123;ClickOutside&#125;,</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="—2019-07-22—"><a href="#—2019-07-22—" class="headerlink" title="—2019-07-22—"></a>—2019-07-22—</h3><ul>
+<li>vue动画<ul>
+<li> transition 动画</li>
+<li> CSS animation 动画 (可搭配animate.css使用)</li>
+<li> JS 操作动画  (volocity.js 库使用 2.0.0版本以上可能存在问题)</li>
+<li> 条件渲染时,在渲染元素需要加上<code>key</code>,transition标签加<code>mode</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="—2019-08-08—"><a href="#—2019-08-08—" class="headerlink" title="—2019-08-08—"></a>—2019-08-08—</h3><ul>
+<li>vue中 $children 如果是通过 slot 这种方式渲染的 不会马上拿到</li>
+</ul>
+<h3 id="—2019-08-10—"><a href="#—2019-08-10—" class="headerlink" title="—2019-08-10—"></a>—2019-08-10—</h3><ul>
+<li>移动端 获取用户手指坐标(touchstart事件),通过e.touches[0]来获取第一个手指的坐标</li>
+</ul>
+<h3 id="—2019-08-12—"><a href="#—2019-08-12—" class="headerlink" title="—2019-08-12—"></a>—2019-08-12—</h3><ul>
+<li>vue.config.js 文件中 如若有修改路径目录的东西,需按以下写</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&#x27;path&#x27;)            </span><br><span class="line">module.export = &#123;</span><br><span class="line">    css:&#123;</span><br><span class="line">        includePath:[path.join(__dirname,&#x27;src&#x27;)]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">__dirname 是当前项目的目录</span><br><span class="line">src 是引用文件所在目录</span><br><span class="line">不用`$&#123;__dirname&#125;/src`写法,是因为windows下,路径可能是 &#x27;//&#x27; 这种</span><br></pre></td></tr></table></figure>
+
+<h3 id="—2019-08-20—"><a href="#—2019-08-20—" class="headerlink" title="—2019-08-20—"></a>—2019-08-20—</h3><blockquote>
+<p>v-if 和 v-show的区别</p>
+</blockquote>
+<ol>
+<li>v-if让元素不出现在页面,而v-show则元素一直在页面.</li>
+<li>v-if 为 true 时 元素 create 当 v-if 为false 时 元素 destory,而v-show 只改变style,并没有生命周期</li>
+</ol>
+<h3 id="—2019-08-22—"><a href="#—2019-08-22—" class="headerlink" title="—2019-08-22—"></a>—2019-08-22—</h3><blockquote>
+<p>浏览器会合并css属性,例如:</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">el.style.height = 0 </span><br><span class="line">el.style.height = `120px`</span><br><span class="line">这样浏览器会认为你要的是120px的高度,在vue中使用动画钩子函数,会使动画失效</span><br><span class="line">此时加上 el.getBoundingClientRect()去强制计算高度</span><br><span class="line">这样动画就不会失效</span><br></pre></td></tr></table></figure>
+<h3 id="—2019-08-26—"><a href="#—2019-08-26—" class="headerlink" title="—2019-08-26—"></a>—2019-08-26—</h3><blockquote>
+<p>表单验证有两种,及时验证,异步验证,参考<code>validate.js</code></p>
+</blockquote>
+<ol>
+<li>及时验证<ol>
+<li>邮箱正则 <code>/^.+@.+$/</code></li>
+<li>手机 <code>/\d&#123;10&#125;</code> 或 <code>/\d&#123;11&#125;</code></li>
+</ol>
+</li>
+<li>异步验证<ol>
+<li>需要用到查询数据的</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>一个关于引用类型的知识点 具体参考:<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000006769676">https://segmentfault.com/a/1190000006769676</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;&#125;</span><br><span class="line">ensureObject(a.x)</span><br><span class="line">a.x // undefined</span><br><span class="line">ensureObject(a,x)</span><br><span class="line">a.x // &#123;&#125;</span><br><span class="line">    </span><br><span class="line">用var操作符定义的变量将成为作用域中的局部变量。就是说函数中 使用var定义一个变量，这个变量在函数退出后就会被销毁。</span><br><span class="line">    </span><br><span class="line">基本类型：存储在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置。</span><br><span class="line">引用类型：存储在堆中的对象，也就是说，存储在变量处的值是一个指针，指向堆中的对象。</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">// 错误的</span><br><span class="line">function ensureObject (obj) &#123;</span><br><span class="line">    if (typeof obj !== &#x27;object&#x27;) &#123;</span><br><span class="line">        obj = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">// 正确的</span><br><span class="line">function ensureObject (obj, key) &#123;</span><br><span class="line">    if (typeof obj[key] !== &#x27;object&#x27;) &#123;</span><br><span class="line">        obj[key] = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="—2019-09-17—"><a href="#—2019-09-17—" class="headerlink" title="—2019-09-17—"></a>—2019-09-17—</h3><blockquote>
+<p>uploader 组件 涉及到简单的node.js构建的静态服务器,其中有一些需要注意的地方</p>
+</blockquote>
+<h3 id="—2020-07-20—"><a href="#—2020-07-20—" class="headerlink" title="—2020-07-20—"></a>—2020-07-20—</h3><blockquote>
+<p>发现table组件 并不能在 column 中 添加标签 如 a 标签进行其他操作,于是修改结构,将table自身column 属性,更改为 table-column 组件 , 通过 slot 来构建table 的 column , 其中发现需要声明一个组件来完成该操作.</p>
+</blockquote>
+<ol>
+<li>需要构建一个组件来渲染子组件中的html标签</li>
+<li>外层引用 需要用到 slot-scope 的属性</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line"> &lt;template v-if=&quot;column.render&quot;&gt;</span><br><span class="line">        &lt;vnodes :vnodes=&quot;column.render(&#123;value: item[column.field]&#125;)&quot;&gt;&lt;/vnodes&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">    &lt;template v-else&gt;</span><br><span class="line">        &#123;&#123;item[column.field]&#125;&#125;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">export default &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">          WIcon,</span><br><span class="line">          vnodes: &#123;</span><br><span class="line">            functional: true,</span><br><span class="line">            render: (h, context) =&gt; context.props.vnodes</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    ...</span><br><span class="line">    mounted:()&#123;</span><br><span class="line">          this.columns = this.$slots.default.map(node =&gt; &#123;</span><br><span class="line">        let &#123;text, field, width&#125; = node.componentOptions.propsData</span><br><span class="line">        let render = node.data.scopedSlots &amp;&amp; node.data.scopedSlots.default</span><br><span class="line">        return &#123;text, field, width, render&#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 外层引用</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line"> &lt;w-table :data-source=&quot;dataSource&quot; bordered :orderBy.sync=&quot;orderBy&quot; @update:orderBy=&quot;order&quot;</span><br><span class="line">               expend-field=&quot;description&quot; :height=&quot;200&quot; :selected-items.sync=&quot;selected&quot; :loading=&quot;loading&quot;&gt;</span><br><span class="line">        &lt;w-table-column text=&quot;姓名&quot; field=&quot;name&quot; :width=&quot;100&quot;&gt;</span><br><span class="line">          &lt;template slot-scope=&quot;props&quot;&gt; </span><br><span class="line">          &lt;--! 通过slot-scope,可以得到传递给table-column的属性的值 再进行操作即可--&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;&#123;&#123;props.value&#125;&#125;&lt;/a&gt;</span><br><span class="line">          &lt;/template&gt;</span><br><span class="line">        &lt;/w-table-column&gt;</span><br><span class="line">      &lt;/w-table&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;template/&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://avatars.githubusercontent.com/u/27259140?s=460&u=9961ae6d081b3493d17d29c9ea6ca452d40da5a9&v=4" alt="o0Chivas0o">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：o0Chivas0o
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2019/04/09/Vue%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/" target="_blank">Vue的一些东西</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：Rich ? DoSomethingLike() : DoSomethingNeed()
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tags/Vue/">Vue</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+                <a href="/2020/08/15/%E5%9B%BE%E8%A7%A3GoogleV8/" class="prev-prefix">« </a> 上一篇：    <a href="/2020/08/15/%E5%9B%BE%E8%A7%A3GoogleV8/" title="发布于 2020-08-15 04:04">V8 引擎的学习</a>
+                <br>
+            
+            
+                <a href="/2019/03/15/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="next-prefix">» </a> 下一篇：    <a href="/2019/03/15/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="发布于 2019-03-15 10:06">读书笔记</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'o0Chivas0o',
+        GitHubRepositories : 'Hexo-LiveForCode',
+
+        BlogUser      : 'o0Chivas0o',
+        BlogAvatar    : 'https://avatars.githubusercontent.com/u/27259140?s=460&amp;u=9961ae6d081b3493d17d29c9ea6ca452d40da5a9&amp;v=4',
+        BlogStartDate : '2017-08-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, Welcome My Blog',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/website/logo.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/5240253819/profile?topnav=1&amp;wvr=6'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/o0Chivas0o'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : '',
+            wechat  : ''
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '7DXTZU7AXA',
+            apiKey        : '9095ee0938b9ef9b95c54eb3dde5e4dc',
+            indexName     : 'blog',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'qMN4M0wlUs24WXma38U5Jwqh-gzGzoHsz',
+            appKey         : 'Jtwpw8WyQbC47IyIPh8FrvK9',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : 'Rich ? DoSomethingLike() : DoSomethingNeed()'
+        },
+            
+        Theme : {
+            url  : '',
+            name : ''
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/index.js"></script>
+</body>
+</html>
